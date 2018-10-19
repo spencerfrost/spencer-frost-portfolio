@@ -11,9 +11,9 @@ export default new Router({
   mode: 'history',
   base: process.env.BASE_URL,
   routes: [
-    { path: '/', component: Home },
-    { path: '/portfolio', component: Portfolio},
-    { path: '/about', component: About},
-    { path: '/contact', component: Contact}
+    { name: 'home', path: '/', component: Home },
+    { name: 'portfolio', path: '/portfolio', component: Portfolio},
+    { name: 'about', path: '/about', component: About},
+    { name: 'contact', path: '/contact', component: Contact}
   ]
 })
