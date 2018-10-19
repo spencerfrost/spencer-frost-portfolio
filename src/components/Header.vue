@@ -1,33 +1,57 @@
 <template>
-    <ul class="nav nav-pills">
-        <router-link 
-            to="/"
-            tag="li"
-            class="nav-item"
-            ><a class="nav-link active" data-toggle="pill" role="tab" aria-controls="pills-home" aria-selected="true">Home</a>
-        </router-link>
-        <router-link 
-            to="/about"
-            tag="li"
-            class="nav-item"
-            ><a class="nav-link" data-toggle="pill" role="tab" aria-controls="pills-home" aria-selected="false">About</a>
-        </router-link>
-        <router-link 
-            to="/portfolio"
-            tag="li"
-            class="nav-item"
-            ><a class="nav-link" data-toggle="pill" role="tab" aria-controls="pills-home" aria-selected="false">Portfolio</a>
-        </router-link>
-        <router-link 
-            to="/contact"
-            tag="li"
-            class="nav-item"
-            ><a class="nav-link" data-toggle="pill" role="tab" aria-controls="pills-home" aria-selected="false">Contact</a>
-        </router-link>
-    </ul>
+    <div>
+        
+        <ul class="nav nav-pills">
+            <li class="nav-item mr-auto" 
+                @mouseover="hover = true"
+                @mouseout="hover = false">
+                    <img src="../assets/spencer.png" class="pic" v-if="!hover">
+                    <img src="../assets/spenceroutline.png" class="pic" v-else>
+            </li>
+            <router-link 
+                to="/"
+                tag="li"
+                class="nav-item"
+                ><a class="nav-link active" data-toggle="pill" role="tab" aria-controls="pills-home" aria-selected="true">Home</a>
+            </router-link>
+            <router-link 
+                to="/about"
+                tag="li"
+                class="nav-item"
+                ><a class="nav-link" data-toggle="pill" role="tab" aria-controls="pills-home" aria-selected="false">About</a>
+            </router-link>
+            <router-link 
+                to="/portfolio"
+                tag="li"
+                class="nav-item"
+                ><a class="nav-link" data-toggle="pill" role="tab" aria-controls="pills-home" aria-selected="false">Portfolio</a>
+            </router-link>
+            <router-link 
+                to="/contact"
+                tag="li"
+                class="nav-item"
+                ><a class="nav-link" data-toggle="pill" role="tab" aria-controls="pills-home" aria-selected="false">Contact</a>
+            </router-link>
+        </ul>
+    </div>
 </template>
 
-<style>
+<script>
+export default {
+    data() {
+        return {
+            hover: false
+        }
+    }
+}
+</script>
+
+
+<style scoped>
+    .pic {
+        width: 60px;
+        height: 60px;
+    }
     .nav-link{
         color: #2c3e50;
     }

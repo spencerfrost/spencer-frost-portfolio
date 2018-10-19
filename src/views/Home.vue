@@ -1,6 +1,6 @@
 <template>
   <div class="home">
-    <img alt="Vue logo" src="../assets/spencer.png" class="pic">
+    <img src="../assets/spencer.png" class="pic">
     <div class="heading">
       <h1>Spencer <strong class="yellow">Frost</strong></h1>
       <h2>Front-end Developer / Wordpress Dabbler</h2>
