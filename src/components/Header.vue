@@ -7,6 +7,8 @@
                 @mouseout="hover = false">
                     <img src="../assets/spencer.png" class="pic" v-if="!hover">
                     <img src="../assets/spenceroutline.png" class="pic" v-else>
+                    <img src="../assets/name.png" style="margin-left: 10px;" v-if="!hover">
+                    <img src="../assets/namewhite.png" style="margin-left: 10px;" v-else>
             </li>
             <router-link 
                 to="/"

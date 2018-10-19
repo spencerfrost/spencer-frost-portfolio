@@ -1,9 +1,10 @@
 <template>
   <div class="home">
-    <img src="../assets/spencer.png" class="pic">
+    
     <div class="heading">
       <h1>Spencer <strong class="yellow">Frost</strong></h1>
-      <h2>Front-end Developer / Wordpress Dabbler</h2>
+      <img src="../assets/spencer.png" class="pic">
+        <h2>Front-end Developer / Wordpress Dabbler</h2>
     </div>
   </div>
 </template>
@@ -17,17 +18,20 @@ export default {
 
 <style>
   .heading {
-    float: left;
-    text-align: left;
+    text-align: center;
+    margin: 0 auto;
   }
   .heading h1 {
     font-size: 4rem;
     font-family: 'Chakra Petch', sans-serif;
   }
   .yellow {
-    color: #FFC636;
+    color: #FFC636 !important;
   }
   .heading h2 {
     background-color: rgba(50, 50, 50, 0.3);
+  }
+  .pic {
+    /* float: right; */
   }
 </style>
