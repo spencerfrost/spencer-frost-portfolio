@@ -16,26 +16,38 @@
             <router-link 
                 to="/"
                 tag="li"
-                class="nav-item ml-auto"
-                ><a class="nav-link active" data-toggle="pill" role="tab" aria-controls="pills-home" aria-selected="true">Home</a>
+                class="nav-item ml-auto">
+                <a 
+                    :class="{active: $route.name == 'home'}"
+                    class="nav-link" 
+                    >Home</a>
             </router-link>
             <router-link 
                 to="/about"
                 tag="li"
-                class="nav-item"
-                ><a class="nav-link" data-toggle="pill" role="tab" aria-controls="pills-home" aria-selected="false">About</a>
+                class="nav-item">
+                <a 
+                    :class="{active: $route.name == 'about'}"
+                    class="nav-link" >About
+                </a>
             </router-link>
             <router-link 
                 to="/portfolio"
                 tag="li"
-                class="nav-item"
-                ><a class="nav-link" data-toggle="pill" role="tab" aria-controls="pills-home" aria-selected="false">Portfolio</a>
+                class="nav-item">
+                <a 
+                    :class="{active: $route.name == 'portfolio'}"
+                    class="nav-link" >Portfolio
+                </a>
             </router-link>
             <router-link 
                 to="/contact"
                 tag="li"
-                class="nav-item"
-                ><a class="nav-link" data-toggle="pill" role="tab" aria-controls="pills-home" aria-selected="false">Contact</a>
+                class="nav-item">
+                <a 
+                    :class="{active: $route.name == 'contact'}"
+                    class="nav-link" >Contact
+                </a>
             </router-link>
         </ul>
     </div>
@@ -50,16 +62,10 @@ export default {
         }
     }, 
     computed: {
-        route() {
-            // console.log(this.$route);
-            
-            return this.$route
-        }
+        
     },
     methods: {
-        printRoute(){
-            console.log(this.$route);
-        }
+
     }
 }
 </script>
