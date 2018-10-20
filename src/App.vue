@@ -2,7 +2,9 @@
   <div id="app">
     <app-header></app-header>
     <br>
-    <router-view/>
+    <transition name="fade" mode="out-in">
+        <router-view></router-view>
+    </transition>
   </div>
 </template>
 
@@ -27,5 +29,17 @@ export default {
   background-image: url(./assets/3px-tile.png);
   height: 100vh;
   padding: 20px;
+}
+.fade-enter-active {
+    transition: all .5s ease-out;
+}
+
+.fade-leave-active {
+    transition: all .5s ease-out;
+}
+
+.fade-enter,
+.fade-leave-active {
+    opacity: 0;
 }
 </style>

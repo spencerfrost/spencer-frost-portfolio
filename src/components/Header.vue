@@ -2,7 +2,7 @@
     <div>
         
         <ul class="nav nav-pills">
-            <transition>
+            <transition name="slide-fade">
                 <li class="nav-item mr-auto" 
                     @mouseover="hover = true"
                     @mouseout="hover = false"
@@ -12,12 +12,11 @@
                         <img src="../assets/name.png" style="margin-left: 10px;" v-if="!hover">
                         <img src="../assets/namewhite.png" style="margin-left: 10px;" v-else>
                 </li>
-                <li class="mr-auto" v-else></li>
             </transition>
             <router-link 
                 to="/"
                 tag="li"
-                class="nav-item"
+                class="nav-item ml-auto"
                 ><a class="nav-link active" data-toggle="pill" role="tab" aria-controls="pills-home" aria-selected="true">Home</a>
             </router-link>
             <router-link 
@@ -71,6 +70,9 @@ export default {
         width: 60px;
         height: 60px;
     }
+    .nav {
+        height: 60px;
+    }
     .nav-link{
         color: #2c3e50;
     }
@@ -86,6 +88,19 @@ export default {
         color: #FF6444;
     }
 
-    
+    /*********** ANIMATIONS **************/
+    .slide-fade-enter-active {
+        transition: all 1s ease-out;
+    }
+
+    .slide-fade-leave-active {
+        transition: all 1s ease-out;
+    }
+
+    .slide-fade-enter,
+    .slide-fade-leave-active{
+        transform: translateX(-100px);
+        opacity: 0;
+    }
 </style>
 

@@ -2,14 +2,19 @@
   <div class="home">
     
     <div class="heading">
-      <h1>Call  <strong class="yellow">Mom</strong></h1>
-      <img src="../assets/spencer.png" class="pic mb-3">
+      <h1>Spencer  <strong class="yellow">Frost</strong></h1>
+      <div style="display: inline-block;" @mouseover="hovered = true" @mouseout="hovered = false">
+        <transition name="flip" mode="out-in">
+          <img src="../assets/spencer.png" class="pic mb-3" v-if="!hovered">
+          <img src="../assets/spenceroutline.png" class="pic mb-3" v-else>
+        </transition>
+      </div>
       <br>
-      <h2>Front-end Developer / Wordpress Dabbler</h2>
+      <h2 class="yellow">Front-end Developer / Wordpress Dabbler</h2>
       <br>
       <div class="btn-group mt-3">
-        <button class="btn btn-info mr-3 border">My LinkedIn</button>
-        <button class="btn btn-info">My GitHub</button>
+        <img src="../assets/linkedin.png" class="logos mr-3">
+          <img src="../assets/github.png" class="logos">
       </div>
     </div>
   </div>
@@ -18,7 +23,12 @@
 <script>
 
 export default {
-  name: 'home'
+  name: 'home',
+  data() {
+    return {
+      hovered: false
+    }
+  }
 }
 </script>
 
@@ -31,15 +41,32 @@ export default {
     font-size: 4rem;
     font-family: 'Chakra Petch', sans-serif;
   }
-  .yellow {
-    color: #FFC636 !important;
-  }
   .heading h2 {
     background-color: rgba(50, 50, 50, 0.3);
     display: inline-block;
     padding: 4px;
   }
-  .pic {
-    /* float: right; */
+  .yellow {
+    color: #FFC636 !important;
+  }
+  .logos {
+
+  }
+
+  /************ ANIMATIONS *******************/
+
+  .flip-enter-active{
+      animation: width-in .5s ease-in forwards;
+  }
+  .flip-leave-active {
+      animation: width-out .5s ease-out forwards;
+  }
+  @keyframes width-out {
+      0%   {transform: scaleX(1)}
+      100% {transform: scaleX(0)}
+  }
+  @keyframes width-in {
+      0%   {transform: scaleX(0)}
+      100% {transform: scaleX(1)}
   }
 </style>
