@@ -1,0 +1,147 @@
+body {
+  margin: 0;
+  font-family: Avenir, Helvetica, Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background-color: rgb(0, 173, 169);
+  height: 100vh;
+}
+
+#app {
+  height: 100%;
+  color: #2a2d34;
+  background-image: url(./assets/3px-tile.png);
+}
+
+// Variables
+$primary-color: rgb(0, 173, 169);
+$secondary-color: #2a2d34;
+$accent-color: #efca08;
+$white: #ffffff;
+$black: #000000;
+
+$font-sizes: (
+  'xs': 0.75rem,
+  'sm': 0.875rem,
+  'md': 1rem,
+  'lg': 1.125rem,
+  'xl': 1.25rem,
+  '2xl': 1.5rem,
+  '3xl': 1.875rem,
+  '4xl': 2.25rem,
+);
+
+$spacings: (
+  '0': 0,
+  '1': 0.25rem,
+  '2': 0.5rem,
+  '3': 0.75rem,
+  '4': 1rem,
+  '5': 1.25rem,
+  '6': 1.5rem,
+  '8': 2rem,
+  '10': 2.5rem,
+);
+
+// Color utilities
+.font-yellow { color: $accent-color; }
+.font-primary { color: $primary-color; }
+.font-secondary { color: $secondary-color; }
+.font-white { color: $white; }
+.font-black { color: $black; }
+
+.bg-primary { background-color: $primary-color; }
+.bg-secondary { background-color: $secondary-color; }
+.bg-accent { background-color: $accent-color; }
+.bg-white { background-color: $white; }
+.bg-black { background-color: $black; }
+
+// Display utilities
+.d-flex { display: flex; }
+.d-block { display: block; }
+.d-inline { display: inline; }
+.d-inline-block { display: inline-block; }
+.d-none { display: none; }
+
+// Flex utilities
+.flex-row { flex-direction: row; }
+.flex-column { flex-direction: column; }
+.justify-start { justify-content: flex-start; }
+.justify-end { justify-content: flex-end; }
+.justify-center { justify-content: center; }
+.justify-between { justify-content: space-between; }
+.justify-around { justify-content: space-around; }
+.align-start { align-items: flex-start; }
+.align-end { align-items: flex-end; }
+.align-center { align-items: center; }
+.align-stretch { align-items: stretch; }
+
+// Text utilities
+.text-left { text-align: left; }
+.text-center { text-align: center; }
+.text-right { text-align: right; }
+
+// Font size utilities
+@each $name, $size in $font-sizes {
+  .text-#{$name} { font-size: $size; }
+}
+
+// Font weight utilities
+.font-normal { font-weight: 400; }
+.font-medium { font-weight: 500; }
+.font-bold { font-weight: 700; }
+
+// Margin and Padding utilities
+@each $name, $size in $spacings {
+  .m-#{$name} { margin: $size; }
+  .mt-#{$name} { margin-top: $size; }
+  .mr-#{$name} { margin-right: $size; }
+  .mb-#{$name} { margin-bottom: $size; }
+  .ml-#{$name} { margin-left: $size; }
+  .mx-#{$name} { margin-left: $size; margin-right: $size; }
+  .my-#{$name} { margin-top: $size; margin-bottom: $size; }
+
+  .p-#{$name} { padding: $size; }
+  .pt-#{$name} { padding-top: $size; }
+  .pr-#{$name} { padding-right: $size; }
+  .pb-#{$name} { padding-bottom: $size; }
+  .pl-#{$name} { padding-left: $size; }
+  .px-#{$name} { padding-left: $size; padding-right: $size; }
+  .py-#{$name} { padding-top: $size; padding-bottom: $size; }
+}
+
+/* TRANSITIONS */
+
+// Variables for common values
+$transition-duration-short: 0.5s;
+$transition-duration-long: 1s;
+
+// Mixin for transition
+@mixin transition-effect(
+  $properties: all,
+  $duration: $transition-duration-short,
+  $ease: ease-out
+) {
+  transition: $properties $duration $ease;
+}
+
+.fade-enter-active,
+.fade-leave-active {
+  @include transition-effect(all, $transition-duration-short);
+}
+
+.fade-enter,
+.fade-leave-active {
+  opacity: 0;
+}
+
+.slide-fade-enter-active,
+.slide-fade-leave-active {
+  @include transition-effect(all, $transition-duration-long);
+}
+
+.slide-fade-enter,
+.slide-fade-leave-active {
+  transform: translateX(-100px);
+  opacity: 0;
+}
