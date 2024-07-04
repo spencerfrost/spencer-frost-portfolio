@@ -1,48 +1,23 @@
 {
-  "name": "site",
-  "version": "0.1.0",
+  "name": "spencer-frost-portfolio",
   "private": true,
+  "version": "0.0.0",
+  "type": "module",
   "scripts": {
-    "serve": "vue-cli-service serve",
-    "build": "vue-cli-service build",
-    "lint": "vue-cli-service lint"
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview"
   },
   "dependencies": {
-    "register-service-worker": "^1.0.0",
-    "vue": "^2.5.17",
-    "vue-router": "^3.0.1",
-    "vuex": "^3.0.1"
+    "pinia": "^2.1.7",
+    "vue": "^3.4.29",
+    "vue-router": "^4.4.0"
   },
   "devDependencies": {
-    "@vue/cli-plugin-babel": "^3.0.5",
-    "@vue/cli-plugin-eslint": "^3.0.5",
-    "@vue/cli-plugin-pwa": "^3.0.5",
-    "@vue/cli-service": "^3.0.5",
-    "@vue/eslint-config-standard": "^3.0.5",
-    "vue-template-compiler": "^2.5.17"
-  },
-  "eslintConfig": {
-    "root": true,
-    "env": {
-      "node": true
-    },
-    "extends": [
-      "plugin:vue/essential",
-      "@vue/standard"
-    ],
-    "rules": {},
-    "parserOptions": {
-      "parser": "babel-eslint"
-    }
-  },
-  "postcss": {
-    "plugins": {
-      "autoprefixer": {}
-    }
-  },
-  "browserslist": [
-    "> 1%",
-    "last 2 versions",
-    "not ie <= 8"
-  ]
+    "@vitejs/plugin-vue": "^5.0.5",
+    "eslint-plugin-vue": "^9.27.0",
+    "sass": "^1.77.6",
+    "vite": "^5.3.1",
+    "vite-plugin-vue-devtools": "^7.3.5"
+  }
 }

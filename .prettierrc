@@ -1,0 +1,8 @@
+{
+  "semi": false,
+  "bracketSameLine": true,
+  "singleQuote": true,
+  "scss": {
+    "singleLine": true
+  }
+}
