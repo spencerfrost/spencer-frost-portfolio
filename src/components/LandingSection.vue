@@ -8,7 +8,7 @@
       </h1>
       <h1 v-if="isScrolled">&nbsp;</h1>
       <div class="inline-block mb-3">
-        <img src="../assets/spencer.png" class="pic" alt="Spencer Frost" />
+        <img src="../assets/spencer.jpg" class="avatar" alt="Spencer Frost" />
       </div>
       <h2 class="font-yellow bg-secondary-30 inline-block p-2 mb-4">
         Front-end Developer / Wordpress Dabbler
@@ -50,7 +50,9 @@ export default {
 }
 </script>
 
-<style scoped>
+<style scoped lang="scss">
+@import "@/style.scss";
+
 h1 {
   font-size: 4rem;
   font-family: 'Chakra Petch', sans-serif;
@@ -73,6 +75,13 @@ h2 {
   position: fixed;
   color: white;
   font-size: 2rem;
+}
+
+.avatar {
+  border-radius: 50%;
+  width: 350px;
+  height: 350px;
+  border: 8px solid $secondary-color;
 }
 
 </style>

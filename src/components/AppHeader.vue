@@ -1,5 +1,6 @@
 <template>
-  <header class="floating-header d-flex justify-between align-center px-4 py-2 bg-secondary">
+  <header
+    class="floating-header d-flex justify-between align-center px-4 py-2 bg-secondary">
     <!-- Left side navigation links -->
     <div class="left-nav d-flex">
       <a
@@ -12,11 +13,6 @@
     </div>
 
     <!-- Center logo/branding -->
-    <!-- <div class="center-branding">
-      <a href="#">
-        <h1>Spencer Frost</h1>
-      </a>
-    </div> -->
 
     <!-- Right side Spencer+ link -->
     <div class="right-nav">
@@ -31,12 +27,7 @@
 </template>
 
 <script>
-import HeaderBranding from './AppHeader/HeaderBranding.vue';
-
 export default {
-  components: {
-    HeaderBranding,
-  },
   props: {
     isScrolled: Boolean,
   },
