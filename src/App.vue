@@ -1,6 +1,6 @@
 <template>
   <div class="app-container">
-    <app-header></app-header>
+    <app-header :isScrolled="isScrolled" />
     <router-view v-slot="{ Component }">
       <transition name="fade" mode="out-in">
         <component :is="Component" />
@@ -10,17 +10,16 @@
 </template>
 
 <script>
-import AppHeader from '@/components/AppHeader.vue'
+import AppHeader from '@/components/AppHeader.vue';
 
 export default {
   components: {
     AppHeader,
   },
+  data() {
+    return {
+      isScrolled: false,
+    }
+  },
 }
 </script>
-
-<style>
-.app-container {
-  padding: 20px;
-}
-</style>
