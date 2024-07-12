@@ -23,8 +23,8 @@
 </template>
 
 <script>
-import nameImageDefault from '@/assets/name.png'
-import nameImageHover from '@/assets/namewhite.png'
+import nameImageDefault from '@/assets/name.png';
+import nameImageHover from '@/assets/namewhite.png';
 
 export default {
   data() {
@@ -40,7 +40,7 @@ export default {
 }
 </script>
 
-<style lang="scss">
+<style lang="scss" scoped>
 .branding {
   display: flex;
 
