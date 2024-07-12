@@ -4,13 +4,15 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   background-color: rgb(0, 173, 169);
-  height: 100vh;
 }
 
 #app {
-  height: 100%;
   color: #2a2d34;
   background-image: url(./assets/3px-tile.png);
+}
+
+.full-height {
+  height: 100vh;
 }
 
 // Variables
@@ -144,4 +146,27 @@ $transition-duration-long: 1s;
 .slide-fade-leave-active {
   transform: translateX(-100px);
   opacity: 0;
+}
+
+.flip-enter-active {
+  animation: width-in 0.5s ease-in forwards;
+}
+.flip-leave-active {
+  animation: width-out 0.5s ease-out forwards;
+}
+@keyframes width-out {
+  0% {
+    transform: scaleX(1);
+  }
+  100% {
+    transform: scaleX(0);
+  }
+}
+@keyframes width-in {
+  0% {
+    transform: scaleX(0);
+  }
+  100% {
+    transform: scaleX(1);
+  }
 }
