@@ -23,14 +23,11 @@ jobs:
       - attach_workspace:
           at: /home/circleci/project  # Attach workspace at the project root
       - run:
-          name: Ls dist dir
-          command: ls /home/circleci/project/dist
-      - run:
           name: PWD
           command: pwd
       - run:
           name: List built files
-          command: ls -al /home/circleci/project/dist\
+          command: ls -al /home/circleci/project/dist
       - run:
           name: Deploy to Server
           command: |
