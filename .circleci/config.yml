@@ -26,9 +26,12 @@ jobs:
           name: List dir
           command: ls
       - run:
+          name: PWD
+          command: pwd
+      - run:
           name: Deploy to Server
           command: |
-            scp -r ./dist spencer@184.171.221.186:/var/www/mrspinn
+            scp -r ./dist/* spencer@184.171.221.186:/var/www/mrspinn
             ssh spencer@184.171.221.186 "sudo systemctl restart nginx"
 
 workflows:
