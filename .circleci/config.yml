@@ -23,8 +23,8 @@ jobs:
       - attach_workspace:  # This retrieves the build output saved in the build-node job
           at: ./dist
       - run:
-          name: List dir
-          command: ls
+          name: Ls dist dir
+          command: ls dist
       - run:
           name: PWD
           command: pwd
