@@ -29,6 +29,9 @@ jobs:
           name: PWD
           command: pwd
       - run:
+          name: List built files
+          command: ls -al /home/circleci/project/dist\
+      - run:
           name: Deploy to Server
           command: |
             scp -r /home/circleci/project/dist/* spencer@184.171.221.186:/var/www/mrspinn
