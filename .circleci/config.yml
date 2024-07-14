@@ -12,7 +12,7 @@ jobs:
       - run:
           name: Build the Project
           command: npm run build
-      - persist_to_workspace:  # This saves the build output for use in the deploy job
+      - persist_to_workspace:
           root: .
           paths:
             - dist
@@ -20,18 +20,18 @@ jobs:
   deploy:
     machine: true
     steps:
-      - attach_workspace:  # This retrieves the build output saved in the build-node job
-          at: ./dist
+      - attach_workspace:
+          at: /home/circleci/project  # Attach workspace at the project root
       - run:
           name: Ls dist dir
-          command: ls dist
+          command: ls /home/circleci/project/dist
       - run:
           name: PWD
           command: pwd
       - run:
           name: Deploy to Server
           command: |
-            scp -r ./dist/* spencer@184.171.221.186:/var/www/mrspinn
+            scp -r /home/circleci/project/dist/* spencer@184.171.221.186:/var/www/mrspinn
             ssh spencer@184.171.221.186 "sudo systemctl restart nginx"
 
 workflows:
