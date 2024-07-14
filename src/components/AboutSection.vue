@@ -4,8 +4,12 @@
       <img src="../assets/spencer_standing.jpg" alt="Spencer standing" />
     </div>
     <div class="content-container d-flex flex-column justify-center">
-      <div>
-        <h2 class="text-3xl font-bold mb-4 font-white">About Me</h2>
+      <div class="content">
+        <MorphingText
+          :texts="texts"
+          :morphTime="2"
+          :cooldownTime="1"  
+        />
         <p class="text-xl font-white">
           Hello! I’m Spencer, a passionate front-end developer with a keen eye
           for detail and a strong belief in the power of component-driven
@@ -32,8 +36,26 @@
 </template>
 
 <script>
+import MorphingText from './MorphingText.vue';
+
 export default {
   name: 'AboutSection',
+  components: {
+    MorphingText,
+  },
+  data() {
+    return {
+      texts: [
+        'Front-end Developer',
+        'DevOps Tinkerer',
+        'Coffeeholic',
+        'Media Hoarder',
+        'Gamer',
+        'Music Lover',
+        'Rock Climber',
+      ],
+    }
+  },
 }
 </script>
 
@@ -53,7 +75,7 @@ export default {
   flex: 2;
   background-color: #333;
 
-  div {
+  .content {
     padding-left: 20%;
     max-width: 800px;
   }
