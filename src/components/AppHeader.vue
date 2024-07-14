@@ -53,7 +53,10 @@ export default {
 
 <style scoped>
 .floating-header {
+  border-radius: 24px;
+  max-width: 1024px;
   height: 48px;
+  margin: 0 auto;
   display: flex;
   justify-content: space-between;
   align-items: center;

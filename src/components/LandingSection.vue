@@ -11,7 +11,7 @@
         <img src="../assets/spencer.jpg" class="avatar" alt="Spencer Frost" />
       </div>
       <h2 class="font-yellow bg-secondary-30 inline-block p-2 mb-4">
-        Front-end Developer / Wordpress Dabbler
+        Front-end Developer / DevOps Tinkerer
       </h2>
       <div class="btn-group mt-3">
         <a href="#" class="mr-3">
