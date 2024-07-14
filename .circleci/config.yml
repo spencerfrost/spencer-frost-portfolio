@@ -5,6 +5,8 @@ jobs:
   build-node:
     executor: node/default
     steps:
+      -run:
+          command: pwd
       - checkout
       - run:
           command: |
