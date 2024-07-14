@@ -23,6 +23,9 @@ jobs:
       - attach_workspace:  # This retrieves the build output saved in the build-node job
           at: ./dist
       - run:
+          name: List dir
+          command: ls
+      - run:
           name: Deploy to Server
           command: |
             scp -r ./dist spencer@184.171.221.186:/var/www/mrspinn
