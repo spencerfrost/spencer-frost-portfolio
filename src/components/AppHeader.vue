@@ -28,9 +28,6 @@
 
 <script>
 export default {
-  props: {
-    isScrolled: Boolean,
-  },
   data() {
     return {
       navLinks: [
