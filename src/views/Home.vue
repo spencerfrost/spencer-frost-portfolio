@@ -8,10 +8,10 @@
 </template>
 
 <script>
-import AboutSection from '@/components/AboutSection.vue';
-import ContactSection from '@/components/ContactSection.vue';
-import LandingSection from '@/components/LandingSection.vue';
-import WorkSection from '@/components/WorkSection.vue';
+import AboutSection from '@/components/sections/AboutSection.vue';
+import ContactSection from '@/components/sections/ContactSection.vue';
+import LandingSection from '@/components/sections/LandingSection.vue';
+import WorkSection from '@/components/sections/WorkSection.vue';
 
 export default {
   name: 'Home',
