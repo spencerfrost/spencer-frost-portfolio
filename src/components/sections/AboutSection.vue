@@ -1,7 +1,7 @@
 <template>
   <section id="about" class="full-height d-flex">
     <div class="image-container">
-      <img src="../assets/spencer_standing.jpg" alt="Spencer standing" />
+      <img src="@assets/spencer_standing.jpg" alt="Spencer standing" />
     </div>
     <div class="content-container d-flex flex-column justify-center">
       <div class="content">
@@ -36,7 +36,7 @@
 </template>
 
 <script>
-import MorphingText from './MorphingText.vue';
+import MorphingText from '../MorphingText.vue';
 
 export default {
   name: 'AboutSection',
