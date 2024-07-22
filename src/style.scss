@@ -1,27 +1,9 @@
-body {
-  margin: 0;
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  background-color: rgb(0, 173, 169);
-}
-
-#app {
-  color: #2a2d34;
-  background-image: url(./assets/3px-tile.png);
-}
-
-.full-height {
-  height: 100vh;
-}
-
 // Variables
-$primary-color: rgb(0, 173, 169);
+$primary-color: rgb(0 173 169);
 $secondary-color: #2a2d34;
 $accent-color: #efca08;
-$white: #ffffff;
-$black: #000000;
-
+$white: #fff;
+$black: #000;
 $font-sizes: (
   'xs': 0.75rem,
   'sm': 0.875rem,
@@ -32,7 +14,6 @@ $font-sizes: (
   '3xl': 1.875rem,
   '4xl': 2.25rem,
 );
-
 $spacings: (
   '0': 0,
   '1': 0.25rem,
@@ -44,89 +25,122 @@ $spacings: (
   '8': 2rem,
   '10': 2.5rem,
 );
-
-// Color utilities
-.font-yellow { color: $accent-color; }
-.font-primary { color: $primary-color; }
-.font-secondary { color: $secondary-color; }
-.font-white { color: $white; }
-.font-black { color: $black; }
-
-.bg-primary { background-color: $primary-color; }
-.bg-secondary { background-color: $secondary-color; }
-.bg-accent { background-color: $accent-color; }
-.bg-white { background-color: $white; }
-.bg-black { background-color: $black; }
-
-// Display utilities
-.d-flex { display: flex; }
-.d-block { display: block; }
-.d-inline { display: inline; }
-.d-inline-block { display: inline-block; }
-.d-none { display: none; }
-
-// Flex utilities
-.flex-row { flex-direction: row; }
-.flex-column { flex-direction: column; }
-.justify-start { justify-content: flex-start; }
-.justify-end { justify-content: flex-end; }
-.justify-center { justify-content: center; }
-.justify-between { justify-content: space-between; }
-.justify-around { justify-content: space-around; }
-.align-start { align-items: flex-start; }
-.align-end { align-items: flex-end; }
-.align-center { align-items: center; }
-.align-stretch { align-items: stretch; }
-
-// Text utilities
-.text-left { text-align: left; }
-.text-center { text-align: center; }
-.text-right { text-align: right; }
-
-// Font size utilities
-@each $name, $size in $font-sizes {
-  .text-#{$name} { font-size: $size; }
-}
-
-// Font weight utilities
-.font-normal { font-weight: 400; }
-.font-medium { font-weight: 500; }
-.font-bold { font-weight: 700; }
-
-// Margin and Padding utilities
-@each $name, $size in $spacings {
-  .m-#{$name} { margin: $size; }
-  .mt-#{$name} { margin-top: $size; }
-  .mr-#{$name} { margin-right: $size; }
-  .mb-#{$name} { margin-bottom: $size; }
-  .ml-#{$name} { margin-left: $size; }
-  .mx-#{$name} { margin-left: $size; margin-right: $size; }
-  .my-#{$name} { margin-top: $size; margin-bottom: $size; }
-
-  .p-#{$name} { padding: $size; }
-  .pt-#{$name} { padding-top: $size; }
-  .pr-#{$name} { padding-right: $size; }
-  .pb-#{$name} { padding-bottom: $size; }
-  .pl-#{$name} { padding-left: $size; }
-  .px-#{$name} { padding-left: $size; padding-right: $size; }
-  .py-#{$name} { padding-top: $size; padding-bottom: $size; }
-}
-
-/* TRANSITIONS */
-
-// Variables for common values
 $transition-duration-short: 0.5s;
 $transition-duration-long: 1s;
 
-// Mixin for transition
-@mixin transition-effect(
-  $properties: all,
-  $duration: $transition-duration-short,
-  $ease: ease-out
-) {
+// Mixins
+@mixin transition-effect($properties: all, $duration: $transition-duration-short, $ease: ease-out) {
   transition: $properties $duration $ease;
 }
 
+// Base styles
+body {
+  margin: 0;
+  font-family: Avenir, Helvetica, Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background-color: $primary-color;
+}
+
+#app {
+  color: $secondary-color;
+  background-image: url("./assets/3px-tile.png");
+}
+
+.full-height { height: 100vh; }
+
+// Utility classes
+@mixin generate-utility-classes {
+  // Color utilities
+  .font {
+    &-yellow { color: $accent-color; }
+    &-primary { color: $primary-color; }
+    &-secondary { color: $secondary-color; }
+    &-white { color: $white; }
+    &-black { color: $black; }
+  }
+
+  .bg {
+    &-primary { background-color: $primary-color; }
+    &-secondary { background-color: $secondary-color; }
+    &-accent { background-color: $accent-color; }
+    &-white { background-color: $white; }
+    &-black { background-color: $black; }
+  }
+
+  // Display utilities
+  .d {
+    &-flex { display: flex; }
+    &-block { display: block; }
+    &-inline { display: inline; }
+    &-inline-block { display: inline-block; }
+    &-none { display: none; }
+  }
+
+  // Flex utilities
+  .flex {
+    &-row { flex-direction: row; }
+    &-column { flex-direction: column; }
+  }
+
+  .justify {
+    &-start { justify-content: flex-start; }
+    &-end { justify-content: flex-end; }
+    &-center { justify-content: center; }
+    &-between { justify-content: space-between; }
+    &-around { justify-content: space-around; }
+  }
+
+  .align {
+    &-start { align-items: flex-start; }
+    &-end { align-items: flex-end; }
+    &-center { align-items: center; }
+    &-stretch { align-items: stretch; }
+  }
+
+  // Text utilities
+  .text {
+    &-left { text-align: left; }
+    &-center { text-align: center; }
+    &-right { text-align: right; }
+  }
+
+  // Font size utilities
+  @each $name, $size in $font-sizes {
+    .text-#{$name} { font-size: $size; }
+  }
+
+  // Font weight utilities
+  /* stylelint-disable-next-line no-duplicate-selectors */
+  .font {
+    &-normal { font-weight: 400; }
+    &-medium { font-weight: 500; }
+    &-bold { font-weight: 700; }
+  }
+
+  // Margin and Padding utilities
+  @each $name, $size in $spacings {
+    .m-#{$name} { margin: $size; }
+    .mt-#{$name} { margin-top: $size; }
+    .mr-#{$name} { margin-right: $size; }
+    .mb-#{$name} { margin-bottom: $size; }
+    .ml-#{$name} { margin-left: $size; }
+    .mx-#{$name} { margin-left: $size; margin-right: $size; }
+    .my-#{$name} { margin-top: $size; margin-bottom: $size; }
+
+    .p-#{$name} { padding: $size; }
+    .pt-#{$name} { padding-top: $size; }
+    .pr-#{$name} { padding-right: $size; }
+    .pb-#{$name} { padding-bottom: $size; }
+    .pl-#{$name} { padding-left: $size; }
+    .px-#{$name} { padding-left: $size; padding-right: $size; }
+    .py-#{$name} { padding-top: $size; padding-bottom: $size; }
+  }
+}
+
+@include generate-utility-classes;
+
+// Transitions
 .fade-enter-active,
 .fade-leave-active {
   @include transition-effect(all, $transition-duration-short);
@@ -151,22 +165,17 @@ $transition-duration-long: 1s;
 .flip-enter-active {
   animation: width-in 0.5s ease-in forwards;
 }
+
 .flip-leave-active {
   animation: width-out 0.5s ease-out forwards;
 }
+
 @keyframes width-out {
-  0% {
-    transform: scaleX(1);
-  }
-  100% {
-    transform: scaleX(0);
-  }
+  0% { transform: scaleX(1); }
+  100% { transform: scaleX(0); }
 }
+
 @keyframes width-in {
-  0% {
-    transform: scaleX(0);
-  }
-  100% {
-    transform: scaleX(1);
-  }
+  0% { transform: scaleX(0); }
+  100% { transform: scaleX(1); }
 }

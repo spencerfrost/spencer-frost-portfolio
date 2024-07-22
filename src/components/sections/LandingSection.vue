@@ -1,10 +1,12 @@
 <template>
   <section
     id="landing"
-    class="full-height d-flex flex-column justify-center align-center">
+    class="full-height d-flex flex-column justify-center align-center"
+  >
     <div class="text-center">
       <StickyTitle>
-        Spencer <strong class="font-yellow">Frost</strong>
+        Spencer
+        <strong class="font-yellow">Frost</strong>
       </StickyTitle>
       <div class="inline-block mb-3">
         <img src="@assets/spencer.jpg" class="avatar" alt="Spencer Frost" />
@@ -36,7 +38,7 @@ export default {
 </script>
 
 <style scoped lang="scss">
-@import "@/style.scss";
+@import '@/style.scss';
 
 h2 {
   background-color: rgba(50, 50, 50, 0.3);
