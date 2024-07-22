@@ -5,11 +5,7 @@
     </div>
     <div class="content-container d-flex flex-column justify-center">
       <div class="content">
-        <MorphingText
-          :texts="texts"
-          :morphTime="2"
-          :cooldownTime="1"  
-        />
+        <MorphingText :texts="texts" :morphTime="2" :cooldownTime="1" />
         <p class="text-xl font-white">
           Hello! I’m Spencer, a passionate front-end developer with a keen eye
           for detail and a strong belief in the power of component-driven

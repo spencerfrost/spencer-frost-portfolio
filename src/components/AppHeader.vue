@@ -1,13 +1,15 @@
 <template>
   <header
-    class="floating-header d-flex justify-between align-center px-4 py-2 bg-secondary">
+    class="floating-header d-flex justify-between align-center px-4 py-2 bg-secondary"
+  >
     <!-- Left side navigation links -->
     <div class="left-nav d-flex">
       <a
         v-for="link in navLinks"
         :key="link.name"
         @click="scrollToSection(link.target)"
-        class="mr-4 font-white text-md cursor-pointer">
+        class="mr-4 font-white text-md cursor-pointer"
+      >
         {{ link.name }}
       </a>
     </div>
@@ -19,7 +21,8 @@
       <router-link
         to="/spencer-plus"
         class="bg-accent py-2 px-4 font-secondary font-bold"
-        style="border-radius: 20px; text-decoration: none">
+        style="border-radius: 20px; text-decoration: none"
+      >
         Spencer+
       </router-link>
     </div>
