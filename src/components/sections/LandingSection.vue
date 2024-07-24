@@ -5,8 +5,10 @@
   >
     <div class="text-center">
       <StickyTitle>
-        Spencer
-        <strong class="font-yellow">Frost</strong>
+        <span @click="handleScoll" style="cursor: pointer;">
+          Spencer
+          <strong class="font-yellow">Frost</strong>
+        </span>
       </StickyTitle>
       <div class="inline-block mb-3">
         <img src="@assets/spencer.jpg" class="avatar" alt="Spencer Frost" />
@@ -33,6 +35,14 @@ export default {
   name: 'LandingSection',
   components: {
     StickyTitle,
+  },
+  methods: {
+    handleScoll() {
+      const element = document.getElementById('landing')
+      if (element) {
+        element.scrollIntoView({ behavior: 'smooth' })
+      }
+    },
   },
 }
 </script>

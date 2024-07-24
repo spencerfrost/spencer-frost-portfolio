@@ -1,10 +1,8 @@
 <template>
-  <div>
-    <h1 ref="branding" id="branding" :class="{ sticky: isScrolled }">
-      <slot></slot>
-    </h1>
-    <h1 class="placeholder" v-if="isScrolled">&nbsp;</h1>
-  </div>
+  <h1 ref="branding" id="branding" :class="{ sticky: isScrolled }">
+    <slot></slot>
+  </h1>
+  <h1 class="placeholder" v-if="isScrolled">&nbsp;</h1>
 </template>
 
 <script>
@@ -53,17 +51,26 @@ h1 {
   font-family: 'Chakra Petch', sans-serif;
   text-align: center;
   top: 33px;
-  // left: 0;
   z-index: 1000;
-  margin-left: auto;
-  margin-right: auto;
-  margin-top: 0;
-  transition: font-size 0.3s ease;
+  left: 50%;
+  margin: 0;
+  
+  &.sticky {
+    animation: decreaseFontSize 0.3s forwards;
+    transform: translateX(-50%);
+    position: fixed;
+    color: white;
+    font-size: 2rem;
+  }
 }
 
-.sticky {
-  position: fixed;
-  color: white;
-  font-size: 2rem;
+@keyframes decreaseFontSize {
+  from {
+    font-size: 4rem
+  }
+  to {
+    font-size: 2rem;
+  }
 }
+
 </style>
