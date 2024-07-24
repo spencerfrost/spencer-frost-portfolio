@@ -8,7 +8,7 @@
         v-for="link in navLinks"
         :key="link.name"
         @click="scrollToSection(link.target)"
-        class="mr-4 font-white text-md cursor-pointer"
+        class="nav-link mr-4 font-white text-md pointer"
       >
         {{ link.name }}
       </a>
@@ -51,7 +51,9 @@ export default {
 }
 </script>
 
-<style scoped>
+<style scoped lang="scss">
+@import '@/style.scss';
+
 .floating-header {
   border-radius: 24px;
   max-width: 1024px;
@@ -66,6 +68,16 @@ export default {
   right: 20px;
   z-index: 999;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.nav-link {
+  transition: color 0.3s;
+
+ /* Hover effect */
+  &:hover {
+    color: $accent-color;
+  }
+  
 }
 
 .right-nav {
