@@ -1,6 +1,6 @@
 <template>
   <div style="position: relative">
-    <div id="container">
+    <div id="morph-container">
       <span id="text1" ref="text1">{{ text1 }}</span>
       <span id="text2" ref="text2">{{ text2 }}</span>
     </div>
@@ -114,7 +114,7 @@ export default {
 </script>
 
 <style scoped lang="scss">
-#container {
+#morph-container {
   position: absolute;
   filter: url(#threshold) blur(0.6px);
 
@@ -125,6 +125,7 @@ export default {
     white-space: nowrap;
     font-size: 36pt;
     user-select: none;
+    transform: translateY(-15px);
   }
 }
 
