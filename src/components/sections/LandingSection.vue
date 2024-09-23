@@ -16,10 +16,10 @@
         Front-end Developer / DevOps Tinkerer
       </h2>
       <div class="mt-3 space-x-3">
-        <a href="#" class="inline-block">
+        <a href="https://www.linkedin.com/in/spencer-frost-40405463/" class="inline-block">
           <img src="@assets/linkedin.png" class="w-10 h-10" alt="LinkedIn" />
         </a>
-        <a href="#" class="inline-block">
+        <a href="https://github.com/spencerfrost" class="inline-block">
           <img src="@assets/github.png" class="w-10 h-10" alt="GitHub" />
         </a>
       </div>
