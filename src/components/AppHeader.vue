@@ -37,6 +37,8 @@
 </template>
 
 <script>
+import { nextTick } from 'vue';
+
 export default {
   data() {
     return {
@@ -65,18 +67,23 @@ export default {
 
       this.observer = new IntersectionObserver((entries) => {
         entries.forEach((entry) => {
-          this.isH1Visible = entry.isIntersecting
+          nextTick(() => {
+            console.log(entry.isIntersecting)
+            this.isH1Visible = entry.isIntersecting
+          })
         })
       }, options)
 
       const h1Element = document.querySelector('#landing-title')
       if (h1Element) {
         this.observer.observe(h1Element)
+      } else {
+        console.error('Landing title element not found')
       }
     },
   },
   mounted() {
-    this.$nextTick(() => {
+    nextTick(() => {
       this.setupIntersectionObserver()
     })
   },
