@@ -1,8 +1,5 @@
 <template>
-  <section
-    id="contact"
-    class="h-screen flex flex-col justify-center items-center"
-  >
+  <section id="contact" class="py-24 bg-background flex flex-col justify-center items-center">
     <h2 class="text-3xl font-bold mb-4 text-white">Contact Me</h2>
     <form @submit.prevent="submitForm" class="w-full max-w-lg">
       <div class="mb-4">
@@ -12,7 +9,7 @@
           id="name"
           v-model="form.name"
           required
-          class="w-full p-2 rounded bg-background text-white"
+          class="w-full p-2 rounded"
         />
       </div>
       <div class="mb-4">
@@ -22,7 +19,7 @@
           id="email"
           v-model="form.email"
           required
-          class="w-full p-2 rounded bg-background text-white"
+          class="w-full p-2 rounded"
         />
       </div>
       <div class="mb-4">
@@ -31,14 +28,11 @@
           id="message"
           v-model="form.message"
           required
-          class="w-full p-2 rounded bg-background text-white"
+          class="w-full p-2 rounded"
           rows="5"
         ></textarea>
       </div>
-      <button
-        type="submit"
-        class="bg-accent py-2 px-4 text-white font-bold rounded"
-      >
+      <button class="bg-secondary font-bold px-4 py-2 rounded-full hover:bg-secondary-dark transition-colors duration-200">
         Send Message
       </button>
     </form>

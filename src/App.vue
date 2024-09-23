@@ -16,10 +16,5 @@ export default {
   components: {
     AppHeader,
   },
-  data() {
-    return {
-      isScrolled: false,
-    }
-  },
 }
 </script>
