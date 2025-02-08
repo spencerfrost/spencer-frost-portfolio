@@ -28,7 +28,7 @@ jobs:
       - run:
           name: Deploy to Server
           command: |
-            scp -r /home/circleci/project/dist/* $SERVER_USER@mrspinn.ca:$SERVER_DIR
+            scp -r -v /home/circleci/project/dist/* $SERVER_USER@mrspinn.ca:$SERVER_DIR
             ssh $SERVER_USER@mrspinn.ca "sudo systemctl restart nginx"
 
 workflows:
