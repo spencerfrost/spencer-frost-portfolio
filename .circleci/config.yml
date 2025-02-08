@@ -1,6 +1,6 @@
 version: 2.1
 orbs:
-  node: circleci/node@5
+  node: circleci/node@7.1.0
 jobs:
   build-node:
     executor: node/default
@@ -18,7 +18,7 @@ jobs:
             - dist
 
   deploy:
-    machine: true
+    executor: node/default
     steps:
       - attach_workspace:
           at: /home/circleci/project  # Attach workspace at the project root
@@ -28,11 +28,10 @@ jobs:
       - run:
           name: Deploy to Server
           command: |
-            scp -r /home/circleci/project/dist/* $SERVER_USER@$SERVER_IP:$SERVER_DIR
-            ssh $SERVER_USER@$SERVER_IP "sudo systemctl restart nginx"
+            scp -r /home/circleci/project/dist/* $SERVER_USER@mrspinn.ca:$SERVER_DIR
+            ssh $SERVER_USER@mrspinn.ca "sudo systemctl restart nginx"
 
 workflows:
-  version: 2
   build_and_deploy:
     jobs:
       - build-node:
