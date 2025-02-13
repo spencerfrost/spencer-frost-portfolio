@@ -1,75 +1,90 @@
 <template>
-    <div class="d-flex flex-column align-center p-4">
-      <h1 class="text-3xl font-bold mb-6 font-white">Home Server Portal</h1>
-      <div class="d-flex flex-row flex-wrap justify-center">
-        <div v-for="service in services" :key="service.name" class="bg-white m-2 p-4 d-flex flex-column align-center" style="width: 200px; border-radius: 8px;">
-          <h2 class="text-xl font-bold mb-2 text-center">{{ service.name }}</h2>
-          <p class="text-md mb-4 text-center">{{ service.description }}</p>
-          <a :href="service.url" target="_blank" class="bg-primary font-white font-bold py-2 px-4" style="border-radius: 4px; text-decoration: none;">
-            Open {{ service.name }}
-          </a>
+  <div class="min-h-screen bg-background">
+    <!-- Header with navigation -->
+    <header class="bg-background bg-opacity-90 fixed top-0 w-full z-50 shadow-lg">
+      <nav class="container mx-auto px-6 py-4">
+        <div class="flex items-center justify-between">
+          <router-link to="/spencer-plus" class="text-3xl font-bold text-white">
+            Spencer<span class="text-secondary">+</span>
+          </router-link>
+          <div class="flex space-x-8">
+            <router-link 
+              v-for="route in routes" 
+              :key="route.path"
+              :to="`/spencer-plus/${route.path}`"
+              class="text-white hover:text-secondary transition-colors duration-200"
+            >
+              {{ route.name }}
+            </router-link>
+          </div>
         </div>
-      </div>
-    </div>
-  </template>
-  
-  <script>
-  export default {
-    data() {
-      return {
-        services: [
-          {
-            name: 'Plex',
-            description: 'Stream your media collection.',
-            url: 'http://your-plex-url:32400'
-          },
-          {
-            name: 'Overseerr',
-            description: 'Request and manage media.',
-            url: 'http://your-overseerr-url:5055'
-          },
-          {
-            name: 'Tautulli',
-            description: 'Monitor Plex Media Server.',
-            url: 'http://your-tautulli-url:8181'
-          },
-          {
-            name: 'qBittorrent',
-            description: 'Torrent client.',
-            url: 'http://your-qbittorrent-url:8080'
-          },
-          {
-            name: 'SABnzbd',
-            description: 'Usenet downloader.',
-            url: 'http://your-sabnzbd-url:8080'
-          },
-          {
-            name: 'Sonarr',
-            description: 'TV show management.',
-            url: 'http://your-sonarr-url:8989'
-          },
-          {
-            name: 'Radarr',
-            description: 'Movie management.',
-            url: 'http://your-radarr-url:7878'
-          },
-          {
-            name: 'Lidarr',
-            description: 'Music management.',
-            url: 'http://your-lidarr-url:8686'
-          },
-          {
-            name: 'Prowlarr',
-            description: 'Indexer management.',
-            url: 'http://your-prowlarr-url:9696'
-          },
-          {
-            name: 'Bazarr',
-            description: 'Subtitle management.',
-            url: 'http://your-bazarr-url:6767'
-          }
-        ]
-      }
-    }
+      </nav>
+    </header>
+
+    <!-- Main content area -->
+    <main class="pt-24 container mx-auto px-6">
+      <!-- Show welcome and categories if on main spencer+ page -->
+      <template v-if="$route.path === '/spencer-plus'">
+        <div class="text-center mb-16">
+          <h1 class="text-5xl font-bold text-white mb-6">
+            Welcome to Spencer<span class="text-secondary">+</span>
+          </h1>
+          <p class="text-xl text-white max-w-3xl mx-auto mb-12">
+            Explore my comprehensive DevOps homelab featuring 40+ Docker containers,
+            custom infrastructure, and various self-hosted services.
+          </p>
+        </div>
+
+        <!-- Category tiles -->
+        <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+          <router-link
+            v-for="route in routes"
+            :key="route.path"
+            :to="`/spencer-plus/${route.path}`"
+            class="group relative overflow-hidden rounded-lg aspect-video bg-gray-800 hover:ring-2 hover:ring-secondary transition-all duration-300"
+          >
+            <div class="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent"></div>
+            <div class="absolute bottom-0 left-0 p-6">
+              <h3 class="text-2xl font-bold text-white mb-2">{{ route.name }}</h3>
+              <p class="text-gray-300">{{ route.description }}</p>
+            </div>
+          </router-link>
+        </div>
+      </template>
+
+      <!-- Show section content for other routes -->
+      <router-view v-else></router-view>
+    </main>
+  </div>
+</template>
+
+<script setup>
+const routes = [
+  {
+    path: 'infrastructure',
+    name: 'Infrastructure',
+    description: 'Explore the core system architecture and storage management.'
+  },
+  {
+    path: 'services',
+    name: 'Services',
+    description: 'Discover the variety of self-hosted services and applications.'
+  },
+  {
+    path: 'monitoring',
+    name: 'Monitoring',
+    description: 'View real-time metrics and system monitoring solutions.'
+  },
+  {
+    path: 'technical',
+    name: 'Technical',
+    description: 'Deep dive into the technical achievements and implementations.'
   }
-  </script>
+];
+</script>
+
+<style scoped>
+.router-link-active {
+  @apply text-secondary;
+}
+</style>

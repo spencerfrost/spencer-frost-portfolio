@@ -10,8 +10,29 @@ const routes = [
   },
   {
     path: '/spencer-plus',
-    name: 'SpencerPlus',
-    component: SpencerPlus
+    component: SpencerPlus,
+    children: [
+      {
+        path: 'infrastructure',
+        name: 'Infrastructure',
+        component: () => import('./components/spencer-plus/Infrastructure.vue'),
+      },
+      {
+        path: 'services',
+        name: 'Services',
+        component: () => import('./components/spencer-plus/Services.vue'),
+      },
+      {
+        path: 'monitoring',
+        name: 'Monitoring',
+        component: () => import('./components/spencer-plus/Monitoring.vue'),
+      },
+      {
+        path: 'technical',
+        name: 'Technical',
+        component: () => import('./components/spencer-plus/Technical.vue'),
+      }
+    ]
   }
 ]
 
