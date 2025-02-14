@@ -1,41 +1,17 @@
 <template>
-  <div class="relative">
-    <button
-      @click="toggleThemeMenu"
-      class="flex items-center space-x-1 text-text hover:text-mauve transition-colors duration-200"
-    >
-      <span>Theme</span>
-      <svg
-        xmlns="http://www.w3.org/2000/svg"
-        class="h-4 w-4"
-        fill="none"
-        viewBox="0 0 24 24"
-        stroke="currentColor"
+  <div class="flex items-center space-x-3">
+    <div class="flex space-x-2 items-center bg-surface0 rounded-full p-1">
+      <button
+        v-for="theme in themes"
+        :key="theme.value"
+        @click="setTheme(theme.value)"
+        :class="[
+          'px-3 py-1 rounded-full transition-colors duration-200',
+          currentTheme === theme.value ? 'bg-pink/50 text-text' : 'text-subtext0 hover:text-text'
+        ]"
       >
-        <path
-          stroke-linecap="round"
-          stroke-linejoin="round"
-          stroke-width="2"
-          d="M19 9l-7 7-7-7"
-        />
-      </svg>
-    </button>
-    <!-- Theme Menu -->
-    <div
-      v-if="isMenuOpen"
-      class="absolute right-0 mt-2 w-48 rounded-md shadow-lg bg-surface ring-1 ring-overlay0 ring-opacity-5"
-    >
-      <div class="py-1" role="menu">
-        <button
-          v-for="theme in themes"
-          :key="theme.name"
-          @click="setTheme(theme.value)"
-          class="block w-full text-left px-4 py-2 text-sm text-text hover:bg-overlay0"
-          role="menuitem"
-        >
-          {{ theme.name }}
-        </button>
-      </div>
+        {{ theme.name }}
+      </button>
     </div>
   </div>
 </template>
@@ -43,32 +19,36 @@
 <script setup>
 import { onMounted, ref } from 'vue'
 
-const isMenuOpen = ref(false)
+const currentTheme = ref('latte')
 const themes = [
-  { name: 'Latte (Light)', value: 'latte' },
-  { name: 'Frappe (Medium)', value: 'frappe' },
-  { name: 'Macchiato (Dark)', value: 'macchiato' },
-  { name: 'Mocha (Darker)', value: 'mocha' }
+  { name: 'Latte', value: 'latte', isDark: false },
+  { name: 'Frappé', value: 'frappe', isDark: true },
+  { name: 'Macchiato', value: 'macchiato', isDark: true },
+  { name: 'Mocha', value: 'mocha', isDark: true }
 ]
-
-const toggleThemeMenu = () => {
-  isMenuOpen.value = !isMenuOpen.value
-}
 
 const setTheme = (theme) => {
   // Remove all theme classes
-  document.documentElement.classList.remove('latte', 'frappe', 'macchiato', 'mocha')
+  const themeClasses = ['latte', 'frappe', 'macchiato', 'mocha', 'dark']
+  document.documentElement.classList.remove(...themeClasses)
+
   // Add new theme class
   document.documentElement.classList.add(theme)
+
+  // Add dark class for shadcn components if using a dark theme
+  const selectedTheme = themes.find(t => t.value === theme)
+  if (selectedTheme?.isDark) {
+    document.documentElement.classList.add('dark')
+  }
+
   // Store theme preference
   localStorage.setItem('theme', theme)
-  // Close menu
-  isMenuOpen.value = false
+  currentTheme.value = theme
 }
 
-// Initialize theme from localStorage or default to 'mocha'
+// Initialize theme from localStorage or default to 'latte'
 const initTheme = () => {
-  const savedTheme = localStorage.getItem('theme') || 'mocha'
+  const savedTheme = localStorage.getItem('theme') || 'latte'
   setTheme(savedTheme)
 }
 

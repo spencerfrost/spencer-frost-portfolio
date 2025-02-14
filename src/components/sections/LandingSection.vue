@@ -8,7 +8,7 @@
       <div class="mb-3 flex justify-center">
         <img
           src="@assets/spencer.jpg"
-          class="rounded-full w-80 h-80 border-8 border-surface0"
+          class="rounded-full w-64 h-64 border-8 border-surface0"
           alt="Spencer Frost"
         />
       </div>
@@ -25,11 +25,16 @@
           <img src="@assets/github.png" class="w-10 h-10" alt="GitHub" />
         </a>
       </div>
+      <div class="mt-3 flex justify-center">
+        <ThemeSwitcher />
+      </div>
     </div>
   </section>
 </template>
 
 <script setup>
+import ThemeSwitcher from '../ThemeSwitcher.vue';
+
 const handleScroll = () => {
   const element = document.getElementById('landing')
   if (element) {

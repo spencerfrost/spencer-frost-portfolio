@@ -2,67 +2,33 @@
 @tailwind components;
 @tailwind utilities;
 
-body {
-  @apply m-0 font-sans antialiased bg-base text-text;
+@layer base {
+  * {
+    @apply border-surface1;
+  }
+  body {
+    @apply bg-base text-text;
+  }
 }
 
-#app {
-  @apply text-text bg-base;
-}
-
-/* Update header styles */
-.nav-link {
-  @apply text-text hover:text-mauve transition-colors duration-200;
-}
-
-.brand-text {
-  @apply text-text;
-}
-
-.brand-highlight {
-  @apply text-mauve;
-}
-
-/* Button styles */
-.primary-button {
-  @apply bg-mauve text-base font-bold px-4 py-2 rounded-full hover:bg-lavender transition-colors duration-200;
-}
-
-/* Transitions */
+/* Transition styles */
 .fade-enter-active,
 .fade-leave-active {
   @apply transition-all duration-500 ease-out;
 }
 
-.fade-enter,
-.fade-leave-active {
+.fade-enter-from,
+.fade-leave-to {
   @apply opacity-0;
 }
 
-.slide-fade-enter-active,
-.slide-fade-leave-active {
-  @apply transition-all duration-1000 ease-out;
+/* Component animations */
+@keyframes accordion-down {
+  from { height: 0 }
+  to { height: var(--radix-accordion-content-height) }
 }
 
-.slide-fade-enter,
-.slide-fade-leave-active {
-  @apply -translate-x-24 opacity-0;
-}
-
-.flip-enter-active {
-  animation: width-in 0.5s ease-in forwards;
-}
-
-.flip-leave-active {
-  animation: width-out 0.5s ease-out forwards;
-}
-
-@keyframes width-out {
-  0% { transform: scaleX(1); }
-  100% { transform: scaleX(0); }
-}
-
-@keyframes width-in {
-  0% { transform: scaleX(0); }
-  100% { transform: scaleX(1); }
+@keyframes accordion-up {
+  from { height: var(--radix-accordion-content-height) }
+  to { height: 0 }
 }

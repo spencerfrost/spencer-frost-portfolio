@@ -9,6 +9,11 @@ const routes = [
     component: Home
   },
   {
+    path: '/colors',
+    name: 'Colors',
+    component: () => import('./views/ColorsGuide.vue')
+  },
+  {
     path: '/spencer-plus',
     component: SpencerPlus,
     children: [
