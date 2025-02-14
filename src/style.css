@@ -1,27 +1,34 @@
-@import 'tailwindcss/base';
-@import 'tailwindcss/components';
-@import 'tailwindcss/utilities';
-
-// Your custom styles and variables
-$primary-color: #00ada9;
-$secondary-color: #efca08;
-$accent-color: #2a2d34;
-$white: #fff;
-$black: #000;
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
 body {
-  @apply m-0 font-sans antialiased;
-
-  background-color: $primary-color;
+  @apply m-0 font-sans antialiased bg-base text-text;
 }
 
 #app {
-  @apply text-background;
-
-  background-image: url("./assets/3px-tile.png");
+  @apply text-text bg-base;
 }
 
-// Transitions
+/* Update header styles */
+.nav-link {
+  @apply text-text hover:text-mauve transition-colors duration-200;
+}
+
+.brand-text {
+  @apply text-text;
+}
+
+.brand-highlight {
+  @apply text-mauve;
+}
+
+/* Button styles */
+.primary-button {
+  @apply bg-mauve text-base font-bold px-4 py-2 rounded-full hover:bg-lavender transition-colors duration-200;
+}
+
+/* Transitions */
 .fade-enter-active,
 .fade-leave-active {
   @apply transition-all duration-500 ease-out;

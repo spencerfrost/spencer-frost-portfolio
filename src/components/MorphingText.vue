@@ -113,20 +113,20 @@ export default {
 }
 </script>
 
-<style scoped lang="scss">
+<style scoped>
 #morph-container {
   position: absolute;
   filter: url(#threshold) blur(0.6px);
+}
 
-  #text1,
-  #text2 {
-    color: white;
-    position: absolute;
-    white-space: nowrap;
-    font-size: 36pt;
-    user-select: none;
-    transform: translateY(-15px);
-  }
+#morph-container #text1,
+#morph-container #text2 {
+  color: white;
+  position: absolute;
+  white-space: nowrap;
+  font-size: 36pt;
+  user-select: none;
+  transform: translateY(-15px);
 }
 
 #filters {

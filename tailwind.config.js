@@ -5,13 +5,12 @@ export default {
     "./src/**/*.{vue,js,ts,jsx,tsx}",
   ],
   theme: {
-    extend: {
-      colors: {
-        'primary': 'rgb(0 173 169)',
-        'secondary': '#efca08',
-        'background': '#2a2d34',
-      },
-    },
+    extend: {},
   },
-  plugins: [],
+  plugins: [
+    require("@catppuccin/tailwindcss")({
+      prefix: false,
+      defaultFlavour: "mocha"
+    }),
+  ],
 }
