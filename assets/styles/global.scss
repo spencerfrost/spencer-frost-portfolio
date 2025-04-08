@@ -1,0 +1,40 @@
+/* Global styles for Catppuccin themes */
+
+/* Base font settings */
+body {
+  color: rgb(var(--ctp-text));
+  background-color: rgb(var(--ctp-base));
+  transition: 
+    color 0.15s ease-in-out,
+    background-color 0.15s ease-in-out;
+}
+
+/* Default font settings */
+h1, h2, h3, h4, h5, h6 {
+  color: rgb(var(--ctp-text));
+  font-weight: 700;
+}
+
+/* Custom shadows for Catppuccin themes */
+.latte {
+  --shadow-raised: 0 2px 8px 0 rgba(30, 30, 46, 0.1);
+  --shadow-inset: inset 0 0 0 1px rgba(var(--ctp-overlay0), 0.3);
+  
+  --size-rounded-sm: 4px;
+  --size-rounded: 8px;
+  --size-rounded-lg: 12px;
+}
+
+.frappe, .macchiato, .mocha {
+  --shadow-raised: 0 2px 8px 0 rgba(0, 0, 0, 0.2);
+  --shadow-inset: inset 0 0 0 1px rgba(var(--ctp-overlay0), 0.2);
+  
+  --size-rounded-sm: 4px;
+  --size-rounded: 8px;
+  --size-rounded-lg: 12px;
+}
+
+/* Default theme */
+html {
+  @extend .mocha;
+}
