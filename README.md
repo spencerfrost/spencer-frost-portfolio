@@ -122,7 +122,7 @@ npx shadcn-vue add button
 
 The project uses Tailwind CSS v4 for styling. The main configuration is handled through Nuxt modules in `nuxt.config.ts`.
 
-Custom CSS can be added to `assets/css/tailwind.css`.
+Custom CSS can be added to `assets/styles/tailwind.css`.
 
 ## 🧪 Development Notes
 
