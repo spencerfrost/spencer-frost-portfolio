@@ -1,38 +1,50 @@
 <template>
-  <div class="theme-switcher p-4 bg-raised-bg rounded-lg shadow-md">
-    <h2 class="text-heading text-xl mb-4">Catppuccin Theme Selector</h2>
-    <div class="grid grid-cols-2 md:grid-cols-5 gap-3">
-      <button 
-        v-for="theme in themes" 
+  <Card class="bg-card">
+    <CardHeader>
+      <CardTitle class="text-heading text-xl font-bold">Theme</CardTitle>
+      <CardDescription class="text-muted-foreground">
+        Choose your preferred theme.
+      </CardDescription>
+    </CardHeader>
+    <CardContent class="grid grid-cols-2 md:grid-cols-4 gap-3">
+      <Button
+        v-for="theme in themes"
         :key="theme"
         @click="setTheme(theme)"
-        :class="[
-          'p-3 rounded border transition-all',
-          theme === preferred ? 'border-blue bg-blue/20' : 'border-border hover:border-blue'
-        ]"
+        :active="theme === preferred"
       >
-        {{ formatThemeName(theme) }}
-      </button>
-    </div>
-  </div>
+        <div class="flex items-center justify-center gap-2">
+          <!-- <span v-if="theme === preferred" class="text-primary text-xs">●</span> -->
+          <span>{{ formatThemeName(theme) }}</span>
+        </div>
+      </Button>
+    </CardContent>
+  </Card>
 </template>
 
 <script setup lang="ts">
-import { computed } from 'vue';
+import { computed } from "vue";
 
 const { $theme } = useNuxtApp();
 const preferred = computed(() => $theme.preferred.value);
-// Define themes as a simple array
-const themes = ["latte", "frappe", "macchiato", "mocha", "system"] as const;
 
-function setTheme(theme: typeof themes[number]) {
+// Define the themes as constants for type safety
+const themes = ["latte", "frappe", "macchiato", "mocha"] as const;
+
+// Simple mapping for better display names
+const themeDisplayNames = {
+  latte: "Latte",
+  frappe: "Frappe",
+  macchiato: "Macchiato",
+  mocha: "Mocha",
+  // system: "System",
+};
+
+function setTheme(theme: (typeof themes)[number]) {
   $theme.setPreferredTheme(theme);
 }
 
 function formatThemeName(theme: string): string {
-  if (theme === 'system') return 'System';
-  
-  // Format Catppuccin flavor names
-  return theme.charAt(0).toUpperCase() + theme.slice(1);
+  return themeDisplayNames[theme as keyof typeof themeDisplayNames] || theme;
 }
 </script>
