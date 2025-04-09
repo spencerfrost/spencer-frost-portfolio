@@ -1,12 +1,23 @@
 <template>
-  <div class="fixed w-full z-50 flex justify-center mt-3">
-    <header
-      class="w-full max-w-3xl rounded-full border border-border bg-background/80 shadow-md backdrop-blur-lg"
-      :class="{ 'border-transparent': isH1Visible }"
-      style="transition: border-color 0.5s ease"
-    >
-      <nav class="px-5 py-2 flex justify-between items-center min-h-[52px]">
-        <div class="flex-1">
+  <header class="sticky top-0 z-50 w-full">
+    <div class="container mx-auto">
+      <nav class="flex h-16 items-center justify-between">
+        <!-- Logo/Name - visible on all screens -->
+        <div class="flex items-center gap-2">
+          <NuxtLink
+            as="a"
+            href="#"
+            @click.prevent="scrollToSection('landing')"
+            class="flex items-center cursor-pointer"
+          >
+            <span class="text-3xl font-black font-rounded text-mauve">
+              Spencer<span class="text-primary">Frost</span>
+            </span>
+          </NuxtLink>
+        </div>
+
+        <!-- Desktop Navigation - hidden on mobile -->
+        <div class="hidden md:flex md:flex-1 md:justify-center">
           <NavigationMenu>
             <NavigationMenuList>
               <NavigationMenuItem v-for="item in navLinks" :key="item.target">
@@ -14,7 +25,6 @@
                   as="a"
                   :href="`#${item.target}`"
                   @click.prevent="scrollToSection(item.target)"
-                  :class="navigationMenuTriggerStyle()"
                   class="cursor-pointer"
                 >
                   {{ item.name }}
@@ -24,39 +34,107 @@
           </NavigationMenu>
         </div>
 
-        <div class="flex-1 flex justify-center">
-          <Transition name="fade">
-            <div
-              v-if="!isH1Visible"
-              class="text-lg font-semibold text-foreground whitespace-nowrap"
-            >
-              Spencer
-              <span class="text-primary">Frost</span>
-            </div>
-          </Transition>
-        </div>
+        <!-- Theme Switcher and Mobile Menu -->
+        <div class="flex items-center gap-2">
+          <!-- Theme Dropdown -->
+          <DropdownMenu>
+            <DropdownMenuTrigger asChild>
+              <Button variant="ghost" size="icon">
+                <SunIcon v-if="$theme.isLight.value" class="h-5 w-5" />
+                <MoonIcon v-else class="h-5 w-5" />
+                <span class="sr-only">Toggle theme</span>
+              </Button>
+            </DropdownMenuTrigger>
+            <DropdownMenuContent align="end">
+              <DropdownMenuLabel>Theme</DropdownMenuLabel>
+              <DropdownMenuSeparator />
+              <DropdownMenuItem @click="setTheme('latte')">
+                <SunIcon class="mr-2 h-4 w-4" />
+                <span>Light</span>
+                <DropdownMenuShortcut v-if="$theme.active.value === 'latte'">
+                  <CheckIcon class="h-4 w-4" />
+                </DropdownMenuShortcut>
+              </DropdownMenuItem>
+              <DropdownMenuItem @click="setTheme('frappe')">
+                <MoonIcon class="mr-2 h-4 w-4" />
+                <span>Dark 1</span>
+                <DropdownMenuShortcut v-if="$theme.active.value === 'frappe'">
+                  <CheckIcon class="h-4 w-4" />
+                </DropdownMenuShortcut>
+              </DropdownMenuItem>
+              <DropdownMenuItem @click="setTheme('macchiato')">
+                <MoonIcon class="mr-2 h-4 w-4" />
+                <span>Dark 2</span>
+                <DropdownMenuShortcut
+                  v-if="$theme.active.value === 'macchiato'"
+                >
+                  <CheckIcon class="h-4 w-4" />
+                </DropdownMenuShortcut>
+              </DropdownMenuItem>
+              <DropdownMenuItem @click="setTheme('mocha')">
+                <MoonIcon class="mr-2 h-4 w-4" />
+                <span>Dark 3</span>
+                <DropdownMenuShortcut v-if="$theme.active.value === 'mocha'">
+                  <CheckIcon class="h-4 w-4" />
+                </DropdownMenuShortcut>
+              </DropdownMenuItem>
+              <DropdownMenuSeparator />
+              <DropdownMenuItem @click="setTheme('system')">
+                <LaptopIcon class="mr-2 h-4 w-4" />
+                <span>System</span>
+                <DropdownMenuShortcut
+                  v-if="$theme.preferred.value === 'system'"
+                >
+                  <CheckIcon class="h-4 w-4" />
+                </DropdownMenuShortcut>
+              </DropdownMenuItem>
+            </DropdownMenuContent>
+          </DropdownMenu>
 
-        <div class="flex-1 flex justify-end">
-          <ThemeSwitcher />
+          <!-- Mobile Menu (Hamburger + Sheet) -->
+          <Sheet v-model:open="isSheetOpen">
+            <SheetTrigger asChild class="md:hidden">
+              <Button variant="ghost" size="icon">
+                <MenuIcon class="h-5 w-5" />
+                <span class="sr-only">Toggle menu</span>
+              </Button>
+            </SheetTrigger>
+            <SheetContent side="right" class="w-[250px] sm:w-[300px]">
+              <SheetHeader>
+                <SheetTitle>Menu</SheetTitle>
+                <SheetDescription>
+                  Navigate to different sections of the portfolio.
+                </SheetDescription>
+              </SheetHeader>
+              <div class="mt-6 flex flex-col gap-3">
+                <Button
+                  v-for="item in navLinks"
+                  :key="item.target"
+                  variant="ghost"
+                  class="justify-start"
+                  @click="mobileNavClick(item.target)"
+                >
+                  {{ item.name }}
+                </Button>
+              </div>
+            </SheetContent>
+          </Sheet>
         </div>
       </nav>
-    </header>
-  </div>
+    </div>
+  </header>
 </template>
 
 <script setup lang="ts">
-import { ref, onMounted, onBeforeUnmount, nextTick } from "vue";
+import { ref, computed } from "vue";
+import type { ThemePreference } from "~/plugins/theme/themes";
 import {
-  NavigationMenu,
-  NavigationMenuItem,
-  NavigationMenuLink,
-  NavigationMenuList,
-  navigationMenuTriggerStyle, // Import the style function
-} from "@/components/ui/navigation-menu";
-
-// State for tracking visibility of the H1 element
-const isH1Visible = ref(true);
-const observer = ref<IntersectionObserver | null>(null);
+  SunIcon,
+  MoonIcon,
+  MenuIcon,
+  CheckIcon,
+  LaptopIcon,
+} from "lucide-vue-next";
 
 // Navigation links data
 const navLinks = [
@@ -65,13 +143,19 @@ const navLinks = [
   { name: "Contact", target: "contact" },
 ];
 
-// Smooth scrolling function
-const scrollToSection = (target: string) => {
+const isSheetOpen = ref(false);
+const { $theme } = useNuxtApp();
+
+function setTheme(theme: string) {
+  $theme.setPreferredTheme(theme as ThemePreference);
+}
+
+function scrollToSection(target: string) {
   if (!process.client) return; // Ensure runs client-side
   const element = document.getElementById(target);
   if (element) {
-    // Calculate offset dynamically if needed (e.g., header height)
-    const headerOffset = 80; // Adjust as necessary
+    // Calculate offset for the header height
+    const headerOffset = 80;
     const elementPosition = element.getBoundingClientRect().top;
     const offsetPosition = elementPosition + window.scrollY - headerOffset;
 
@@ -80,62 +164,12 @@ const scrollToSection = (target: string) => {
       behavior: "smooth",
     });
   }
-};
+}
 
-// Function to set up the Intersection Observer
-const setupIntersectionObserver = () => {
-  const options: IntersectionObserverInit = {
-    root: null, // viewport
-    rootMargin: "-80px",
-    threshold: 0.1, // Trigger when even a small part is visible/hidden
-  };
-
-  observer.value = new IntersectionObserver((entries) => {
-    entries.forEach((entry) => {
-      isH1Visible.value = entry.isIntersecting;
-    });
-  }, options);
-
-  nextTick(() => {
-    const h1Element = document.querySelector("#landing-title");
-    if (h1Element) {
-      observer.value?.observe(h1Element);
-    } else {
-      console.warn(
-        "AppHeader: Landing title element (#landing-title) not found for IntersectionObserver."
-      );
-    }
-  });
-};
-
-// Lifecycle Hooks
-onMounted(() => {
-  if (process.client) {
-    setupIntersectionObserver();
-  }
-});
-
-onBeforeUnmount(() => {
-  if (process.client && observer.value) {
-    observer.value.disconnect();
-  }
-});
+function mobileNavClick(target: string) {
+  isSheetOpen.value = false; // Close the sheet
+  setTimeout(() => {
+    scrollToSection(target); // Scroll to the section with a slight delay to ensure sheet closes first
+  }, 100);
+}
 </script>
-
-<style scoped>
-/* Define the fade transition for the name visibility */
-.fade-enter-active,
-.fade-leave-active {
-  transition: opacity 0.4s ease; /* Slightly faster fade */
-}
-
-.fade-enter-from,
-.fade-leave-to {
-  opacity: 0;
-}
-
-/* Optional: If NavigationMenu needs specific alignment tweaks within flex */
-:deep(.flex-1 > nav) {
-  justify-content: flex-start; /* Align nav menu items to the start */
-}
-</style>

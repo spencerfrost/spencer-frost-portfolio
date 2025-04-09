@@ -1,53 +1,66 @@
 <template>
   <section
     id="landing"
-    class="flex h-screen flex-col items-center justify-center bg-[var(--background)]"
+    class="flex h-screen flex-col items-center justify-center bg-bg"
   >
     <div class="text-center">
-      <h1 id="landing-title" class="mb-4 text-5xl font-bold text-[var(--foreground)]">
+      <h1 id="landing-title" class="mb-4 text-5xl font-bold text-heading">
         Spencer
-        <span class="text-[var(--primary)]">Frost</span>
+        <span class="text-primary">Frost</span>
       </h1>
 
-      <div class="mb-6 flex justify-center">
+      <!-- <div class="mb-6 flex justify-center">
         <img
           src="/images/spencer.jpg"
-          class="h-80 w-80 rounded-full border-8 border-[var(--background)] shadow-lg"
+          class="h-80 w-80 rounded-full border-8 border-bg shadow-lg"
           alt="Spencer Frost"
         />
-      </div>
+      </div> -->
 
-      <h2 class="mb-8 rounded-md bg-[var(--card)] p-3 text-2xl font-medium text-[var(--card-foreground)]">
+      <h2 class="mb-8 rounded-md bg-card p-3 text-2xl font-medium text-card-foreground">
         Front-end Developer / DevOps Tinkerer
       </h2>
 
-      <div class="mb-6 flex justify-center space-x-4">
-        <Button
-          variant="outline"
-          size="icon"
-          asChild
-          class="h-12 w-12 rounded-full bg-[var(--secondary)] text-[var(--secondary-foreground)] transition-colors hover:bg-[var(--primary)] hover:text-[var(--primary-foreground)]"
-        >
-          <a href="https://www.linkedin.com/in/spencer-frost-40405463/" target="_blank" rel="noopener noreferrer">
-            <LinkedinIcon class="h-6 w-6" />
-          </a>
-        </Button>
-
-        <Button
-          variant="outline"
-          size="icon"
-          asChild
-          class="h-12 w-12 rounded-full bg-[var(--secondary)] text-[var(--secondary-foreground)] transition-colors hover:bg-[var(--primary)] hover:text-[var(--primary-foreground)]"
-        >
-          <a href="https://github.com/spencerfrost" target="_blank" rel="noopener noreferrer">
-            <GithubIcon class="h-6 w-6" />
-          </a>
-        </Button>
+      <div class="mt-6 flex justify-center gap-4">
+        <TooltipProvider>
+          <Tooltip>
+            <TooltipTrigger asChild>
+              <a 
+                href="https://github.com/spencerfrost" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                class="inline-flex items-center justify-center h-10 w-10 rounded-full bg-raised-bg border border-border hover:border-primary hover:text-primary transition-colors"
+              >
+                <GithubIcon class="h-5 w-5" />
+              </a>
+            </TooltipTrigger>
+            <TooltipContent>
+              <p>GitHub Profile</p>
+            </TooltipContent>
+          </Tooltip>
+        </TooltipProvider>
+        
+        <TooltipProvider>
+          <Tooltip>
+            <TooltipTrigger asChild>
+              <a 
+                href="https://www.linkedin.com/in/spencer-frost-40405463/" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                class="inline-flex items-center justify-center h-10 w-10 rounded-full bg-raised-bg border border-border hover:border-primary hover:text-primary transition-colors"
+              >
+                <LinkedinIcon class="h-5 w-5" />
+              </a>
+            </TooltipTrigger>
+            <TooltipContent>
+              <p>LinkedIn Profile</p>
+            </TooltipContent>
+          </Tooltip>
+        </TooltipProvider>
       </div>
+      <ThemeSwitcher class="mt-8" />
 
-      <div class="mt-4">
-        <ThemeSwitcher />
-      </div>
+      <DemoCard class="mt-8" />
     </div>
   </section>
 </template>
@@ -55,6 +68,12 @@
 <script setup>
 import { Button } from '@/components/ui/button'
 import { LinkedinIcon, GithubIcon } from 'lucide-vue-next'
+import {
+  Tooltip,
+  TooltipContent,
+  TooltipProvider,
+  TooltipTrigger,
+} from '@/components/ui/tooltip'
 
 const scrollToLanding = () => {
   const element = document.getElementById('landing')

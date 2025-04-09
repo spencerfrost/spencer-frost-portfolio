@@ -4,7 +4,6 @@
     <AboutSection id="about" />
     <WorkSection id="work" />
     <ContactSection id="contact" />
-    <AppFooter />
   </div>
 </template>
 

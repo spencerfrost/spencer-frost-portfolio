@@ -1,28 +1,14 @@
-<!-- layouts/default.vue -->
 <template>
-  <div class="app-container">
-    <AppHeader :isScrolled="isScrolled" />
-    <slot />  <!-- This is where page content will be rendered -->
+  <div class="min-h-screen flex flex-col bg-bg font-body">
+    <AppHeader />
+    <main class="flex-1">
+      <slot />  <!-- This is where page content will be rendered -->
+    </main>
+    <AppFooter />
   </div>
 </template>
 
 <script setup>
-import { ref, onMounted, onUnmounted } from 'vue';
-
-// Scrolling logic (copied from your App.vue if present)
-const isScrolled = ref(false);
-
-const handleScroll = () => {
-  isScrolled.value = window.scrollY > 10;
-};
-
-onMounted(() => {
-  window.addEventListener('scroll', handleScroll);
-  // Call once to initialize
-  handleScroll();
-});
-
-onUnmounted(() => {
-  window.removeEventListener('scroll', handleScroll);
-});
+import AppHeader from '~/components/AppHeader.vue';
+import AppFooter from '~/components/AppFooter.vue';
 </script>
