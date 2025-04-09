@@ -38,3 +38,239 @@ h1, h2, h3, h4, h5, h6 {
 html {
   @extend .mocha;
 }
+
+/* latte.css - Light theme */
+:root {
+  --radius: 0.625rem;
+
+  /* Core theme colors */
+  --background: rgb(var(--ctp-base));
+  --foreground: rgb(var(--ctp-text));
+
+  /* Card */
+  --card: rgb(var(--ctp-crust));
+  --card-foreground: rgb(var(--ctp-text));
+
+  /* Popover */
+  --popover: rgb(var(--ctp-surface0));
+  --popover-foreground: rgb(var(--ctp-text));
+
+  /* Primary */
+  --primary: rgb(var(--ctp-lavender));
+  --primary-foreground: rgb(var(--ctp-base));
+
+  /* Secondary */
+  --secondary: rgb(var(--ctp-surface2));
+  --secondary-foreground: rgb(var(--ctp-text));
+
+  /* Muted */
+  --muted: rgb(var(--ctp-surface0));
+  --muted-foreground: rgb(var(--ctp-subtext0));
+
+  /* Accent */
+  --accent: rgb(var(--ctp-sky));
+  --accent-foreground: rgb(var(--ctp-base));
+
+  /* Destructive */
+  --destructive: rgb(var(--ctp-red));
+  --destructive-foreground: rgb(var(--ctp-base));
+
+  /* Border, Input and Ring */
+  --border: rgb(var(--ctp-surface2));
+  --input: rgb(var(--ctp-surface2));
+  --ring: rgb(var(--ctp-lavender));
+
+  /* Charts */
+  --chart-1: rgb(var(--ctp-red));
+  --chart-2: rgb(var(--ctp-blue));
+  --chart-3: rgb(var(--ctp-green));
+  --chart-4: rgb(var(--ctp-yellow));
+  --chart-5: rgb(var(--ctp-pink));
+
+  /* Sidebar */
+  --sidebar: rgb(var(--ctp-crust));
+  --sidebar-foreground: rgb(var(--ctp-text));
+  --sidebar-primary: rgb(var(--ctp-lavender));
+  --sidebar-primary-foreground: rgb(var(--ctp-base));
+  --sidebar-accent: rgb(var(--ctp-sky));
+  --sidebar-accent-foreground: rgb(var(--ctp-base));
+  --sidebar-border: rgb(var(--ctp-surface2));
+  --sidebar-ring: rgb(var(--ctp-lavender));
+}
+
+/* frappe.css - Dark theme variant 1 */
+.frappe {
+  --radius: 0.625rem;
+
+  /* Core theme colors */
+  --background: rgb(var(--ctp-base));
+  --foreground: rgb(var(--ctp-text));
+
+  /* Card */
+  --card: rgb(var(--ctp-mantle));
+  --card-foreground: rgb(var(--ctp-text));
+
+  /* Popover */
+  --popover: rgb(var(--ctp-surface0));
+  --popover-foreground: rgb(var(--ctp-text));
+
+  /* Primary */
+  --primary: rgb(var(--ctp-lavender));
+  --primary-foreground: rgb(var(--ctp-crust));
+
+  /* Secondary */
+  --secondary: rgb(var(--ctp-surface2));
+  --secondary-foreground: rgb(var(--ctp-subtext1));
+
+  /* Muted */
+  --muted: rgb(var(--ctp-surface0));
+  --muted-foreground: rgb(var(--ctp-subtext0));
+
+  /* Accent */
+  --accent: rgb(var(--ctp-blue));
+  --accent-foreground: rgb(var(--ctp-crust));
+
+  /* Destructive */
+  --destructive: rgb(var(--ctp-red));
+  --destructive-foreground: rgb(var(--ctp-crust));
+
+  /* Border, Input and Ring */
+  --border: rgb(var(--ctp-surface1));
+  --input: rgb(var(--ctp-surface1));
+  --ring: rgb(var(--ctp-lavender));
+
+  /* Charts */
+  --chart-1: rgb(var(--ctp-red));
+  --chart-2: rgb(var(--ctp-blue));
+  --chart-3: rgb(var(--ctp-green));
+  --chart-4: rgb(var(--ctp-yellow));
+  --chart-5: rgb(var(--ctp-pink));
+
+  /* Sidebar */
+  --sidebar: rgb(var(--ctp-mantle));
+  --sidebar-foreground: rgb(var(--ctp-text));
+  --sidebar-primary: rgb(var(--ctp-lavender));
+  --sidebar-primary-foreground: rgb(var(--ctp-crust));
+  --sidebar-accent: rgb(var(--ctp-blue));
+  --sidebar-accent-foreground: rgb(var(--ctp-crust));
+  --sidebar-border: rgb(var(--ctp-surface1));
+  --sidebar-ring: rgb(var(--ctp-lavender));
+}
+
+/* macchiato.css - Dark theme variant 2 */
+.macchiato {
+  --radius: 0.625rem;
+
+  /* Core theme colors */
+  --background: rgb(var(--ctp-base));
+  --foreground: rgb(var(--ctp-text));
+
+  /* Card */
+  --card: rgb(var(--ctp-mantle));
+  --card-foreground: rgb(var(--ctp-text));
+
+  /* Popover */
+  --popover: rgb(var(--ctp-surface0));
+  --popover-foreground: rgb(var(--ctp-text));
+
+  /* Primary */
+  --primary: rgb(var(--ctp-lavender));
+  --primary-foreground: rgb(var(--ctp-crust));
+
+  /* Secondary */
+  --secondary: rgb(var(--ctp-surface2));
+  --secondary-foreground: rgb(var(--ctp-subtext1));
+
+  /* Muted */
+  --muted: rgb(var(--ctp-surface0));
+  --muted-foreground: rgb(var(--ctp-subtext0));
+
+  /* Accent */
+  --accent: rgb(var(--ctp-blue));
+  --accent-foreground: rgb(var(--ctp-crust));
+
+  /* Destructive */
+  --destructive: rgb(var(--ctp-red));
+  --destructive-foreground: rgb(var(--ctp-crust));
+
+  /* Border, Input and Ring */
+  --border: rgb(var(--ctp-surface1));
+  --input: rgb(var(--ctp-surface1));
+  --ring: rgb(var(--ctp-lavender));
+
+  /* Charts */
+  --chart-1: rgb(var(--ctp-red));
+  --chart-2: rgb(var(--ctp-blue));
+  --chart-3: rgb(var(--ctp-green));
+  --chart-4: rgb(var(--ctp-yellow));
+  --chart-5: rgb(var(--ctp-pink));
+
+  /* Sidebar */
+  --sidebar: rgb(var(--ctp-mantle));
+  --sidebar-foreground: rgb(var(--ctp-text));
+  --sidebar-primary: rgb(var(--ctp-lavender));
+  --sidebar-primary-foreground: rgb(var(--ctp-crust));
+  --sidebar-accent: rgb(var(--ctp-blue));
+  --sidebar-accent-foreground: rgb(var(--ctp-crust));
+  --sidebar-border: rgb(var(--ctp-surface1));
+  --sidebar-ring: rgb(var(--ctp-lavender));
+}
+
+/* mocha.css - Dark theme variant 3 */
+.mocha {
+  --radius: 0.625rem;
+
+  /* Core theme colors */
+  --background: rgb(var(--ctp-base));
+  --foreground: rgb(var(--ctp-text));
+
+  /* Card */
+  --card: rgb(var(--ctp-mantle));
+  --card-foreground: rgb(var(--ctp-text));
+
+  /* Popover */
+  --popover: rgb(var(--ctp-surface0));
+  --popover-foreground: rgb(var(--ctp-text));
+
+  /* Primary */
+  --primary: rgb(var(--ctp-lavender));
+  --primary-foreground: rgb(var(--ctp-crust));
+
+  /* Secondary */
+  --secondary: rgb(var(--ctp-surface2));
+  --secondary-foreground: rgb(var(--ctp-subtext1));
+
+  /* Muted */
+  --muted: rgb(var(--ctp-surface0));
+  --muted-foreground: rgb(var(--ctp-subtext0));
+
+  /* Accent */
+  --accent: rgb(var(--ctp-blue));
+  --accent-foreground: rgb(var(--ctp-crust));
+
+  /* Destructive */
+  --destructive: rgb(var(--ctp-red));
+  --destructive-foreground: rgb(var(--ctp-crust));
+
+  /* Border, Input and Ring */
+  --border: rgb(var(--ctp-surface1));
+  --input: rgb(var(--ctp-surface1));
+  --ring: rgb(var(--ctp-lavender));
+
+  /* Charts */
+  --chart-1: rgb(var(--ctp-red));
+  --chart-2: rgb(var(--ctp-blue));
+  --chart-3: rgb(var(--ctp-green));
+  --chart-4: rgb(var(--ctp-yellow));
+  --chart-5: rgb(var(--ctp-pink));
+
+  /* Sidebar */
+  --sidebar: rgb(var(--ctp-mantle));
+  --sidebar-foreground: rgb(var(--ctp-text));
+  --sidebar-primary: rgb(var(--ctp-lavender));
+  --sidebar-primary-foreground: rgb(var(--ctp-crust));
+  --sidebar-accent: rgb(var(--ctp-blue));
+  --sidebar-accent-foreground: rgb(var(--ctp-crust));
+  --sidebar-border: rgb(var(--ctp-surface1));
+  --sidebar-ring: rgb(var(--ctp-lavender));
+}

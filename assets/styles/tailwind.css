@@ -1,3 +1,5 @@
+@import 'typography.css';
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -6,4 +8,10 @@ h1,
 h2,
 h3 {
   @apply font-bold;
+}
+
+.nuxt-link-active,
+.nuxt-link-exact-active,
+a[href] {
+  @apply no-underline text-inherit;
 }
