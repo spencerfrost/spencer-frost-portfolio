@@ -1,13 +1,13 @@
 # Spencer Frost Portfolio
 
-My personal portfolio website built with Nuxt 3, Tailwind CSS v4, and ShadCN UI.
+My personal portfolio website built with Nuxt 3, Tailwind CSS v3, and ShadCN/Vue.
 
 ## 🚀 Features
 
 - **Server-Side Rendering (SSR)** with Nuxt 3
-- **Modern UI components** using ShadCN UI
+- **Modern UI components** using ShadCN/Vue
 - **Type-safe** with TypeScript
-- **Responsive design** with Tailwind CSS v4
+- **Responsive design** with Tailwind CSS v3
 - **Catppuccin theme** for beautiful, cohesive styling
 - **Performance optimized** with image optimization and code splitting
 - **Continuous Integration** using CircleCI
@@ -15,8 +15,8 @@ My personal portfolio website built with Nuxt 3, Tailwind CSS v4, and ShadCN UI.
 ## 🛠️ Tech Stack
 
 - **Framework**: [Nuxt 3](https://nuxt.com/)
-- **UI Library**: [ShadCN UI](https://ui.shadcn.com/)
-- **Styling**: [Tailwind CSS v4](https://tailwindcss.com/)
+- **UI Library**: [ShadCN/Vue](https://www.shadcn-vue.com)
+- **Styling**: [Tailwind CSS v3](https://tailwindcss.com/)
 - **Theme**: [Catppuccin](https://github.com/catppuccin/tailwindcss)
 - **Icons**: [Lucide Icons](https://lucide.dev/)
 - **HTTP Client**: [Axios](https://axios-http.com/)
@@ -115,12 +115,14 @@ This project uses ShadCN UI components, which are located in the `components/ui`
 To add a new ShadCN component, use:
 
 ```bash
-npx shadcn-vue add button
+pnpm dlx shadcn-vue@1.0.3 add button
 ```
 
 ## 🎨 Styling
 
-The project uses Tailwind CSS v4 for styling. The main configuration is handled through Nuxt modules in `nuxt.config.ts`.
+The project uses Tailwind CSS v3 for styling/theming. There are 4 themes to match with the 4 flavours of Catppuccin.
+
+The main configuration is handled through `tailwind.config.js` and Nuxt modules in `nuxt.config.ts`.
 
 Custom CSS can be added to `assets/styles/tailwind.css`.
 
