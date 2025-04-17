@@ -1,23 +1,25 @@
 <template>
-  <Card class="bg-card">
-    <CardHeader>
-      <CardTitle class="text-heading text-xl font-bold">Theme</CardTitle>
-      <CardDescription class="text-muted-foreground">
-        Choose your preferred theme.
-      </CardDescription>
+  <Card>
+    <CardHeader class="text-center">
+      <CardTitle>Welcome to Spencer's Code Cafe!</CardTitle>
+      <CardDescription>What’ll it be today?</CardDescription>
     </CardHeader>
     <CardContent class="grid grid-cols-2 md:grid-cols-4 gap-3">
-      <Button
-        v-for="theme in themes"
-        :key="theme"
-        @click="setTheme(theme)"
-        :active="theme === preferred"
+      <div
+      v-for="theme in themes"
+          :key="theme"
+          class="flex flex-col items-center justify-center"
       >
-        <div class="flex items-center justify-center gap-2">
-          <!-- <span v-if="theme === preferred" class="text-primary text-xs">●</span> -->
-          <span>{{ formatThemeName(theme) }}</span>
-        </div>
-      </Button>
+        <img
+          :src="`/images/catppuccin-icons/${theme}.webp`"
+          class="w-16 h-16 cursor-pointer"
+          @click="setTheme(theme)"
+          :class="{ 'opacity-50': theme !== preferred }"
+        />
+        <span class="text-xs mt-2">
+          {{ formatThemeName(theme) }}
+        </span>
+      </div>
     </CardContent>
   </Card>
 </template>
