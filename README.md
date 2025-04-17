@@ -93,7 +93,7 @@ spencer-frost-portfolio/
 ├── .nuxt/                # Nuxt build files
 ├── .output/              # Production build output
 ├── assets/               # CSS, SCSS files
-│   └── css/              # Tailwind CSS
+│   └── styles/              # Tailwind CSS
 ├── components/           # Vue components
 │   ├── sections/         # Page section components
 │   └── ui/               # ShadCN UI components
