@@ -33,6 +33,7 @@
   },
   "devDependencies": {
     "@catppuccin/tailwindcss": "^0.1.6",
+    "@iconify-json/uil": "^1.2.3",
     "autoprefixer": "^10.4.21",
     "class-variance-authority": "^0.7.1",
     "nuxi": "^3.24.1",
