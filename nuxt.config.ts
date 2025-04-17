@@ -4,17 +4,17 @@ export default defineNuxtConfig({
   compatibilityDate: "2024-11-01",
   devtools: { enabled: true },
 
-  css: ["~/assets/styles/tailwind.css", "~/assets/styles/global.scss"],
+  css: [
+    "~/assets/styles/tailwind.css",
+    "~/assets/styles/global.css",
+    "~/assets/styles/catppuccin.css"
+  ],
 
   postcss: {
     plugins: {
       tailwindcss: {},
       autoprefixer: {},
     },
-  },
-
-  build: {
-    transpile: [],
   },
 
   fonts: {
@@ -43,18 +43,6 @@ export default defineNuxtConfig({
     ],
   },
 
-  shadcn: {
-    /**
-     * Prefix for all the imported component
-     */
-    prefix: "",
-    /**
-     * Directory that the component lives in.
-     * @default "./components/ui"
-     */
-    componentDir: "./components/ui",
-  },
-
   modules: [
     "shadcn-nuxt",
     "@nuxt/devtools",
@@ -62,5 +50,16 @@ export default defineNuxtConfig({
     "@nuxt/eslint",
     "@nuxt/icon",
     "@nuxt/fonts",
+    '@vee-validate/nuxt',
+    "@nuxt/content",
   ],
+
+  eslint: {
+    config: {
+    }
+  },
+  shadcn: {
+    prefix: "",
+    componentDir: "./components/ui",
+  },
 });

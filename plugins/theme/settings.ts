@@ -5,20 +5,17 @@ import { isLightTheme, isDarkTheme } from './themes';
 import { useNativeTheme } from './native-theme';
 
 export function useThemeSettings() {
-  // Get the system theme preference
   const systemTheme = useNativeTheme();
 
   // Use the Nuxt useState for reactivity across components
   const themePreference = useState<ThemePreference>(
     'theme-preference', 
     () => {
-      // Try to load from cookie if available
       const cookiePref = useCookie<ThemePreference>('theme-preference');
       return cookiePref.value || 'system';
     }
   );
 
-  // Compute the active theme
   const active = computed<Theme>(() => {
     if (themePreference.value === 'system') {
       return systemTheme.value;
@@ -30,15 +27,15 @@ export function useThemeSettings() {
   const isLight = computed(() => isLightTheme(active.value));
   const isDark = computed(() => isDarkTheme(active.value));
 
-  // Save preference to cookie
-  watch(themePreference, (newPreference) => {
+  function setCookiePreference(newPreference: ThemePreference) {
     const cookiePref = useCookie<ThemePreference>('theme-preference');
     cookiePref.value = newPreference;
-  });
+  }
 
   // Function to set the preferred theme
   function setPreferredTheme(preference: ThemePreference) {
     themePreference.value = preference;
+    setCookiePreference(preference);
   }
 
   return {

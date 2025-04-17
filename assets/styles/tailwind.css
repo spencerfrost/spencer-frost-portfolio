@@ -4,14 +4,10 @@
 @tailwind components;
 @tailwind utilities;
 
-h1,
-h2,
-h3 {
+h1, h2, h3 {
   @apply font-bold;
 }
 
-.nuxt-link-active,
-.nuxt-link-exact-active,
-a[href] {
+.nuxt-link-active, .nuxt-link-exact-active, a[href] {
   @apply no-underline text-inherit;
 }
