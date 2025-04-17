@@ -1,8 +1,8 @@
 <template>
-  <section id="about" class="h-screen flex bg-bg">
+  <section id="about">
     <div class="w-1/3 relative overflow-hidden">
       <img
-        src="/images/spencer_standing.jpg"
+        src="/images/spencer/standing.jpg"
         alt="Spencer standing"
         class="absolute top-0 left-1/2 transform -translate-x-1/2 h-full w-auto max-w-none object-cover"
       />

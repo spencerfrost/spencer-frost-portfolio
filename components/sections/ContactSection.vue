@@ -41,7 +41,6 @@
 
 <script setup>
 import { ref } from 'vue';
-import axios from 'axios';
 
 const form = ref({
   name: '',
@@ -52,24 +51,24 @@ const form = ref({
 const isSubmitting = ref(false);
 
 async function submitForm() {
-  isSubmitting.value = true;
-  try {
-    const response = await axios.post(
-      'https://email.mrspinn.ca/api/portfolio/contact',
-      form.value
-    );
+  // isSubmitting.value = true;
+  // try {
+  //   const response = await axios.post(
+  //     'https://email.mrspinn.ca/api/portfolio/contact',
+  //     form.value
+  //   );
     
-    if (response.data.message === 'Message sent successfully') {
-      alert('Thank you for your message! I will get back to you soon.');
-      form.value = { name: '', email: '', message: '' };
-    } else {
-      throw new Error('Unexpected response from server');
-    }
-  } catch (error) {
-    console.error('Error sending email:', error);
-    alert('There was an error sending your message. Please try again later.');
-  } finally {
-    isSubmitting.value = false;
-  }
+  //   if (response.data.message === 'Message sent successfully') {
+  //     alert('Thank you for your message! I will get back to you soon.');
+  //     form.value = { name: '', email: '', message: '' };
+  //   } else {
+  //     throw new Error('Unexpected response from server');
+  //   }
+  // } catch (error) {
+  //   console.error('Error sending email:', error);
+  //   alert('There was an error sending your message. Please try again later.');
+  // } finally {
+  //   isSubmitting.value = false;
+  // }
 }
 </script>

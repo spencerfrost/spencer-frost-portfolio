@@ -52,11 +52,11 @@
 </template>
 
 <script setup>
-import afterFunkImage from '/images/afterfunk.png'
-import minecraftSkinMergerImage from '/images/minecraft-skin-merger.png'
-import portfolioImage from '/images/portfolio.png'
-import movieRatingsImage from '/images/quick-critic.png'
-import taskMasterImage from '/images/taskmaster.png'
+import afterFunkImage from '/images/projects/afterfunk.png'
+import minecraftSkinMergerImage from '/images/projects/minecraft-skin-merger.png'
+import portfolioImage from '/images/projects/portfolio.png'
+import movieRatingsImage from '/images/projects/quick-critic.png'
+import taskMasterImage from '/images/projects/taskmaster.png'
 
 const projects = [
   {
