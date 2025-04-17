@@ -1,6 +1,6 @@
 <template>
   <div>
-    Placeholder for Project Page
+    Goal Tracker Project Page
   </div>
 </template>
 
