@@ -1,6 +1,7 @@
 version: 2.1
 orbs:
   node: circleci/node@7.1.0
+
 jobs:
   build-node:
     executor: node/default
@@ -8,27 +9,27 @@ jobs:
       - checkout
       - run:
           name: Install Dependencies
-          command: npm install
+          command: pnpm install # Use pnpm install
       - run:
           name: Build the Project
-          command: npm run build
+          command: pnpm run build # Use pnpm run build
       - persist_to_workspace:
           root: .
           paths:
-            - dist
+            - .output # Changed from dist to .output
 
   deploy:
     executor: node/default
     steps:
       - attach_workspace:
-          at: /home/circleci/project  # Attach workspace at the project root
+          at: /home/circleci/project
       - run:
           name: List built files
-          command: ls -al /home/circleci/project/dist
+          command: ls -al /home/circleci/project/.output # Changed from dist to .output
       - run:
           name: Deploy to Server
           command: |
-            scp -r -v /home/circleci/project/dist/* $SERVER_USER@$SERVER_IP:$SERVER_DIR
+            scp -r -v /home/circleci/project/.output/* $SERVER_USER@$SERVER_IP:$SERVER_DIR # Changed from dist to .output
             ssh $SERVER_USER@$SERVER_IP "sudo systemctl restart nginx"
 
 workflows:
