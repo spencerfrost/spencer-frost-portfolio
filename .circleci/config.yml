@@ -69,8 +69,8 @@ jobs:
             # Ensure SSH agent is running or keys are configured properly in CircleCI
             # Consider adding known hosts: ssh-keyscan -H $SERVER_IP >> ~/.ssh/known_hosts
             echo "Deploying to $SERVER_IP..."
-            scp -r -v /home/circleci/project/.output/* $SERVER_USER@$SERVER_IP:$SERVER_DIR
-            ssh $SERVER_USER@$SERVER_IP "sudo systemctl restart nginx"
+            scp -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null -r -v /home/circleci/project/.output/* $SERVER_USER@$SERVER_IP:$SERVER_DIR
+            ssh -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null $SERVER_USER@$SERVER_IP "sudo systemctl restart nginx"
             echo "Deployment complete and Nginx restarted."
 
 workflows:
