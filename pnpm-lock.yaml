@@ -56,6 +56,9 @@ importers:
       tailwindcss-animate:
         specifier: ^1.0.7
         version: 1.0.7(tailwindcss@3.4.17)
+      v-gsap-nuxt:
+        specifier: 1.3.20
+        version: 1.3.20(magicast@0.3.5)
       vite:
         specifier: ^6.3.0
         version: 6.3.0(@types/node@22.14.0)(jiti@2.4.2)(lightningcss@1.29.2)(sass@1.86.3)(terser@5.39.0)(yaml@2.7.1)
@@ -72,6 +75,9 @@ importers:
       '@catppuccin/tailwindcss':
         specifier: ^0.1.6
         version: 0.1.6(tailwindcss@3.4.17)
+      '@iconify-json/gravity-ui':
+        specifier: ^1.2.5
+        version: 1.2.5
       '@iconify-json/uil':
         specifier: ^1.2.3
         version: 1.2.3
@@ -544,6 +550,9 @@ packages:
   '@humanwhocodes/retry@0.4.2':
     resolution: {integrity: sha512-xeO57FpIu4p1Ri3Jq/EXq4ClRm86dVF2z/+kvFnyqVYRavTZmaFaUBbWCOuuTh0o/g7DSsk6kc2vrS4Vl5oPOQ==}
     engines: {node: '>=18.18'}
+
+  '@iconify-json/gravity-ui@1.2.5':
+    resolution: {integrity: sha512-7uf4xG2ijmcte4AqPpzNTqnEBqxvHBKW/gI0VTZeP0nLtZSvoCybNt5QsJ7f/xyrIQDgCJ4usEmRaX7G86NueA==}
 
   '@iconify-json/uil@1.2.3':
     resolution: {integrity: sha512-if91+UBhDQc6glPsIaXecGIcXnbQZfEO4Gdv89TV2xQ+V5e9GWbY5rNl2fsKZd8COsRQ5lRQAKimVQVL0CZZVg==}
@@ -2669,6 +2678,9 @@ packages:
 
   graphemer@1.4.0:
     resolution: {integrity: sha512-EtKwoO6kxCL9WO5xipiHTZlSzBm7WLT627TqC/uVRd0HKmq8NXyebnNYxDoBi7wt8eTWrUrKXCOVaFq9x1kgag==}
+
+  gsap@3.12.7:
+    resolution: {integrity: sha512-V4GsyVamhmKefvcAKaoy0h6si0xX7ogwBoBSs2CTJwt7luW0oZzC0LhdkyuKV8PJAXr7Yaj8pMjCKD4GJ+eEMg==}
 
   gzip-size@7.0.0:
     resolution: {integrity: sha512-O1Ld7Dr+nqPnmGpdhzLmMTQ4vAsD+rHwMm1NLUmoUFFymBOMKxCCrtDxqdBRYXdeEPEi3SyoR4TizJLQrnKBNA==}
@@ -4870,6 +4882,9 @@ packages:
   util-deprecate@1.0.2:
     resolution: {integrity: sha512-EPD5q1uXyFxJpCrLnCc1nHnq3gOa6DZBocAIiI2TaSCA7VCJ1UJDMagCzIkXNsUYfD1daK//LTEQ8xiIbrHtcw==}
 
+  v-gsap-nuxt@1.3.20:
+    resolution: {integrity: sha512-Tki4wxoUFnbiOPYjgcoEFRoLiNSbwn3ShJ1kCf4kKZcX+AwYgglkAWz8jjlb64I1HbkIag0Fp4p7AQMSA9cgCw==}
+
   validate-npm-package-license@3.0.4:
     resolution: {integrity: sha512-DpKm2Ui/xN7/HQKCtpZxoRWBhZ9Z0kqtygG8XCgNQ8ZlDnxuQmWhj566j8fN4Cu3/JmbhsDo7fcAJq4s9h27Ew==}
 
@@ -5641,6 +5656,10 @@ snapshots:
   '@humanwhocodes/retry@0.3.1': {}
 
   '@humanwhocodes/retry@0.4.2': {}
+
+  '@iconify-json/gravity-ui@1.2.5':
+    dependencies:
+      '@iconify/types': 2.0.0
 
   '@iconify-json/uil@1.2.3':
     dependencies:
@@ -8242,6 +8261,8 @@ snapshots:
   graceful-fs@4.2.11: {}
 
   graphemer@1.4.0: {}
+
+  gsap@3.12.7: {}
 
   gzip-size@7.0.0:
     dependencies:
@@ -11066,6 +11087,14 @@ snapshots:
       punycode: 2.3.1
 
   util-deprecate@1.0.2: {}
+
+  v-gsap-nuxt@1.3.20(magicast@0.3.5):
+    dependencies:
+      '@nuxt/kit': 3.16.2(magicast@0.3.5)
+      defu: 6.1.4
+      gsap: 3.12.7
+    transitivePeerDependencies:
+      - magicast
 
   validate-npm-package-license@3.0.4:
     dependencies:
