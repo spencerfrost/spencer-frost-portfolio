@@ -1,47 +1,88 @@
 version: 2.1
-orbs:
-  node: circleci/node@7.1.0
+
+# Define reusable executors
+executors:
+  node_executor: # Define a reusable Node.js environment
+    docker:
+      # Use a CircleCI convenience image for Node.js (includes git, ssh, etc.)
+      # LTS (Long Term Support) version is usually a good choice
+      - image: cimg/node:lts
+    resource_class: medium # Adjust as needed (medium is default)
 
 jobs:
-  build-node:
-    executor: node/default
+  build: # Renamed from build-node for clarity
+    executor: node_executor # Use the defined Node.js executor
     steps:
       - checkout
+      # Restore pnpm package cache
+      - restore_cache:
+          keys:
+            # Cache key based on pnpm lock file hash
+            - v1-pnpm-deps-{{ checksum "pnpm-lock.yaml" }}
+            # Fallback cache key
+            - v1-pnpm-deps-
+      # Enable corepack and prepare pnpm
+      - run:
+          name: Enable Corepack and Prepare pnpm
+          command: |
+            # Corepack is included in Node.js LTS versions
+            corepack enable
+            # Prepare the pnpm version specified in package.json or use latest
+            # Use 'pnpm@latest' or pin to a specific major e.g. 'pnpm@9' if needed
+            corepack prepare pnpm@latest --activate
+            # Configure pnpm to use a local store directory for easier caching
+            pnpm config set store-dir .pnpm-store
+            echo "Using pnpm version: $(pnpm --version)"
+      # Install dependencies
       - run:
           name: Install Dependencies
-          command: pnpm install # Use pnpm install
-      - run:
-          name: Build the Project
-          command: pnpm run build # Use pnpm run build
-      - persist_to_workspace:
-          root: .
+          command: pnpm install --frozen-lockfile # Use --frozen-lockfile in CI
+      # Save pnpm package cache
+      - save_cache:
+          key: v1-pnpm-deps-{{ checksum "pnpm-lock.yaml" }}
           paths:
-            - .output # Changed from dist to .output
+            - .pnpm-store # Cache the local store directory
+      # Build the Nuxt project
+      - run:
+          name: Build Project
+          command: pnpm run build # Your Nuxt build command
+      # Persist the build output for the deploy job
+      - persist_to_workspace:
+          root: . # Root of the checkout directory
+          paths:
+            - .output # Persist the Nuxt build output directory
 
   deploy:
-    executor: node/default
+    executor: node_executor # Can reuse the node executor or use a more minimal one if needed
     steps:
+      # Get the built code from the build job
       - attach_workspace:
-          at: /home/circleci/project
+          at: /home/circleci/project # Attach workspace at this path
+      # Verify files (optional)
       - run:
           name: List built files
-          command: ls -al /home/circleci/project/.output # Changed from dist to .output
+          command: ls -al /home/circleci/project/.output
+      # Deploy using scp and ssh
       - run:
-          name: Deploy to Server
+          name: Deploy to Server via SCP and SSH
           command: |
-            scp -r -v /home/circleci/project/.output/* $SERVER_USER@$SERVER_IP:$SERVER_DIR # Changed from dist to .output
+            # Ensure SSH agent is running or keys are configured properly in CircleCI
+            # Consider adding known hosts: ssh-keyscan -H $SERVER_IP >> ~/.ssh/known_hosts
+            echo "Deploying to $SERVER_IP..."
+            scp -r -v /home/circleci/project/.output/* $SERVER_USER@$SERVER_IP:$SERVER_DIR
             ssh $SERVER_USER@$SERVER_IP "sudo systemctl restart nginx"
+            echo "Deployment complete and Nginx restarted."
 
 workflows:
   build_and_deploy:
     jobs:
-      - build-node:
+      - build: # Use the build job name
           filters:
             branches:
-              only: master
+              only: master # Only run on pushes to the master branch
       - deploy:
           requires:
-            - build-node
+            - build # Requires the build job to succeed
           filters:
             branches:
-              only: master
+              only: master # Only run on pushes to the master branch
