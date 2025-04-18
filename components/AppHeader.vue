@@ -3,93 +3,48 @@
     <div class="container mx-auto">
       <nav class="flex h-16 items-center justify-between">
         <!-- Logo/Name - visible on all screens -->
-        <div class="flex items-center gap-2">
+        <div class="flex items-center gap-2 flex-1">
           <NuxtLink
             as="a"
             href="#"
             @click.prevent="scrollToSection('landing')"
             class="flex items-center cursor-pointer"
           >
-            <span class="text-3xl font-black font-rounded text-mauve">
-              Spencer<span class="text-primary">Frost</span>
+            <span class="text-3xl font-black font-rounded text-rosewater">
+              Spencer<span class="text-mauve">Frost</span>
             </span>
           </NuxtLink>
         </div>
 
         <!-- Desktop Navigation - hidden on mobile -->
-        <div class="hidden md:flex md:flex-1 md:justify-center">
-          <NavigationMenu>
-            <NavigationMenuList>
-              <NavigationMenuItem v-for="item in navLinks" :key="item.target">
-                <NavigationMenuLink
-                  as="a"
-                  :href="`#${item.target}`"
-                  @click.prevent="scrollToSection(item.target)"
-                  class="cursor-pointer"
-                >
-                  {{ item.name }}
-                </NavigationMenuLink>
-              </NavigationMenuItem>
-            </NavigationMenuList>
-          </NavigationMenu>
+        <div class="hidden md:flex flex-1 md:justify-center">
+          <div class="flex items-center space-x-12">
+            <NuxtLink
+              href="#about"
+              @click.prevent="scrollToSection('about')"
+              class="text-green text-xl font-medium transition-colors hover:text-flamingo"
+            >
+              About
+            </NuxtLink>
+            <NuxtLink
+              href="#work"
+              @click.prevent="scrollToSection('work')"
+              class="text-red text-xl font-medium transition-colors hover:text-blue"
+            >
+              Work
+            </NuxtLink>
+            <NuxtLink
+              href="#contact"
+              @click.prevent="scrollToSection('contact')"
+              class="text-sapphire text-xl font-medium transition-colors hover:text-yellow"
+            >
+              Contact
+            </NuxtLink>
+          </div>
         </div>
-
         <!-- Theme Switcher and Mobile Menu -->
-        <div class="flex items-center gap-2">
-          <!-- Theme Dropdown -->
-          <DropdownMenu>
-            <DropdownMenuTrigger asChild>
-              <Button variant="ghost" size="icon">
-                <SunIcon v-if="$theme.isLight.value" class="h-5 w-5" />
-                <MoonIcon v-else class="h-5 w-5" />
-                <span class="sr-only">Toggle theme</span>
-              </Button>
-            </DropdownMenuTrigger>
-            <DropdownMenuContent align="end">
-              <DropdownMenuLabel>Theme</DropdownMenuLabel>
-              <DropdownMenuSeparator />
-              <DropdownMenuItem @click="setTheme('latte')">
-                <SunIcon class="mr-2 h-4 w-4" />
-                <span>Light</span>
-                <DropdownMenuShortcut v-if="$theme.active.value === 'latte'">
-                  <CheckIcon class="h-4 w-4" />
-                </DropdownMenuShortcut>
-              </DropdownMenuItem>
-              <DropdownMenuItem @click="setTheme('frappe')">
-                <MoonIcon class="mr-2 h-4 w-4" />
-                <span>Dark 1</span>
-                <DropdownMenuShortcut v-if="$theme.active.value === 'frappe'">
-                  <CheckIcon class="h-4 w-4" />
-                </DropdownMenuShortcut>
-              </DropdownMenuItem>
-              <DropdownMenuItem @click="setTheme('macchiato')">
-                <MoonIcon class="mr-2 h-4 w-4" />
-                <span>Dark 2</span>
-                <DropdownMenuShortcut
-                  v-if="$theme.active.value === 'macchiato'"
-                >
-                  <CheckIcon class="h-4 w-4" />
-                </DropdownMenuShortcut>
-              </DropdownMenuItem>
-              <DropdownMenuItem @click="setTheme('mocha')">
-                <MoonIcon class="mr-2 h-4 w-4" />
-                <span>Dark 3</span>
-                <DropdownMenuShortcut v-if="$theme.active.value === 'mocha'">
-                  <CheckIcon class="h-4 w-4" />
-                </DropdownMenuShortcut>
-              </DropdownMenuItem>
-              <DropdownMenuSeparator />
-              <DropdownMenuItem @click="setTheme('system')">
-                <LaptopIcon class="mr-2 h-4 w-4" />
-                <span>System</span>
-                <DropdownMenuShortcut
-                  v-if="$theme.preferred.value === 'system'"
-                >
-                  <CheckIcon class="h-4 w-4" />
-                </DropdownMenuShortcut>
-              </DropdownMenuItem>
-            </DropdownMenuContent>
-          </DropdownMenu>
+        <div class="flex flex-1 items-center justify-end space-x-4">
+          <ThemeSwitcherDialog icon />
 
           <!-- Mobile Menu (Hamburger + Sheet) -->
           <Sheet v-model:open="isSheetOpen">
@@ -126,15 +81,11 @@
 </template>
 
 <script setup lang="ts">
-import { ref, computed } from "vue";
-import type { ThemePreference } from "~/plugins/theme/themes";
 import {
-  SunIcon,
-  MoonIcon,
-  MenuIcon,
-  CheckIcon,
-  LaptopIcon,
+  MenuIcon
 } from "lucide-vue-next";
+import { ref } from "vue";
+import type { ThemePreference } from "~/plugins/theme/themes";
 
 // Navigation links data
 const navLinks = [

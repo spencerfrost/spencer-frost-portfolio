@@ -7,7 +7,7 @@ export type DarkTheme = typeof DarkThemes[number];
 export type Theme = LightTheme | DarkTheme;
 export type SystemTheme = LightTheme | "mocha"; // System only provides light/dark
 
-export type ThemePreference = Theme | "system";
+export type ThemePreference = Theme;
 
 export const isLightTheme = (theme: Theme): theme is LightTheme => {
   return LightThemes.includes(theme as LightTheme);

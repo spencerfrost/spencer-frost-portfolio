@@ -52,6 +52,7 @@ export default defineNuxtConfig({
     "@nuxt/fonts",
     '@vee-validate/nuxt',
     "@nuxt/content",
+    "v-gsap-nuxt",
   ],
 
   eslint: {

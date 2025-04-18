@@ -9,5 +9,5 @@ h1, h2, h3 {
 }
 
 .nuxt-link-active, .nuxt-link-exact-active, a[href] {
-  @apply no-underline text-inherit;
+  @apply no-underline;
 }
