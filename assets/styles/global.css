@@ -4,9 +4,13 @@ html {
 }
 
 section {
-  @apply h-screen flex bg-background transition-colors;
+  @apply min-h-screen flex bg-background transition-colors;
 }
 
-:root {
-  --radius: 0.625rem;
+h1, h2, h3 {
+  @apply font-bold;
+}
+
+.nuxt-link-active, .nuxt-link-exact-active, a[href] {
+  @apply no-underline;
 }
