@@ -1,0 +1,48 @@
+{
+  "id": "blueprint",
+  "slug": "blueprint",
+  "title": "Blueprint - Create Mod Hub",
+  "tagline": "Lead developer for Minecraft Create Mod's future central content hub",
+  "description": "A modern web platform serving as the central hub for Create Mod content in the Minecraft ecosystem. I built this platform to bring together community-made addons and player-designed schematics in one place, making Create Mod content more discoverable and manageable for the community.",
+  "role": "Lead Front-End Developer",
+  "challenges": [
+    "Integrating multiple data sources (CurseForge and Modrinth APIs)",
+    "Building a unified search experience with Meilisearch",
+    "Implementing 3D schematic previews for user-uploaded designs",
+    "Managing multiple contributing developers with varying experience levels",
+    "Creating a consistent UI with Tailwind and Shadcn/UI components"
+  ],
+  "features": [
+    "Addon discovery with real-time updates and advanced filtering",
+    "Schematic sharing platform with 3D preview capabilities",
+    "User collections and personalization features",
+    "Smart version compatibility filtering across mod ecosystem",
+    "Multi-platform support for different mod loaders",
+    "Secure OAuth authentication with multiple providers",
+    "Responsive design optimized for all device sizes"
+  ],
+  "keyTakeaways": "This project significantly developed my project management skills while working with a team. I gained deep experience with TypeScript by extending API models for type consistency, and managed implementation of React 19 features. The integration of multiple data sources and building a unified search experience presented unique challenges that expanded my frontend architecture skills.",
+  "tags": [
+    "React 19",
+    "TypeScript",
+    "Vite",
+    "TanStack Query",
+    "Zustand",
+    "Tailwind CSS",
+    "Shadcn/UI",
+    "Appwrite",
+    "Meilisearch",
+    "OAuth"
+  ],
+  "links": {
+    "live": "https://blueprint-create.com/",
+    "github": "https://github.com/blueprint-site/blueprint-create"
+  },
+  "featured": true,
+  "completionStatus": "Active Development",
+  "contributionMetrics": {
+    "commits": "400+",
+    "role": "Lead Front-End Developer",
+    "timeline": "2024-Present"
+  }
+}

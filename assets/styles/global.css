@@ -1,0 +1,12 @@
+/* Base font settings */
+html {
+  @apply text-foreground bg-background transition-colors;
+}
+
+section {
+  @apply h-screen flex bg-background transition-colors;
+}
+
+:root {
+  --radius: 0.625rem;
+}
