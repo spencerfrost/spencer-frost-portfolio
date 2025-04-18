@@ -1,9 +1,7 @@
 <template>
   <section id="work" class="min-h-screen py-16 bg-bg">
     <div class="container mx-auto px-4">
-      <h2
-        class="text-3xl font-bold mb-8 p-2 text-heading text-center rounded bg-overlay-bg"
-      >
+      <h2 class="text-3xl font-bold mb-8 p-2 text-center text-rounded">
         My Work
       </h2>
       <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
@@ -59,6 +57,23 @@ import movieRatingsImage from '/images/projects/quick-critic.png'
 import taskMasterImage from '/images/projects/taskmaster.png'
 
 const projects = [
+  {
+    title: 'Blueprint',
+    image: '/images/projects/blueprint.png',
+    description: "A modern web platform serving as the central hub for Create Mod content in the Minecraft ecosystem. I built this platform to bring together community-made addons and player-designed schematics in one place, making Create Mod content more discoverable and manageable for the community.",
+    tags: [
+      "React 19",
+      "TypeScript",
+      "Vite",
+      "TanStack Query",
+      "Zustand",
+      "Tailwind CSS",
+      "Shadcn/UI",
+      "Appwrite",
+      "Meilisearch",
+      "OAuth"
+    ],
+  },
   {
     title: 'TaskMaster',
     image: taskMasterImage,
