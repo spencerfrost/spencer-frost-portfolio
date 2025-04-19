@@ -1,88 +1,89 @@
 version: 2.1
 
-# Define reusable executors
 executors:
-  node_executor: # Define a reusable Node.js environment
+  node_executor:
     docker:
-      # Use a CircleCI convenience image for Node.js (includes git, ssh, etc.)
-      # LTS (Long Term Support) version is usually a good choice
       - image: cimg/node:lts
-    resource_class: medium # Adjust as needed (medium is default)
+    resource_class: medium
 
 jobs:
-  build: # Renamed from build-node for clarity
-    executor: node_executor # Use the defined Node.js executor
+  build:
+    executor: node_executor
     steps:
       - checkout
-      # Restore pnpm package cache
       - restore_cache:
           keys:
-            # Cache key based on pnpm lock file hash
             - v1-pnpm-deps-{{ checksum "pnpm-lock.yaml" }}
-            # Fallback cache key
             - v1-pnpm-deps-
-      # Enable corepack and prepare pnpm
       - run:
           name: Enable Corepack and Prepare pnpm
           command: |
-            # Corepack is included in Node.js LTS versions
             corepack enable
-            # Prepare the pnpm version specified in package.json or use latest
-            # Use 'pnpm@latest' or pin to a specific major e.g. 'pnpm@9' if needed
             corepack prepare pnpm@latest --activate
-            # Configure pnpm to use a local store directory for easier caching
             pnpm config set store-dir .pnpm-store
             echo "Using pnpm version: $(pnpm --version)"
-      # Install dependencies
       - run:
           name: Install Dependencies
-          command: pnpm install --frozen-lockfile # Use --frozen-lockfile in CI
-      # Save pnpm package cache
+          command: pnpm install --frozen-lockfile
       - save_cache:
           key: v1-pnpm-deps-{{ checksum "pnpm-lock.yaml" }}
           paths:
-            - .pnpm-store # Cache the local store directory
-      # Build the Nuxt project
+            - .pnpm-store
       - run:
-          name: Build Project
-          command: pnpm run build # Your Nuxt build command
-      # Persist the build output for the deploy job
+          name: Build Project for SSR
+          command: pnpm run build # Should run 'nuxt build'
       - persist_to_workspace:
-          root: . # Root of the checkout directory
+          root: .
           paths:
-            - .output # Persist the Nuxt build output directory
+            - .output # Correct path for Nuxt 3 server build output
+            # Optional: Persist package.json/pnpm-lock.yaml if needed for server install
+            # - package.json
+            # - pnpm-lock.yaml
 
   deploy:
-    executor: node_executor # Can reuse the node executor or use a more minimal one if needed
+    executor: node_executor # Using node executor as it has ssh/rsync readily available
+    environment:
+      PM2_APP_NAME:    # Match the name used in `pm2 start`
     steps:
-      # Get the built code from the build job
       - attach_workspace:
-          at: /home/circleci/project # Attach workspace at this path
-      # Verify files (optional)
+          at: /home/circleci/project
+      # Optional: Verify workspace contents
       - run:
-          name: List built files
+          name: List attached workspace files
           command: ls -al /home/circleci/project/.output
-      # Deploy using scp and ssh
+      # Deploy using rsync (more efficient than scp -r)
       - run:
-          name: Deploy to Server via SCP and SSH
+          name: Deploy Code to Server via Rsync
           command: |
-            # Ensure SSH agent is running or keys are configured properly in CircleCI
-            # Consider adding known hosts: ssh-keyscan -H $SERVER_IP >> ~/.ssh/known_hosts
             echo "Deploying to $SERVER_IP..."
-            scp -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null -r -v /home/circleci/project/.output/* $SERVER_USER@$SERVER_IP:$SERVER_DIR
-            ssh -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null $SERVER_USER@$SERVER_IP "sudo systemctl restart nginx"
-            echo "Deployment complete and Nginx restarted."
+            # Syncs .output/ content, deletes extraneous files in destination subdir, excludes node_modules
+            # Requires rsync on the runner (included in cimg/node)
+            rsync -avz --delete \
+              -e "ssh -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null" \
+              /home/circleci/project/.output/ \
+              $SERVER_USER@$SERVER_IP:$SERVER_DIR/.output/
+      # Install Production Dependencies on Server & Reload PM2 App
+      - run:
+          name: Install Server Dependencies and Reload App
+          command: |
+            echo "Installing dependencies and reloading PM2 app $PM2_APP_NAME on $SERVER_IP..."
+            ssh -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null $SERVER_USER@$SERVER_IP " \
+              cd $SERVER_DIR && \
+              pnpm install --prod && \
+              pm2 reload $PM2_APP_NAME || pm2 restart $PM2_APP_NAME \
+            "
+            echo "Deployment steps complete."
 
 workflows:
   build_and_deploy:
     jobs:
-      - build: # Use the build job name
+      - build:
           filters:
             branches:
-              only: master # Only run on pushes to the master branch
+              only: master
       - deploy:
           requires:
-            - build # Requires the build job to succeed
+            - build
           filters:
             branches:
-              only: master # Only run on pushes to the master branch
+              only: master
