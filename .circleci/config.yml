@@ -22,8 +22,6 @@ jobs:
             corepack prepare pnpm@latest --activate
             pnpm config set store-dir .pnpm-store
             echo "Using pnpm version: $(pnpm --version)"
-            sudo apt update
-            sudo apt install rsync
       - run:
           name: Install Dependencies
           command: pnpm install --frozen-lockfile
@@ -57,6 +55,11 @@ jobs:
       - run:
           name: Deploy Code to Server via Rsync
           command: |
+            # Install rsync if not already installed
+            if ! command -v rsync &> /dev/null; then
+              echo "rsync could not be found, installing..."
+              sudo apt-get update && sudo apt-get install -y rsync
+            fi
             echo "Deploying to $SERVER_IP..."
             # Syncs .output/ content, deletes extraneous files in destination subdir, excludes node_modules
             # Requires rsync on the runner (included in cimg/node)
