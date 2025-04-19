@@ -22,6 +22,7 @@ jobs:
             corepack prepare pnpm@latest --activate
             pnpm config set store-dir .pnpm-store
             echo "Using pnpm version: $(pnpm --version)"
+            sudo apt install rsync
       - run:
           name: Install Dependencies
           command: pnpm install --frozen-lockfile
