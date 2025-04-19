@@ -47,10 +47,12 @@ jobs:
     steps:
       - attach_workspace:
           at: /home/circleci/project
-      # Optional: Verify workspace contents
+
+      # List attached workspace files for debugging
       - run:
           name: List attached workspace files
           command: ls -al /home/circleci/project/.output
+
       # Deploy using rsync (more efficient than scp -r)
       - run:
           name: Deploy Code to Server via Rsync
@@ -61,20 +63,28 @@ jobs:
               sudo apt-get update && sudo apt-get install -y rsync
             fi
             echo "Deploying to $SERVER_IP..."
-            # Syncs .output/ content, deletes extraneous files in destination subdir, excludes node_modules
-            # Requires rsync on the runner (included in cimg/node)
-            rsync -avz --delete \
+            rsync -avz \
               -e "ssh -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null" \
-              /home/circleci/project/.output/ \
-              $SERVER_USER@$SERVER_IP:$SERVER_DIR/.output/
+              --include='package.json' \
+              --include='pnpm-lock.yaml' \
+              --include='.output/***' \
+              --exclude='*' \
+              --prune-empty-dirs \
+              /home/circleci/project/ \
+              $SERVER_USER@$SERVER_IP:/var/www/spencerfrost /
+
       # Install Production Dependencies on Server & Reload PM2 App
       - run:
           name: Install Server Dependencies and Reload App
           command: |
             echo "Installing dependencies and reloading PM2 app $PM2_APP_NAME on $SERVER_IP..."
             ssh -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null $SERVER_USER@$SERVER_IP " \
-              cd $SERVER_DIR && \
+              cd /var/www/spencerfrost  && \
+              echo 'Current directory: $(pwd)' && \
+              echo 'Listing files before install:' && ls -al && \
+              echo 'Attempting pnpm install --prod...' && \
               pnpm install --prod && \
+              echo 'Attempting pm2 reload/restart...' && \
               pm2 reload $PM2_APP_NAME || pm2 restart $PM2_APP_NAME \
             "
             echo "Deployment steps complete."
