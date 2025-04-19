@@ -1,5 +1,5 @@
 <template>
-  <header class="sticky top-0 z-50 w-full">
+  <header class="sticky top-0 z-50 w-full px-4">
     <div class="container mx-auto">
       <nav class="flex h-16 items-center justify-between">
         <!-- Logo/Name - visible on all screens -->
@@ -56,20 +56,33 @@
             </SheetTrigger>
             <SheetContent side="right" class="w-[250px] sm:w-[300px]">
               <SheetHeader>
-                <SheetTitle>Menu</SheetTitle>
-                <SheetDescription>
-                  Navigate to different sections of the portfolio.
-                </SheetDescription>
+                <SheetTitle>
+                  <span class="text-xl md:text-2xl font-black font-rounded text-rosewater">
+                    Spencer<span class="text-mauve">Frost</span>
+                  </span>
+                </SheetTitle>
               </SheetHeader>
               <div class="mt-6 flex flex-col gap-3">
                 <Button
-                  v-for="item in navLinks"
-                  :key="item.target"
                   variant="ghost"
-                  class="justify-start"
-                  @click="mobileNavClick(item.target)"
+                  class="justify-start text-green text-md md:text-xl font-medium transition-colors hover:text-flamingo"
+                  @click="mobileNavClick('about')"
                 >
-                  {{ item.name }}
+                  About
+                </Button>
+                <Button
+                  variant="ghost"
+                  class="justify-start text-red text-md md:text-xl font-medium transition-colors hover:text-blue"
+                  @click="mobileNavClick('work')"
+                >
+                  Work
+                </Button>
+                <Button
+                  variant="ghost"
+                  class="justify-start text-sapphire text-md md:text-xl font-medium transition-colors hover:text-yellow"
+                  @click="mobileNavClick('contact')"
+                >
+                  Contact
                 </Button>
               </div>
             </SheetContent>
@@ -106,7 +119,7 @@ function scrollToSection(target: string) {
   const element = document.getElementById(target);
   if (element) {
     // Calculate offset for the header height
-    const headerOffset = 80;
+    const headerOffset = 20;
     const elementPosition = element.getBoundingClientRect().top;
     const offsetPosition = elementPosition + window.scrollY - headerOffset;
 

@@ -4,7 +4,7 @@ html {
 }
 
 section {
-  @apply min-h-screen flex bg-background transition-colors;
+  @apply min-h-[calc(100vh-64px)] bg-background transition-colors p-2 sm:p-4 md:p-6 lg:p-8;
 }
 
 h1, h2, h3 {

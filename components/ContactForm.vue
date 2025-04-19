@@ -1,6 +1,6 @@
 <template>
   <div class="flex min-h-[60vh] h-full w-full items-center justify-center">
-    <Card>
+    <Card class="w-full max-w-lg">
       <CardHeader>
         <img
           src="/images/spencer/mailman.webp"
