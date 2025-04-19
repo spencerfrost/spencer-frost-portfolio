@@ -23,7 +23,7 @@
       </div>
 
       <h2 class="mb-8 rounded-md bg-card p-3 text-2xl font-medium text-card-foreground">
-        Front-end Developer / DevOps Tinkerer
+        Mindful Modern Development
       </h2>
 
       <div class="mt-6 flex justify-center gap-4">

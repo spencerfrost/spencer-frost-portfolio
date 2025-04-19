@@ -24,12 +24,12 @@
 
         <p class="text-sm md:text-lg text-foreground">
           As a UI specialist, I craft interfaces that balance visual appeal with intuitive functionality.
-          My approach is shaped by the belief that the simplest solution is often the strongest—whether
-          I'm building with Vue, React, or diving into the details of a TypeScript migration.
+          My approach is shaped by the belief that the simplest solution is often the strongest—incorprorating
+          the latest technologies and best practices to ensure that every project is something I can be proud of.
         </p>
 
         <p class="text-sm md:text-lg text-foreground">
-          When I'm not immersed in code, you'll find me scaling rock faces, cycling through forests,
+          When I'm not immersed in code, you'll find me at the rock climbing gym, cycling, jamming some music,
           or belting out songs at karaoke. These diverse experiences inform my problem-solving approach
           and remind me that the best technical solutions come from understanding the human elements behind them.
         </p>
@@ -41,7 +41,7 @@
         </p>
 
         <p class="text-sm md:text-lg text-foreground">
-          Let's connect if you're looking for a developer who brings both technical precision and creative energy to every project.
+          <a href="#contact">Let's connect</a> if you're looking for a developer who brings both technical precision and creative energy to every project.
         </p>
       </div>
     </div>
@@ -65,11 +65,12 @@ const roles = [
   "Music Festival Organizer",
   "Component Architect",
   "Microphone Warrior",
-  "Linux Server Admin",
+  "Homelab Server Admin",
   "Minecraft Veteran",
   "Nature Lover",
   "Cycling Advocate",
-  "Trivia Enthusiast"
+  "Trivia Enthusiast",
+  "AI-Curious"
 ];
 
 onMounted(() => {
