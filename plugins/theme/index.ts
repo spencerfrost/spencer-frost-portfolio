@@ -10,7 +10,7 @@ export default defineNuxtPlugin((nuxtApp) => {
     htmlAttrs: { 
       class: () => [
         // Apply the active Catppuccin flavor directly as class
-        $settings.active.value,
+        $settings.active.value ?? '',
         // Apply the 'dark' class for all dark themes for Tailwind compatibility
         $settings.isDark.value ? 'dark' : '',
       ] 

@@ -1,5 +1,5 @@
 <template>
-  <section id="work" class="min-h-screen py-16 bg-bg">
+  <section id="work">
     <div class="container mx-auto px-4">
       <h2 class="text-3xl font-bold mb-8 p-2 text-center text-rounded">
         My Work

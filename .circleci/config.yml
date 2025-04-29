@@ -1,47 +1,104 @@
 version: 2.1
-orbs:
-  node: circleci/node@7.1.0
+
+executors:
+  node_executor:
+    docker:
+      - image: cimg/node:lts
+    resource_class: medium
 
 jobs:
-  build-node:
-    executor: node/default
+  build:
+    executor: node_executor
     steps:
       - checkout
+      - restore_cache:
+          keys:
+            - v1-pnpm-deps-{{ checksum "pnpm-lock.yaml" }}
+            - v1-pnpm-deps-
+      - run:
+          name: Enable Corepack and Prepare pnpm
+          command: |
+            corepack enable
+            corepack prepare pnpm@latest --activate
+            pnpm config set store-dir .pnpm-store
+            echo "Using pnpm version: $(pnpm --version)"
       - run:
           name: Install Dependencies
-          command: pnpm install # Use pnpm install
+          command: pnpm install --frozen-lockfile
+      - save_cache:
+          key: v1-pnpm-deps-{{ checksum "pnpm-lock.yaml" }}
+          paths:
+            - .pnpm-store
       - run:
-          name: Build the Project
-          command: pnpm run build # Use pnpm run build
+          name: Build Project for SSR
+          command: pnpm run build # Should run 'nuxt build'
       - persist_to_workspace:
           root: .
           paths:
-            - .output # Changed from dist to .output
+            - .output
+            - package.json
+            - pnpm-lock.yaml
 
   deploy:
-    executor: node/default
+    executor: node_executor # Using node executor as it has ssh/rsync readily available
+    environment:
+      PM2_APP_NAME: spencer-frost-portfolio
     steps:
       - attach_workspace:
           at: /home/circleci/project
+
+      # List attached workspace files for debugging
       - run:
-          name: List built files
-          command: ls -al /home/circleci/project/.output # Changed from dist to .output
+          name: List attached workspace files
+          command: ls -al /home/circleci/project/.output
+
+      # Deploy using rsync (more efficient than scp -r)
       - run:
-          name: Deploy to Server
+          name: Deploy Code to Server via Rsync
           command: |
-            scp -r -v /home/circleci/project/.output/* $SERVER_USER@$SERVER_IP:$SERVER_DIR # Changed from dist to .output
-            ssh $SERVER_USER@$SERVER_IP "sudo systemctl restart nginx"
+            # Install rsync if not already installed
+            if ! command -v rsync &> /dev/null; then
+              echo "rsync could not be found, installing..."
+              sudo apt-get update && sudo apt-get install -y rsync
+            fi
+            echo "Deploying to $SERVER_IP..."
+            # --- REMOVED TRAILING SLASH from destination ---
+            rsync -rlvz \
+              -e "ssh -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null" \
+              --include='package.json' \
+              --include='pnpm-lock.yaml' \
+              --include='.output/***' \
+              --exclude='*' \
+              --prune-empty-dirs \
+              /home/circleci/project/ \
+              $SERVER_USER@$SERVER_IP:/var/www/spencerfrost
+
+      # Install Production Dependencies on Server & Reload PM2 App
+      - run:
+          name: Install Server Dependencies and Reload App
+          command: |
+            echo "Installing dependencies and reloading PM2 app $PM2_APP_NAME on $SERVER_IP..."
+            ssh -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null $SERVER_USER@$SERVER_IP " \
+              cd /var/www/spencerfrost  && \
+              echo 'Current directory: $(pwd)' && \
+              echo 'Listing files before install:' && ls -al && \
+              echo 'Attempting pnpm install --prod...' && \
+              pnpm install --prod && \
+              echo 'Attempting pm2 reload/restart...' && \
+              pm2 reload $PM2_APP_NAME || pm2 restart $PM2_APP_NAME \
+            "
+            echo "Deployment steps complete."
 
 workflows:
   build_and_deploy:
     jobs:
-      - build-node:
+      - build:
           filters:
             branches:
               only: master
       - deploy:
           requires:
-            - build-node
+            - build
           filters:
             branches:
               only: master
