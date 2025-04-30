@@ -5,7 +5,7 @@
         My Work
       </h2>
       <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-        <div
+        <UiCard
           v-for="project in projects"
           :key="project.title"
           class="bg-raised-bg text-foreground rounded-lg shadow-md overflow-hidden border border-border"
@@ -43,7 +43,7 @@
               View Project
             </a>
           </div>
-        </div>
+        </UiCard>
       </div>
     </div>
   </section>
