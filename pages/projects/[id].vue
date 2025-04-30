@@ -94,7 +94,8 @@ import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
 
 const route = useRoute()
 const { data: project, error } = await useAsyncData(route.path, () => {
-  return queryCollection('projects').first()
+
+  return queryCollection('projects').where('slug', '=', route.params.id).first()
 })
 </script>
 
