@@ -6,7 +6,7 @@
   >
     <img
       src="/images/spencer/barista.webp"
-      class="mx-auto mb-4 w-32 rounded-full border-4 border-peach"
+      class="mx-auto mb-4 w-32 md:64 rounded-full border-4 border-peach"
       alt="Barista"
     >
     <CardTitle>Welcome to Spencer's Code Café!</CardTitle>
