@@ -1,14 +1,17 @@
 <template>
-  <Dialog v-model:open="isOpen" class="w-200">
-    <DialogContent class="p-0 border-none w-200">
-      <ThemeSwitcher
-        welcome
-        dialog
-        class="flex flex-col gap-4 p-4 min-w-200"
-        @close="isOpen = false"
-      />
-    </DialogContent>
-  </Dialog>
+  <ThemeSwitcherDialog v-model="isOpen" :trigger="false" class="flex items-center justify-center p-4">
+    <img src="/images/spencer/barista.webp" class="w-64 h-64 rounded-full border-4 border-peach mx-auto mb-4"
+      alt="Barista" />
+    <CardTitle>Welcome to Spencer's Code Café!</CardTitle>
+    <CardDescription>
+      Hey there! I'm Spencer, your code barista today. Ready to serve up the perfect theme for your browsing
+      experience!
+    </CardDescription>
+    <CardDescription>
+      What's your flavour preference? Each brew has its own unique palette that'll transform how you experience my
+      digital space!
+    </CardDescription>
+  </ThemeSwitcherDialog>
 </template>
 
 <script lang="ts" setup>
@@ -20,12 +23,8 @@ onMounted(() => {
   const hasVisited = localStorage.getItem("hasVisited");
   if (!hasVisited) {
     localStorage.setItem("hasVisited", "true");
+    isOpen.value = true;
   }
-  isOpen.value = true;
 });
 
 </script>
-
-<style>
-
-</style>
