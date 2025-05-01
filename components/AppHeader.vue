@@ -2,53 +2,65 @@
   <header class="sticky top-0 z-50 w-full px-4">
     <div class="container mx-auto">
       <nav class="flex h-16 items-center justify-between">
-        <!-- Logo/Name - visible on all screens -->
-        <div class="flex items-center gap-2 flex-1">
+        <div class="flex flex-1 items-center gap-2">
           <NuxtLink
             as="a"
-            href="#"
-            @click.prevent="scrollToSection('landing')"
-            class="flex items-center cursor-pointer"
+            href="/"
+            class="cursor-pointer font-rounded text-3xl font-black"
           >
-            <span class="text-3xl font-black font-rounded text-rosewater">
-              Spencer<span class="text-mauve">Frost</span>
-            </span>
+            <!-- <span class="text-rosewater">S</span>
+              <span class="text-flamingo">p</span>
+              <span class="text-pink">e</span>
+              <span class="text-mauve">n</span>
+              <span class="text-red">c</span>
+              <span class="text-maroon">e</span>
+              <span class="text-peach">r</span>
+              <span class="text-yellow">F</span>
+              <span class="text-green">r</span>
+              <span class="text-teal">o</span>
+              <span class="text-sky">s</span>
+              <span class="text-sapphire">t</span> -->
+            <span class="text-rosewater">Spencer</span>
+            <span class="text-primary">Frost</span>
           </NuxtLink>
         </div>
 
         <!-- Desktop Navigation - hidden on mobile -->
-        <div class="hidden md:flex flex-1 md:justify-center">
+        <div class="hidden flex-1 md:flex md:justify-center">
           <div class="flex items-center space-x-12">
             <NuxtLink
-              href="#about"
-              @click.prevent="scrollToSection('about')"
-              class="text-green text-xl font-medium transition-colors hover:text-flamingo"
+              href="/about"
+              class="text-xl font-medium text-green transition-colors hover:text-flamingo"
             >
               About
             </NuxtLink>
             <NuxtLink
-              href="#work"
-              @click.prevent="scrollToSection('work')"
-              class="text-red text-xl font-medium transition-colors hover:text-blue"
+              href="/projects"
+              class="text-xl font-medium text-red transition-colors hover:text-blue"
             >
-              Work
+              Projects
             </NuxtLink>
             <NuxtLink
-              href="#contact"
-              @click.prevent="scrollToSection('contact')"
-              class="text-sapphire text-xl font-medium transition-colors hover:text-yellow"
+              href="/contact"
+              class="text-xl font-medium text-sapphire transition-colors hover:text-yellow"
             >
               Contact
+            </NuxtLink>
+            <NuxtLink
+              href="/spencer-plus"
+              class="text-xl font-medium text-flamingo transition-colors hover:text-yellow"
+            >
+              Spencer+
             </NuxtLink>
           </div>
         </div>
         <!-- Theme Switcher and Mobile Menu -->
         <div class="flex flex-1 items-center justify-end space-x-4">
-          <ThemeSwitcherDialog icon />
+          <ThemeSwitcherDialog v-model="showThemeDialog" icon />
 
           <!-- Mobile Menu (Hamburger + Sheet) -->
           <Sheet v-model:open="isSheetOpen">
-            <SheetTrigger asChild class="md:hidden">
+            <SheetTrigger as-child class="md:hidden">
               <Button variant="ghost" size="icon">
                 <MenuIcon class="h-5 w-5" />
                 <span class="sr-only">Toggle menu</span>
@@ -57,33 +69,42 @@
             <SheetContent side="right" class="w-[250px] sm:w-[300px]">
               <SheetHeader>
                 <SheetTitle>
-                  <span class="text-xl md:text-2xl font-black font-rounded text-rosewater">
+                  <span
+                    class="font-rounded text-xl font-black text-rosewater md:text-2xl"
+                  >
                     Spencer<span class="text-mauve">Frost</span>
                   </span>
                 </SheetTitle>
               </SheetHeader>
               <div class="mt-6 flex flex-col gap-3">
-                <Button
+                <NuxtLink
+                  href="/about"
                   variant="ghost"
-                  class="justify-start text-green text-md md:text-xl font-medium transition-colors hover:text-flamingo"
-                  @click="mobileNavClick('about')"
+                  class="text-md justify-start font-medium text-green transition-colors hover:text-flamingo md:text-xl"
                 >
                   About
-                </Button>
-                <Button
+                </NuxtLink>
+                <NuxtLink
+                  href="/projects"
                   variant="ghost"
-                  class="justify-start text-red text-md md:text-xl font-medium transition-colors hover:text-blue"
-                  @click="mobileNavClick('work')"
+                  class="text-md justify-start font-medium text-red transition-colors hover:text-blue md:text-xl"
                 >
-                  Work
-                </Button>
-                <Button
+                  Projects
+                </NuxtLink>
+                <NuxtLink
+                  href="/contact"
                   variant="ghost"
-                  class="justify-start text-sapphire text-md md:text-xl font-medium transition-colors hover:text-yellow"
-                  @click="mobileNavClick('contact')"
+                  class="text-md justify-start font-medium text-sapphire transition-colors hover:text-yellow md:text-xl"
                 >
                   Contact
-                </Button>
+                </NuxtLink>
+                <NuxtLink
+                  href="/spencer-plus"
+                  variant="ghost"
+                  class="text-md justify-start font-medium text-flamingo transition-colors hover:text-yellow md:text-xl"
+                >
+                  Spencer+
+                </NuxtLink>
               </div>
             </SheetContent>
           </Sheet>
@@ -94,46 +115,9 @@
 </template>
 
 <script setup lang="ts">
-import {
-  MenuIcon
-} from "lucide-vue-next";
-import { ref } from "vue";
-import type { ThemePreference } from "~/plugins/theme/themes";
+import { MenuIcon } from 'lucide-vue-next'
+import { ref } from 'vue'
 
-// Navigation links data
-const navLinks = [
-  { name: "About", target: "about" },
-  { name: "Work", target: "work" },
-  { name: "Contact", target: "contact" },
-];
-
-const isSheetOpen = ref(false);
-const { $theme } = useNuxtApp();
-
-function setTheme(theme: string) {
-  $theme.setPreferredTheme(theme as ThemePreference);
-}
-
-function scrollToSection(target: string) {
-  if (!process.client) return; // Ensure runs client-side
-  const element = document.getElementById(target);
-  if (element) {
-    // Calculate offset for the header height
-    const headerOffset = 20;
-    const elementPosition = element.getBoundingClientRect().top;
-    const offsetPosition = elementPosition + window.scrollY - headerOffset;
-
-    window.scrollTo({
-      top: offsetPosition,
-      behavior: "smooth",
-    });
-  }
-}
-
-function mobileNavClick(target: string) {
-  isSheetOpen.value = false; // Close the sheet
-  setTimeout(() => {
-    scrollToSection(target); // Scroll to the section with a slight delay to ensure sheet closes first
-  }, 100);
-}
+const isSheetOpen = ref(false)
+const showThemeDialog = ref(false)
 </script>

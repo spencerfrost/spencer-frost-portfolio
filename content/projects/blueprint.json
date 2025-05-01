@@ -1,28 +1,11 @@
 {
-  "id": "blueprint",
-  "slug": "blueprint",
   "title": "Blueprint - Create Mod Hub",
-  "tagline": "Lead developer for Minecraft Create Mod's future central content hub",
-  "description": "A modern web platform serving as the central hub for Create Mod content in the Minecraft ecosystem. I built this platform to bring together community-made addons and player-designed schematics in one place, making Create Mod content more discoverable and manageable for the community.",
-  "role": "Lead Front-End Developer",
-  "challenges": [
-    "Integrating multiple data sources (CurseForge and Modrinth APIs)",
-    "Building a unified search experience with Meilisearch",
-    "Implementing 3D schematic previews for user-uploaded designs",
-    "Managing multiple contributing developers with varying experience levels",
-    "Creating a consistent UI with Tailwind and Shadcn/UI components"
-  ],
-  "features": [
-    "Addon discovery with real-time updates and advanced filtering",
-    "Schematic sharing platform with 3D preview capabilities",
-    "User collections and personalization features",
-    "Smart version compatibility filtering across mod ecosystem",
-    "Multi-platform support for different mod loaders",
-    "Secure OAuth authentication with multiple providers",
-    "Responsive design optimized for all device sizes"
-  ],
-  "keyTakeaways": "This project significantly developed my project management skills while working with a team. I gained deep experience with TypeScript by extending API models for type consistency, and managed implementation of React 19 features. The integration of multiple data sources and building a unified search experience presented unique challenges that expanded my frontend architecture skills.",
-  "tags": [
+  "slug": "blueprint",
+  "description": "Lead developer for Minecraft Create Mod's future central content hub. A modern web platform serving as the central hub for Create Mod content in the Minecraft ecosystem.",
+  "longDescription": "A modern web platform serving as the central hub for Create Mod content in the Minecraft ecosystem. I built this platform to bring together community-made addons and player-designed schematics in one place, making Create Mod content more discoverable and manageable for the community. (Originally tagline: Lead developer for Minecraft Create Mod's future central content hub)",
+  "liveUrl": "https://blueprint-create.com/",
+  "repoUrl": "https://github.com/blueprint-site/blueprint-create",
+  "tech": [
     "React 19",
     "TypeScript",
     "Vite",
@@ -34,15 +17,61 @@
     "Meilisearch",
     "OAuth"
   ],
-  "links": {
-    "live": "https://blueprint-create.com/",
-    "github": "https://github.com/blueprint-site/blueprint-create"
-  },
-  "featured": true,
-  "completionStatus": "Active Development",
-  "contributionMetrics": {
-    "commits": "400+",
-    "role": "Lead Front-End Developer",
-    "timeline": "2024-Present"
-  }
+  "coverImage": "/images/projects/blueprint/landing_page.png",
+  "screenshots": [
+    "/images/projects/blueprint/landing_page.png",
+    "/images/projects/blueprint/about_page.png",
+    "/images/projects/blueprint/addons_page.png",
+    "/images/projects/blueprint/admin_dashboard.png"
+  ],
+  "goals": "The primary goal was to create a modern web platform that serves as the central hub for Create Mod content in the Minecraft ecosystem. This includes community-made addons and player-designed schematics, making them more discoverable and manageable for the community. The platform aims to enhance user experience with real-time updates, advanced filtering, and a responsive design optimized for all device sizes.",
+  "role": ["Lead Front-End Developer"],
+  "techStack": "React 19 and TypeScript were chosen for their modern features and type safety... Vite was selected for its fast build times... TanStack Query for data fetching... Zustand for state management... Tailwind CSS and Shadcn/UI for styling... Appwrite for backend... Meilisearch for search.",
+  "features": [
+    {
+      "title": "Addon discovery",
+      "description": "A platform for discovering addons/mods for the Create Mod."
+    },
+    {
+      "title": "Schematic Sharing",
+      "description": "A platform for sharing and discovering player-made schematics."
+    },
+    {
+      "title": "Smart version compatibility filtering",
+      "description": "Filter addons/schematics based on compatibility."
+    },
+    {
+      "title": "Multi-platform mod loader support",
+      "description": "Support for different mod loaders like Forge and Fabric."
+    },
+    {
+      "title": "Appwrite OAuth",
+      "description": "Secure OAuth authentication using Appwrite..."
+    },
+    {
+      "title": "Responsive design",
+      "description": "Optimized for all device sizes..."
+    }
+  ],
+  "challenges": [
+    {
+      "challenge": "Integrating multiple data sources (CurseForge and Modrinth APIs)",
+      "solution": "[solution here]"
+    },
+    {
+      "challenge": "Building a unified search experience with Meilisearch",
+      "solution": "[solution here]"
+    },
+    {
+      "challenge": "Implementing 3D schematic previews",
+      "solution": "[solution here]"
+    },
+    {
+      "challenge": "Managing multiple contributing developers",
+      "solution": "[solution here]"
+    },
+    { "challenge": "Creating a consistent UI", "solution": "[solution here]" }
+  ],
+  "learnings": "This project significantly developed my project management skills... gained deep experience with TypeScript... managed implementation of React 19 features... integration of multiple data sources expanded frontend architecture skills.",
+  "opensource": true
 }

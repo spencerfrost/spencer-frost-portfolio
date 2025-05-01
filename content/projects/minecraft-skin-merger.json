@@ -1,0 +1,37 @@
+{
+  "title": "Minecraft Skin Merger",
+  "slug": "minecraft-skin-merger",
+  "description": "A React application for merging Minecraft skins.",
+  "longDescription": "Minecraft Skin Merger allows users to combine multiple Minecraft skins into one. Built with React and Node.js. Lorem ipsum dolor sit amet.",
+  "liveUrl": "https://mcskinmerger.mrspinn.ca/",
+  "repoUrl": "",
+  "tech": [
+    "React",
+    "Tailwind CSS",
+    "Node.js",
+    "Express.js",
+    "RESTful API Development",
+    "Rollup",
+    "Babel",
+    "CircleCI"
+  ],
+  "coverImage": "/images/projects/minecraft-skin-merger.png",
+  "screenshots": ["/images/projects/minecraft-skin-merger/screenshot1.png"],
+  "goals": "To provide an easy way to merge Minecraft skins. Lorem ipsum.",
+  "role": ["Full-Stack Developer"],
+  "techStack": "React, Node.js, Express.js, Tailwind CSS, Rollup, Babel, CircleCI.",
+  "features": [
+    {
+      "title": "Skin Merging",
+      "description": "Combine multiple skins into one."
+    }
+  ],
+  "challenges": [
+    {
+      "challenge": "Handling image processing in the browser",
+      "solution": "Used efficient algorithms and libraries. Lorem ipsum."
+    }
+  ],
+  "learnings": "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+  "opensource": false
+}

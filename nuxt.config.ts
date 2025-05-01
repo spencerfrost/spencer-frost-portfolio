@@ -1,7 +1,7 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
   ssr: true,
-  compatibilityDate: "2024-11-01",
+  compatibilityDate: '2024-11-01',
   devtools: {
     enabled: true,
 
@@ -10,11 +10,7 @@ export default defineNuxtConfig({
     },
   },
 
-  css: [
-    "~/assets/styles/tailwind.css",
-    "~/assets/styles/global.css",
-    "~/assets/styles/catppuccin.css"
-  ],
+  css: ['~/assets/styles/tailwind.css', '~/assets/styles/global.css'],
 
   postcss: {
     plugins: {
@@ -26,47 +22,46 @@ export default defineNuxtConfig({
   fonts: {
     families: [
       {
-        name: "Inter",
-        provider: "google",
+        name: 'Inter',
+        provider: 'google',
         weights: [400, 500, 600, 700],
       },
       {
-        name: "Newsreader",
-        provider: "google",
+        name: 'Newsreader',
+        provider: 'google',
         weights: [400, 500, 600],
-        styles: ["italic", "normal"],
+        styles: ['italic', 'normal'],
       },
       {
-        name: "JetBrains Mono",
-        provider: "google",
+        name: 'JetBrains Mono',
+        provider: 'google',
         weights: [400, 500, 700],
       },
       {
         name: 'Nunito',
         provider: 'google',
-        weights: [400, 500, 600, 700]
-      }
+        weights: [400, 500, 600, 700],
+      },
     ],
   },
 
   modules: [
-    "shadcn-nuxt",
-    "@nuxt/devtools",
-    "@nuxt/image",
-    "@nuxt/eslint",
-    "@nuxt/icon",
-    "@nuxt/fonts",
+    'shadcn-nuxt',
+    '@nuxt/devtools',
+    '@nuxt/image',
+    '@nuxt/eslint',
+    '@nuxt/icon',
+    '@nuxt/fonts',
     '@vee-validate/nuxt',
-    "@nuxt/content",
-    "v-gsap-nuxt",
+    '@nuxt/content',
+    'v-gsap-nuxt',
   ],
 
   eslint: {
-    config: {
-    }
+    config: {},
   },
   shadcn: {
-    prefix: "",
-    componentDir: "./components/ui",
+    prefix: '',
+    componentDir: './components/ui',
   },
-});
+})

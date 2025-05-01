@@ -17,7 +17,7 @@ This portfolio is organized around the concept of "Mindful Modern Development" a
 - **Responsive design** with Tailwind CSS v3
 - **Modern UI components** using ShadCN/Vue
 - **Type-safe** with TypeScript and Zod
-- **Theming system** with four Catppuccin flavors (latte, frappe, macchiato, mocha)
+- **Theming system** with four Catppuccin flavours (latte, frappe, macchiato, mocha)
 - **Content management** with Nuxt Content
 - **Performance optimization** with Nuxt Image and code splitting
 - **Continuous Integration** using CircleCI
@@ -39,30 +39,34 @@ This portfolio is organized around the concept of "Mindful Modern Development" a
 ## 🧩 Key Sections
 
 ### 🏠 Home Page (W.I.P.)
+
 - Scrolling hero section with animated intro
 - Featured projects carousel/grid
 - Skills visualization
 - First-time visitor theme selection dialog
 
 ### 💼 Projects Section (W.I.P.)
+
 - Filterable projects gallery
 - Comprehensive case studies
 - Technical challenges and solutions
 - Key features with visuals
 
 ### 🔧 Spencer Plus (W.I.P.)
+
 - Server infrastructure visualization
 - Services showcase grouped by purpose
 - Technical specifications and architecture
 
 ### 👤 About Page (W.I.P.)
+
 - Professional profile emphasizing "Mindful Modern Development"
 - Skills breakdown by category
 - Technical philosophy: "Clean Solutions, Not Quick Fixes"
 
 ## 🎨 Theming System
 
-This portfolio features the Catppuccin theming system with four flavors:
+This portfolio features the Catppuccin theming system with four flavours:
 
 - **Latte** - Light theme
 - **Frappe** - Medium-dark theme

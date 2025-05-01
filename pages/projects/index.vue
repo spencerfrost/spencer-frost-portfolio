@@ -1,13 +1,6 @@
 <template>
-  <div>
-    Project List Page
+  <div class="container mx-auto px-4 py-8">
+    <WipBanner />
+    <SectionWork />
   </div>
 </template>
-
-<script lang="ts" setup>
-
-</script>
-
-<style>
-
-</style>

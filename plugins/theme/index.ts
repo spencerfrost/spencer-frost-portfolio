@@ -1,26 +1,26 @@
-import { defineNuxtPlugin, useHead } from 'nuxt/app';
-import { useThemeSettings } from './settings';
+import { defineNuxtPlugin, useHead } from 'nuxt/app'
+import { useThemeSettings } from './settings'
 
 // Plugin to inject theme functionality
-export default defineNuxtPlugin((nuxtApp) => {
-  const $settings = useThemeSettings();
+export default defineNuxtPlugin(nuxtApp => {
+  const $settings = useThemeSettings()
 
-  // Apply theme class to HTML element 
+  // Apply theme class to HTML element
   useHead({
-    htmlAttrs: { 
+    htmlAttrs: {
       class: () => [
-        // Apply the active Catppuccin flavor directly as class
+        // Apply the active Catppuccin flavour directly as class
         $settings.active.value ?? '',
         // Apply the 'dark' class for all dark themes for Tailwind compatibility
         $settings.isDark.value ? 'dark' : '',
-      ] 
-    }
-  });
+      ],
+    },
+  })
 
   // Make the theme settings available globally
   return {
     provide: {
-      theme: $settings
-    }
-  };
-});
+      theme: $settings,
+    },
+  }
+})
