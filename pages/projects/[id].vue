@@ -88,10 +88,6 @@
 </template>
 
 <script setup lang="ts">
-import { useAsyncData } from '#app'
-import { queryCollection } from '#imports'
-import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
-
 const route = useRoute()
 const { data: project, error } = await useAsyncData(route.path, () => {
 
