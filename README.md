@@ -17,7 +17,7 @@ This portfolio is organized around the concept of "Mindful Modern Development" a
 - **Responsive design** with Tailwind CSS v3
 - **Modern UI components** using ShadCN/Vue
 - **Type-safe** with TypeScript and Zod
-- **Theming system** with four Catppuccin flavors (latte, frappe, macchiato, mocha)
+- **Theming system** with four Catppuccin flavours (latte, frappe, macchiato, mocha)
 - **Content management** with Nuxt Content
 - **Performance optimization** with Nuxt Image and code splitting
 - **Continuous Integration** using CircleCI
@@ -62,7 +62,7 @@ This portfolio is organized around the concept of "Mindful Modern Development" a
 
 ## 🎨 Theming System
 
-This portfolio features the Catppuccin theming system with four flavors:
+This portfolio features the Catppuccin theming system with four flavours:
 
 - **Latte** - Light theme
 - **Frappe** - Medium-dark theme
