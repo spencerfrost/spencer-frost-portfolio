@@ -1,0 +1,37 @@
+{
+  "title": "After Funk",
+  "slug": "after-funk",
+  "description": "A custom WordPress theme for a funk band.",
+  "longDescription": "After Funk is a custom WordPress theme built for a funk band. It features a unique design and custom functionality. Lorem ipsum dolor sit amet.",
+  "liveUrl": "https://afterfunk.ca/",
+  "repoUrl": "",
+  "tech": [
+    "WordPress",
+    "PHP",
+    "CSS",
+    "Custom Theme"
+  ],
+  "coverImage": "/images/projects/afterfunk.png",
+  "screenshots": [
+    "/images/projects/afterfunk/screenshot1.png"
+  ],
+  "goals": "To create a unique online presence for the band. Lorem ipsum.",
+  "role": [
+    "Theme Developer"
+  ],
+  "techStack": "WordPress, PHP, CSS.",
+  "features": [
+    {
+      "title": "Custom Theme",
+      "description": "Unique design tailored for the band."
+    }
+  ],
+  "challenges": [
+    {
+      "challenge": "Designing for a music audience",
+      "solution": "Worked closely with the band for feedback. Lorem ipsum."
+    }
+  ],
+  "learnings": "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+  "opensource": false
+}

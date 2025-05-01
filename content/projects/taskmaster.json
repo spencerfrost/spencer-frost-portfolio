@@ -1,0 +1,46 @@
+{
+  "title": "TaskMaster",
+  "slug": "taskmaster",
+  "description": "A React application for managing tasks and to-do lists.",
+  "longDescription": "TaskMaster is a productivity tool for managing tasks and to-do lists. Built with React and TypeScript, it features a modern UI and robust backend. Lorem ipsum dolor sit amet.",
+  "liveUrl": "https://taskmaster.mrspinn.ca/",
+  "repoUrl": "",
+  "tech": [
+    "React",
+    "TypeScript",
+    "Tailwind CSS",
+    "Node.js",
+    "Express.js",
+    "PostgreSQL",
+    "RESTful API design",
+    "JWT authentication",
+    "CircleCI"
+  ],
+  "coverImage": "/images/projects/taskmaster.png",
+  "screenshots": [
+    "/images/projects/taskmaster/screenshot1.png"
+  ],
+  "goals": "To help users organize and track their daily tasks efficiently. Lorem ipsum.",
+  "role": [
+    "Full-Stack Developer"
+  ],
+  "techStack": "React, TypeScript, Node.js, Express.js, PostgreSQL, Tailwind CSS, CircleCI.",
+  "features": [
+    {
+      "title": "Task Management",
+      "description": "Create, edit, and delete tasks."
+    },
+    {
+      "title": "User Authentication",
+      "description": "Secure login with JWT."
+    }
+  ],
+  "challenges": [
+    {
+      "challenge": "Implementing secure authentication",
+      "solution": "Used JWT and best practices for user security. Lorem ipsum."
+    }
+  ],
+  "learnings": "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+  "opensource": false
+}

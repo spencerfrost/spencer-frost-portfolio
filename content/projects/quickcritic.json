@@ -1,0 +1,39 @@
+{
+  "title": "QuickCritic",
+  "slug": "quickcritic",
+  "description": "A React application that fetches movie and TV show ratings from an API.",
+  "longDescription": "QuickCritic is a web app for quickly checking movie and TV show ratings. Built with React and TypeScript. Lorem ipsum dolor sit amet.",
+  "liveUrl": "https://tmdb.mrspinn.ca/",
+  "repoUrl": "",
+  "tech": [
+    "React",
+    "TypeScript",
+    "Tailwind CSS",
+    "RESTful API Integration",
+    "CircleCI",
+    "Nginx"
+  ],
+  "coverImage": "/images/projects/quick-critic.png",
+  "screenshots": [
+    "/images/projects/quick-critic/screenshot1.png"
+  ],
+  "goals": "To make it easy to find ratings for movies and TV shows. Lorem ipsum.",
+  "role": [
+    "Full-Stack Developer"
+  ],
+  "techStack": "React, TypeScript, Tailwind CSS, RESTful API, CircleCI, Nginx.",
+  "features": [
+    {
+      "title": "Ratings Search",
+      "description": "Search for movies and TV shows and view ratings."
+    }
+  ],
+  "challenges": [
+    {
+      "challenge": "Integrating with third-party APIs",
+      "solution": "Handled API rate limits and errors gracefully. Lorem ipsum."
+    }
+  ],
+  "learnings": "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+  "opensource": false
+}

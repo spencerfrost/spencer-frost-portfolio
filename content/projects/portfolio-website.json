@@ -1,0 +1,38 @@
+{
+  "title": "Portfolio Website",
+  "slug": "portfolio-website",
+  "description": "A Vue.js application for showcasing my work and skills.",
+  "longDescription": "This portfolio website is built with Vue.js 3 and Vite, designed to showcase my projects and skills. Lorem ipsum dolor sit amet.",
+  "liveUrl": "https://mrspinn.ca",
+  "repoUrl": "",
+  "tech": [
+    "Vue.js 3",
+    "Vite",
+    "Vue Router",
+    "Tailwind CSS",
+    "CircleCI"
+  ],
+  "coverImage": "/images/projects/portfolio.png",
+  "screenshots": [
+    "/images/projects/portfolio/screenshot1.png"
+  ],
+  "goals": "To present my work and skills in a modern, responsive format. Lorem ipsum.",
+  "role": [
+    "Sole Developer"
+  ],
+  "techStack": "Vue.js 3, Vite, Vue Router, Tailwind CSS, CircleCI.",
+  "features": [
+    {
+      "title": "Project Showcase",
+      "description": "Display and describe my projects."
+    }
+  ],
+  "challenges": [
+    {
+      "challenge": "Building a flexible and maintainable site",
+      "solution": "Used modular components and modern tooling. Lorem ipsum."
+    }
+  ],
+  "learnings": "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+  "opensource": true
+}
