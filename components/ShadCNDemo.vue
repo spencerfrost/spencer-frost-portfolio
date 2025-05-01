@@ -58,7 +58,6 @@ const carouselItems = ref([
           <Badge>Default</Badge>
           <Badge variant="secondary">Secondary</Badge>
           <Badge variant="outline">Outline</Badge>
-          <Badge variant="destructive">Destructive</Badge>
         </CardContent>
       </Card>
 
@@ -68,11 +67,29 @@ const carouselItems = ref([
         </CardHeader>
         <CardContent class="flex flex-wrap gap-2">
           <Button>Default</Button>
-          <Button variant="destructive">Destructive</Button>
-          <Button variant="outline">Outline</Button>
+          <Button variant="primary">Primary</Button>
           <Button variant="secondary">Secondary</Button>
+          <Button variant="outline">Outline</Button>
           <Button variant="ghost">Ghost</Button>
           <Button variant="link">Link</Button>
+        </CardContent>
+        <CardContent class="flex flex-wrap gap-2">
+          <Button variant="rosewater">Rosewater</Button>
+          <Button variant="flamingo">Flamingo</Button>
+          <Button variant="pink">Pink</Button>
+          <Button variant="mauve">Mauve</Button>
+          <Button variant="red">Red</Button>
+          <Button variant="maroon">Maroon</Button>
+          <Button variant="peach">Peach</Button>
+          <Button variant="yellow">Yellow</Button>
+          <Button variant="green">Green</Button>
+          <Button variant="teal">Teal</Button>
+          <Button variant="sky">Sky</Button>
+          <Button variant="sapphire">Sapphire</Button>
+          <Button variant="blue">Blue</Button>
+          <Button variant="lavender">Lavender</Button>
+        </CardContent>
+        <CardContent class="flex flex-wrap gap-2">
           <Button size="sm">Small</Button>
           <Button size="lg">Large</Button>
           <Button :disabled="true">Disabled</Button>
@@ -88,7 +105,9 @@ const carouselItems = ref([
           <p>Card content goes here.</p>
         </CardContent>
         <CardFooter>
-          <p>Card footer content.</p>
+          <Button class="w-full">
+            <Check class="mr-2 h-4 w-4" /> Mark all as read
+          </Button>
         </CardFooter>
       </Card>
 

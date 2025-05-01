@@ -14,11 +14,11 @@
     --foreground: var(--ctp-text);
     --semantic-foreground: var(--ctp-base);
 
-    --primary: var(--ctp-lavender);
-    --secondary: var(--ctp-sapphire);
+    --primary: var(--ctp-mauve);
+    --secondary: var(--ctp-green);
     --muted: var(--ctp-surface0);
     --muted-foreground: var(--ctp-subtext0);
-    --accent: var(--ctp-sky);
+    --accent: var(--ctp-peach);
     --success: var(--ctp-green);
     --warning: var(--ctp-yellow);
     --destructive: var(--ctp-red);

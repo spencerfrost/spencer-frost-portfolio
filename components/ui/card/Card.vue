@@ -11,7 +11,7 @@ const props = defineProps<{
   <div
     :class="
       cn(
-        'rounded-xl border bg-card text-card-foreground shadow transition-colors',
+        'rounded-xl border bg-card text-card-foreground shadow transition-colors flex flex-col',
         props.class,
       )
     "

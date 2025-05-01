@@ -26,7 +26,7 @@ export const buttonVariants = cva(
     variants: {
       variant: {
         default:
-          "bg-card text-foreground shadow hover:bg-card/70",
+          "bg-background text-foreground shadow hover:bg-background/50",
         primary:
           "bg-primary text-primary-foreground shadow hover:bg-primary/90",
         secondary:
@@ -41,6 +41,8 @@ export const buttonVariants = cva(
           "bg-mauve text-semantic-foreground shadow-sm hover:bg-mauve/80",
         red:
           "bg-red text-semantic-foreground shadow-sm hover:bg-red/80",
+        maroon:
+          "bg-maroon text-semantic-foreground shadow-sm hover:bg-maroon/80",
         peach:
           "bg-peach text-semantic-foreground shadow-sm hover:bg-peach/80",
         yellow:
