@@ -1,7 +1,7 @@
 <template>
   <div class="flex flex-col gap-4 container mx-auto py-8">
-    <h1 class="text-3xl font-bold">Theme Test Page</h1>
-    <ThemeSwitcher />
+    <h1 class="text-3xl font-bold">Theme Demo Page</h1>
+    <ThemeSwitcherCard />
 
     <Card>
       <CardHeader>
