@@ -63,7 +63,7 @@ jobs:
             fi
             echo "Deploying to $SERVER_IP..."
             # --- REMOVED TRAILING SLASH from destination ---
-            rsync -rlvz \
+            rsync -rlvz --delete \
               -e "ssh -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null" \
               --include='package.json' \
               --include='pnpm-lock.yaml' \
