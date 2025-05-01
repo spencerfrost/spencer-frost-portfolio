@@ -1,13 +1,22 @@
 <template>
-  <div class="container mx-auto px-4 py-8" v-if="project">
+  <div v-if="project" class="container mx-auto px-4 py-8">
     <WipBanner />
-    <ProjectHeader :title="project.title" :longDescription="project.longDescription" :liveUrl="project.liveUrl"
-      :repoUrl="project.repoUrl" :tech="project.tech" />
+    <ProjectHeader
+      :title="project.title"
+      :long-description="project.longDescription"
+      :live-url="project.liveUrl"
+      :repo-url="project.repoUrl"
+      :tech="project.tech"
+    />
 
-    <ProjectVisualsCarousel :screenshots="project.screenshots" :title="project.title" class="mb-12" />
+    <ProjectVisualsCarousel
+      :screenshots="project.screenshots"
+      :title="project.title"
+      class="mb-12"
+    />
 
-    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-      <Card class="lg:col-span-1 md:col-span-1">
+    <div class="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
+      <Card class="md:col-span-1 lg:col-span-1">
         <CardHeader>
           <CardTitle>Project Goals</CardTitle>
         </CardHeader>
@@ -16,19 +25,24 @@
         </CardContent>
       </Card>
 
-      <Card class="lg:col-span-1 md:col-span-1">
+      <Card class="md:col-span-1 lg:col-span-1">
         <CardHeader>
           <CardTitle>My Role</CardTitle>
         </CardHeader>
         <CardContent>
-          <ul v-if="Array.isArray(project.role)" class="list-disc list-inside space-y-1 text-muted-foreground">
-            <li v-for="(item, index) in project.role" :key="index">{{ item }}</li>
+          <ul
+            v-if="Array.isArray(project.role)"
+            class="list-inside list-disc space-y-1 text-muted-foreground"
+          >
+            <li v-for="(item, index) in project.role" :key="index">
+              {{ item }}
+            </li>
           </ul>
           <p v-else class="text-muted-foreground">{{ project.role }}</p>
         </CardContent>
       </Card>
 
-      <Card class="lg:col-span-1 md:col-span-2">
+      <Card class="md:col-span-2 lg:col-span-1">
         <CardHeader>
           <CardTitle>Tech Choices</CardTitle>
         </CardHeader>
@@ -37,7 +51,7 @@
         </CardContent>
       </Card>
 
-      <Card class="lg:col-span-2 md:col-span-2">
+      <Card class="md:col-span-2 lg:col-span-2">
         <CardHeader>
           <CardTitle>Key Features</CardTitle>
         </CardHeader>
@@ -45,13 +59,18 @@
           <ul class="space-y-3">
             <li v-for="(feature, index) in project.features" :key="index">
               <h4 class="font-semibold text-foreground">{{ feature.title }}</h4>
-              <p v-if="feature.description" class="text-sm text-muted-foreground">{{ feature.description }}</p>
+              <p
+                v-if="feature.description"
+                class="text-sm text-muted-foreground"
+              >
+                {{ feature.description }}
+              </p>
             </li>
           </ul>
         </CardContent>
       </Card>
 
-      <Card class="lg:col-span-1 md:col-span-1">
+      <Card class="md:col-span-1 lg:col-span-1">
         <CardHeader>
           <CardTitle>Challenges</CardTitle>
         </CardHeader>
@@ -64,7 +83,7 @@
         </CardContent>
       </Card>
 
-      <Card class="lg:col-span-1 md:col-span-1">
+      <Card class="md:col-span-1 lg:col-span-1">
         <CardHeader>
           <CardTitle>Key Takeaways</CardTitle>
         </CardHeader>
@@ -73,12 +92,14 @@
         </CardContent>
       </Card>
 
-      <Card v-if="project.openSource" class="lg:col-span-1 md:col-span-2">
+      <Card v-if="project.openSource" class="md:col-span-2 lg:col-span-1">
         <CardHeader>
           <CardTitle>Open Source</CardTitle>
         </CardHeader>
         <CardContent>
-          <p class="text-muted-foreground">This project involved open source aspects.</p>
+          <p class="text-muted-foreground">
+            This project involved open source aspects.
+          </p>
         </CardContent>
       </Card>
     </div>
@@ -91,7 +112,6 @@
 <script setup lang="ts">
 const route = useRoute()
 const { data: project, error } = await useAsyncData(route.path, () => {
-
   return queryCollection('projects').where('slug', '=', route.params.id).first()
 })
 </script>

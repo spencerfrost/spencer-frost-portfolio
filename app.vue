@@ -7,7 +7,7 @@
 <script setup lang="ts">
 useHead({
   bodyAttrs: {
-    class: 'text-foreground bg-background transition-colors -z-20'
-  }
+    class: 'text-foreground bg-background transition-colors -z-20',
+  },
 })
 </script>

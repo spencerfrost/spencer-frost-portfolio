@@ -1,18 +1,22 @@
 <template>
-  <div class="flex flex-col gap-4 container mx-auto py-8">
+  <div class="container mx-auto flex flex-col gap-4 py-8">
     <h1 class="text-3xl font-bold">Theme Demo Page</h1>
     <ThemeSwitcherCard />
 
     <Card>
       <CardHeader>
         <CardTitle>Catppuccin Theme Demo</CardTitle>
-        <CardDescription>Explore the Catppuccin theme colors and UI elements.</CardDescription>
+        <CardDescription
+          >Explore the Catppuccin theme colors and UI elements.</CardDescription
+        >
       </CardHeader>
       <CardContent class="space-y-6">
         <Card class="bg-card-nested">
           <CardHeader>
             <CardTitle class="mb-2">Catppuccin Accent Colors</CardTitle>
-            <CardDescription>Accent colors in the Catppuccin theme.</CardDescription>
+            <CardDescription
+              >Accent colors in the Catppuccin theme.</CardDescription
+            >
           </CardHeader>
           <CardContent>
             <div class="flex flex-wrap gap-2">
@@ -36,7 +40,9 @@
         <Card class="bg-card-nested">
           <CardHeader>
             <CardTitle class="mb-2">Text Colors</CardTitle>
-            <CardDescription>Text colors in the Catppuccin theme.</CardDescription>
+            <CardDescription
+              >Text colors in the Catppuccin theme.</CardDescription
+            >
           </CardHeader>
           <CardContent>
             <p class="text-foreground">Foreground Text (text)</p>
@@ -52,5 +58,4 @@
   </div>
 </template>
 
-<script lang="ts" setup>
-</script>
+<script lang="ts" setup></script>

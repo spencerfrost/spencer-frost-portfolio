@@ -1,25 +1,37 @@
 <template>
-  <div class="flex flex-col items-center p-4 bg-bg min-h-screen container mx-auto">
+  <div
+    class="bg-bg container mx-auto flex min-h-screen flex-col items-center p-4"
+  >
     <WipBanner />
-    <h1 class="text-3xl font-bold mb-6 text-heading">Home Server Portal</h1>
-    <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
-      <Card v-for="service in services" :key="service.name"
-        class="bg-raised-bg m-2 p-4 flex flex-col items-center w-48 border border-border rounded-lg shadow-md">
+    <h1 class="text-heading mb-6 text-3xl font-bold">Home Server Portal</h1>
+    <div
+      class="grid grid-cols-1 gap-6 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4"
+    >
+      <Card
+        v-for="service in services"
+        :key="service.name"
+        class="bg-raised-bg border-border m-2 flex w-48 flex-col items-center rounded-lg border p-4 shadow-md"
+      >
         <CardHeader>
-          <CardTitle class="text-lg font-semibold text-heading">
+          <CardTitle class="text-heading text-lg font-semibold">
             {{ service.name }}
           </CardTitle>
         </CardHeader>
         <CardContent>
-          <p class="text-muted-foreground text-sm text-center">
+          <p class="text-center text-sm text-muted-foreground">
             {{ service.description }}
           </p>
         </CardContent>
-        <CardFooter class="flex-grow flex items-end">
-          <img :src="service.image" alt="" class="w-16 h-16 mb-2" />
+        <CardFooter class="flex flex-grow items-end">
+          <img :src="service.image" alt="" class="mb-2 h-16 w-16" >
         </CardFooter>
         <CardFooter v-if="service.url">
-          <a :href="service.url" target="_blank" rel="noopener noreferrer" class="text-primary hover:underline">
+          <a
+            :href="service.url"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="text-primary hover:underline"
+          >
             Go to {{ service.name }}
           </a>
         </CardFooter>

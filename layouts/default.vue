@@ -1,5 +1,5 @@
 <template>
-  <div class="min-h-screen flex flex-col font-body">
+  <div class="flex min-h-screen flex-col font-body">
     <AppHeader />
     <main class="flex-1">
       <slot />
@@ -9,6 +9,6 @@
 </template>
 
 <script setup>
-import AppFooter from '~/components/AppFooter.vue';
-import AppHeader from '~/components/AppHeader.vue';
+import AppFooter from '~/components/AppFooter.vue'
+import AppHeader from '~/components/AppHeader.vue'
 </script>
