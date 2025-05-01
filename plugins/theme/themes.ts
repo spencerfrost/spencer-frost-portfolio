@@ -1,4 +1,4 @@
-// Theme definitions using Catppuccin flavors
+// Theme definitions using Catppuccin flavours
 export const LightThemes = ["latte"] as const;
 export const DarkThemes = ["mocha", "macchiato", "frappe"] as const;
 
