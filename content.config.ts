@@ -2,6 +2,33 @@ import { defineCollection, defineContentConfig, z } from '@nuxt/content'
 
 export default defineContentConfig({
   collections: {
+    about: defineCollection({
+      type: 'data',
+      source: 'about.json',
+      schema: z.object({
+        name: z.string(),
+        title: z.string(),
+        description: z.string(),
+        skills: z.array(z.string()),
+        interests: z.array(z.string()),
+        contact: z.object({
+          email: z.string().email(),
+          phone: z.string().optional()
+        })
+      })
+    }),
+    spencerPlus: defineCollection({
+      type: 'data',
+      source: 'spencer-plus.json',
+      schema: z.object({
+        services: z.array(z.object({
+          name: z.string(),
+          description: z.string(),
+          url: z.string().url(),
+          image: z.string()
+        })),
+      })
+    }),
     projects: defineCollection({
       type: 'data',
       source: 'projects/**.json',
