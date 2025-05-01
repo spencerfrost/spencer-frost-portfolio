@@ -1,7 +1,7 @@
 <template>
   <div class="flex flex-col gap-2">
     <div
-      :class="`flex items-center justify-center w-16 h-16 rounded-full ${backgroundClass}`"
+      :class="`flex h-16 w-16 items-center justify-center rounded-full ${backgroundClass}`"
     />
     <!-- bg-rosewater bg-flamingo bg-pink bg-mauve bg-red bg-maroon bg-peach
     bg-yellow bg-green bg-teal bg-sky bg-sapphire bg-blue bg-lavender -->
@@ -12,19 +12,18 @@
 </template>
 
 <script lang="ts" setup>
-import { computed } from 'vue';
+import { computed } from 'vue'
 
 defineOptions({
   name: 'ColorSwatch',
-});
-
+})
 
 const props = defineProps({
   color: {
     type: String,
     required: true,
   },
-});
+})
 
-const backgroundClass = computed(() => `bg-${props.color}`);
+const backgroundClass = computed(() => `bg-${props.color}`)
 </script>

@@ -1,26 +1,28 @@
 <template>
   <div class="mb-12">
-    <h1 class="text-3xl sm:text-4xl font-bold tracking-tight text-foreground mb-3">
+    <h1
+      class="mb-3 text-3xl font-bold tracking-tight text-foreground sm:text-4xl"
+    >
       {{ title }}
     </h1>
 
-    <p v-if="longDescription" class="text-lg text-muted-foreground mb-6">
+    <p v-if="longDescription" class="mb-6 text-lg text-muted-foreground">
       {{ longDescription }}
     </p>
-    <p v-else-if="description" class="text-lg text-muted-foreground mb-6">
+    <p v-else-if="description" class="mb-6 text-lg text-muted-foreground">
       {{ description }}
     </p>
 
-    <div class="flex flex-wrap gap-3 mb-6">
+    <div class="mb-6 flex flex-wrap gap-3">
       <Button v-if="liveUrl" as-child variant="outline">
         <a :href="liveUrl" target="_blank" rel="noopener noreferrer">
-          <ExternalLink class="w-4 h-4 mr-2" />
+          <ExternalLink class="mr-2 h-4 w-4" />
           Live Demo
         </a>
       </Button>
       <Button v-if="repoUrl" as-child variant="outline">
         <a :href="repoUrl" target="_blank" rel="noopener noreferrer">
-          <Code class="w-4 h-4 mr-2" />
+          <Code class="mr-2 h-4 w-4" />
           Source Code
         </a>
       </Button>
@@ -35,17 +37,17 @@
 </template>
 
 <script setup lang="ts">
-import { ExternalLink, Code } from 'lucide-vue-next';
+import { ExternalLink, Code } from 'lucide-vue-next'
 
 interface Props {
-  title: string;
-  description?: string;
-  longDescription?: string;
-  liveUrl?: string;
-  repoUrl?: string;
-  tech?: string[];
+  title: string
+  description?: string
+  longDescription?: string
+  liveUrl?: string
+  repoUrl?: string
+  tech?: string[]
 }
 
 // Define props with defaults or make them optional
-defineProps<Props>();
+defineProps<Props>()
 </script>

@@ -1,16 +1,17 @@
 <template>
-  <div class="flex min-h-[60vh] h-full w-full items-center justify-center">
+  <div class="flex h-full min-h-[60vh] w-full items-center justify-center">
     <Card class="w-full max-w-lg">
       <CardHeader>
         <img
           src="/images/spencer/mailman.webp"
-          class="w-64 h-64 rounded-full border-4 border-sapphire mx-auto mb-4"
+          class="mx-auto mb-4 h-64 w-64 rounded-full border-4 border-sapphire"
           alt="Spencer as a friendly mailman"
-        />
+        >
         <CardTitle class="text-2xl">Drop Me a Line!</CardTitle>
         <CardDescription>
-          Spencer's Digital Post Office is now accepting messages! Whether you have a project idea,
-          a question about my work, or just want to say hello, I'll make sure your message gets delivered.
+          Spencer's Digital Post Office is now accepting messages! Whether you
+          have a project idea, a question about my work, or just want to say
+          hello, I'll make sure your message gets delivered.
         </CardDescription>
       </CardHeader>
       <CardContent>
@@ -62,7 +63,7 @@
             </FormField>
 
             <Button type="submit">
-              <Icon name="gravity-ui:envelope" size='18' class="mr-2" />
+              <Icon name="gravity-ui:envelope" size="18" class="mr-2" />
               Send It My Way
             </Button>
           </div>
@@ -77,10 +78,10 @@
 
 <script setup lang="ts">
 // --- Corrected and Added Imports ---
-import { z } from 'zod'; // Import Zod
-import { toTypedSchema } from '@vee-validate/zod'; // Import Zod adapter for VeeValidate
-import { useForm } from 'vee-validate'; // Import useForm from VeeValidate
-import { Button } from '@/components/ui/button';
+import { z } from 'zod' // Import Zod
+import { toTypedSchema } from '@vee-validate/zod' // Import Zod adapter for VeeValidate
+import { useForm } from 'vee-validate' // Import useForm from VeeValidate
+import { Button } from '@/components/ui/button'
 import {
   Card,
   CardContent,
@@ -88,17 +89,17 @@ import {
   CardFooter, // Added CardFooter import
   CardHeader,
   CardTitle,
-} from '@/components/ui/card';
+} from '@/components/ui/card'
 import {
   FormControl,
   FormField,
   FormItem,
   FormLabel,
   FormMessage,
-} from '@/components/ui/form';
-import { Input } from '@/components/ui/input';
-import { Textarea } from '@/components/ui/textarea';
-import { useToast } from '@/components/ui/toast/use-toast';
+} from '@/components/ui/form'
+import { Input } from '@/components/ui/input'
+import { Textarea } from '@/components/ui/textarea'
+import { useToast } from '@/components/ui/toast/use-toast'
 // --- End Imports ---
 
 // Define the validation schema using Zod
@@ -115,47 +116,47 @@ const formSchema = toTypedSchema(
       .min(10, { message: 'Message must be at least 10 characters long.' })
       .max(500, { message: 'Message must not exceed 500 characters.' }),
   })
-);
+)
 
 // Initialize the toast function
-const { toast } = useToast();
+const { toast } = useToast()
 
 // Setup the form using VeeValidate
 const { handleSubmit, errors, resetForm } = useForm({
   validationSchema: formSchema,
-  initialValues: { // Optional: Define initial values if needed
+  initialValues: {
+    // Optional: Define initial values if needed
     name: '',
     email: '',
     message: '',
   },
-});
+})
 
 // Define the submit handler
-const onSubmit = handleSubmit(async (values) => {
+const onSubmit = handleSubmit(async values => {
   try {
     // Placeholder for actual submission logic (e.g., API call)
-    console.log('Form Submitted Successfully:', values);
+    console.log('Form Submitted Successfully:', values)
 
     // Show success toast
     toast({
       title: 'Success!',
       description: 'Your message has been sent successfully.',
       variant: 'default', // Or 'success' if your toast component supports it
-    });
+    })
 
     // Reset the form fields after successful submission
-    resetForm();
-
+    resetForm()
   } catch (error) {
     // Log the error for debugging
-    console.error('Error during submission action:', error);
+    console.error('Error during submission action:', error)
 
     // Show error toast
     toast({
       title: 'Submission Error',
       description: 'Failed to send your message. Please try again later.',
       variant: 'destructive',
-    });
+    })
   }
-});
+})
 </script>

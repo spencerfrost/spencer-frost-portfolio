@@ -3,17 +3,68 @@ import { ref } from 'vue'
 import { useToast } from '@/components/ui/toast/use-toast'
 import { Button } from '@/components/ui/button'
 import { Badge } from '@/components/ui/badge'
-import { Card, CardContent, CardDescription, CardHeader, CardTitle, CardFooter } from '@/components/ui/card'
-import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from '@/components/ui/carousel'
-import { Dialog, DialogContent, DialogDescription, DialogHeader, DialogTitle, DialogTrigger, DialogFooter, DialogClose } from '@/components/ui/dialog'
-import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuLabel, DropdownMenuSeparator, DropdownMenuTrigger } from '@/components/ui/dropdown-menu'
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardHeader,
+  CardTitle,
+  CardFooter,
+} from '@/components/ui/card'
+import {
+  Carousel,
+  CarouselContent,
+  CarouselItem,
+  CarouselNext,
+  CarouselPrevious,
+} from '@/components/ui/carousel'
+import {
+  Dialog,
+  DialogContent,
+  DialogDescription,
+  DialogHeader,
+  DialogTitle,
+  DialogTrigger,
+  DialogFooter,
+  DialogClose,
+} from '@/components/ui/dialog'
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuLabel,
+  DropdownMenuSeparator,
+  DropdownMenuTrigger,
+} from '@/components/ui/dropdown-menu'
 import { Input } from '@/components/ui/input'
 import { Label } from '@/components/ui/label'
-import { NavigationMenu, NavigationMenuContent, NavigationMenuItem, NavigationMenuLink, NavigationMenuList, NavigationMenuTrigger, navigationMenuTriggerStyle } from '@/components/ui/navigation-menu'
+import {
+  NavigationMenu,
+  NavigationMenuContent,
+  NavigationMenuItem,
+  NavigationMenuLink,
+  NavigationMenuList,
+  NavigationMenuTrigger,
+  navigationMenuTriggerStyle,
+} from '@/components/ui/navigation-menu'
 import { RadioGroup, RadioGroupItem } from '@/components/ui/radio-group'
-import { Sheet, SheetContent, SheetDescription, SheetHeader, SheetTitle, SheetTrigger, SheetFooter, SheetClose } from '@/components/ui/sheet'
+import {
+  Sheet,
+  SheetContent,
+  SheetDescription,
+  SheetHeader,
+  SheetTitle,
+  SheetTrigger,
+  SheetFooter,
+  SheetClose,
+} from '@/components/ui/sheet'
 import { Textarea } from '@/components/ui/textarea'
-import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from '@/components/ui/tooltip'
+import {
+  Tooltip,
+  TooltipContent,
+  TooltipProvider,
+  TooltipTrigger,
+} from '@/components/ui/tooltip'
 import { Toaster } from '@/components/ui/toast'
 
 const { toast } = useToast()
@@ -31,7 +82,7 @@ const handleFormSubmit = () => {
     description: 'Demo form data processed.',
   })
   // Reset form state after a delay for demo purposes
-  setTimeout(() => formSubmitted.value = false, 3000);
+  setTimeout(() => (formSubmitted.value = false), 3000)
 }
 
 // Carousel items example
@@ -43,13 +94,14 @@ const carouselItems = ref([
 </script>
 
 <template>
-  <div class="container mx-auto p-4 space-y-8">
-    <h1 class="text-3xl font-bold text-foreground mb-6">Shadcn/Vue Component Showcase</h1>
+  <div class="container mx-auto space-y-8 p-4">
+    <h1 class="mb-6 text-3xl font-bold text-foreground">
+      Shadcn/Vue Component Showcase
+    </h1>
 
     <Toaster />
 
-    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-
+    <div class="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
       <Card>
         <CardHeader>
           <CardTitle>Badge</CardTitle>
@@ -116,13 +168,17 @@ const carouselItems = ref([
           <CardTitle>Carousel</CardTitle>
         </CardHeader>
         <CardContent>
-          <Carousel class="relative w-full max-w-xs mx-auto">
+          <Carousel class="relative mx-auto w-full max-w-xs">
             <CarouselContent>
               <CarouselItem v-for="item in carouselItems" :key="item.id">
                 <div class="p-1">
                   <Card>
-                    <CardContent class="flex aspect-square items-center justify-center p-6">
-                      <span class="text-4xl font-semibold">{{ item.content }}</span>
+                    <CardContent
+                      class="flex aspect-square items-center justify-center p-6"
+                    >
+                      <span class="text-4xl font-semibold">{{
+                        item.content
+                      }}</span>
                     </CardContent>
                   </Card>
                 </div>
@@ -155,9 +211,7 @@ const carouselItems = ref([
               </div>
               <DialogFooter>
                 <DialogClose as-child>
-                  <Button type="button" variant="secondary">
-                    Close
-                  </Button>
+                  <Button type="button" variant="secondary"> Close </Button>
                 </DialogClose>
                 <Button type="submit">Save changes</Button>
               </DialogFooter>
@@ -191,21 +245,36 @@ const carouselItems = ref([
       <Card class="md:col-span-2">
         <CardHeader>
           <CardTitle>Form Elements</CardTitle>
-          <CardDescription>Showcasing Input, Label, RadioGroup, Textarea</CardDescription>
+          <CardDescription
+            >Showcasing Input, Label, RadioGroup, Textarea</CardDescription
+          >
         </CardHeader>
         <CardContent>
-          <form @submit.prevent="handleFormSubmit" class="space-y-4">
+          <form class="space-y-4" @submit.prevent="handleFormSubmit">
             <div class="grid w-full max-w-sm items-center gap-1.5">
               <Label for="email">Email</Label>
-              <Input id="email" type="email" placeholder="Email" v-model="inputValue" />
+              <Input
+                id="email"
+                v-model="inputValue"
+                type="email"
+                placeholder="Email"
+              />
             </div>
 
             <div class="grid w-full gap-1.5">
               <Label for="message">Your message</Label>
-              <Textarea id="message" placeholder="Type your message here." v-model="textareaValue" />
+              <Textarea
+                id="message"
+                v-model="textareaValue"
+                placeholder="Type your message here."
+              />
             </div>
 
-            <RadioGroup v-model="radioValue" default-value="option-one" class="space-y-1">
+            <RadioGroup
+              v-model="radioValue"
+              default-value="option-one"
+              class="space-y-1"
+            >
               <Label>Notify me about...</Label>
               <div class="flex items-center space-x-2">
                 <RadioGroupItem id="option-one" value="option-one" />
@@ -223,7 +292,12 @@ const carouselItems = ref([
 
             <Button type="submit">Submit Form</Button>
 
-            <p v-if="formSubmitted" class="text-sm text-green-600 dark:text-green-400">Form submitted successfully!</p>
+            <p
+              v-if="formSubmitted"
+              class="text-green-600 dark:text-green-400 text-sm"
+            >
+              Form submitted successfully!
+            </p>
           </form>
         </CardContent>
       </Card>
@@ -297,12 +371,17 @@ const carouselItems = ref([
           <CardTitle>Toast</CardTitle>
         </CardHeader>
         <CardContent>
-          <Button variant="outline" @click="() => {
-                  toast({
-                    title: 'Scheduled: Catch up',
-                    description: 'Friday, February 10, 2023 at 5:57 PM',
-                  })
-                }">
+          <Button
+            variant="outline"
+            @click="
+              () => {
+                toast({
+                  title: 'Scheduled: Catch up',
+                  description: 'Friday, February 10, 2023 at 5:57 PM',
+                })
+              }
+            "
+          >
             Show Toast
           </Button>
         </CardContent>
@@ -325,7 +404,6 @@ const carouselItems = ref([
           </TooltipProvider>
         </CardContent>
       </Card>
-
     </div>
   </div>
 </template>
