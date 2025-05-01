@@ -6,14 +6,14 @@
         alt="Spencer as a developer" />
     </div>
     <div class="w-full md:w-2/3 flex flex-col justify-center md:pl-8 lg:pl-12">
-      <Card>
+      <Card class="rounded-none sm:rounded-xl">
         <CardHeader>
           <CardTitle>About Me</CardTitle>
         </CardHeader>
         <CardContent class="space-y-4">
           <div class="role-display">
             <span class="text-xl md:text-2xl font-medium">I'm </span>
-            <span class="text-xl md:text-2xl font-medium text-primary" ref="roleText" />
+            <span class="text-xl md:text-2xl font-medium text-lavender" ref="roleText" />
           </div>
           <div class="max-w-4xl space-y-4">
             <p class="text-sm md:text-md text-foreground">
@@ -72,7 +72,7 @@ const roles = [
   "a Minecraft Veteran",
   "a Nature Lover",
   "a Cycling Advocate",
-  "a Trivia Enthusiast",
+  "great at trivia nights",
   "AI-Curious"
 ];
 
