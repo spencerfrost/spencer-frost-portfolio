@@ -5,21 +5,11 @@
   "longDescription": "This portfolio website is built with Vue.js 3 and Vite, designed to showcase my projects and skills. Lorem ipsum dolor sit amet.",
   "liveUrl": "https://spencerfrost.ca",
   "repoUrl": "",
-  "tech": [
-    "Vue.js 3",
-    "Vite",
-    "Vue Router",
-    "Tailwind CSS",
-    "CircleCI"
-  ],
+  "tech": ["Vue.js 3", "Vite", "Vue Router", "Tailwind CSS", "CircleCI"],
   "coverImage": "/images/projects/portfolio.png",
-  "screenshots": [
-    "/images/projects/portfolio/screenshot1.png"
-  ],
+  "screenshots": ["/images/projects/portfolio/screenshot1.png"],
   "goals": "To present my work and skills in a modern, responsive format. Lorem ipsum.",
-  "role": [
-    "Sole Developer"
-  ],
+  "role": ["Sole Developer"],
   "techStack": "Vue.js 3, Vite, Vue Router, Tailwind CSS, CircleCI.",
   "features": [
     {

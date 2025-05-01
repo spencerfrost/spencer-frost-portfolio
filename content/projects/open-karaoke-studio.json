@@ -28,9 +28,7 @@
     "/images/projects/open-karaoke-studio/library.png"
   ],
   "goals": "The main goal was to make AI-powered karaoke track generation accessible to everyone, especially for songs not available in traditional karaoke libraries. The project aims to provide a fast, modern, and self-hosted solution for karaoke enthusiasts, with a focus on usability, performance, and open-source collaboration.",
-  "role": [
-    "Sole Developer (Full-Stack)"
-  ],
+  "role": ["Sole Developer (Full-Stack)"],
   "techStack": "React 19 and TypeScript for a modern, type-safe frontend; Vite for fast builds; TanStack Query for data fetching; Zustand for state management; Tailwind CSS and Shadcn/UI for styling; Python 3.10+ and Flask for the backend API; Demucs and PyTorch for AI audio processing; Celery (planned) for async task handling; SQLAlchemy for database management; Socket.IO for real-time updates.",
   "features": [
     {

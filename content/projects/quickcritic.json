@@ -14,13 +14,9 @@
     "Nginx"
   ],
   "coverImage": "/images/projects/quick-critic.png",
-  "screenshots": [
-    "/images/projects/quick-critic/screenshot1.png"
-  ],
+  "screenshots": ["/images/projects/quick-critic/screenshot1.png"],
   "goals": "To make it easy to find ratings for movies and TV shows. Lorem ipsum.",
-  "role": [
-    "Full-Stack Developer"
-  ],
+  "role": ["Full-Stack Developer"],
   "techStack": "React, TypeScript, Tailwind CSS, RESTful API, CircleCI, Nginx.",
   "features": [
     {

@@ -6,8 +6,16 @@
   "liveUrl": "https://blueprint-create.com/",
   "repoUrl": "https://github.com/blueprint-site/blueprint-create",
   "tech": [
-    "React 19", "TypeScript", "Vite", "TanStack Query", "Zustand",
-    "Tailwind CSS", "Shadcn/UI", "Appwrite", "Meilisearch", "OAuth"
+    "React 19",
+    "TypeScript",
+    "Vite",
+    "TanStack Query",
+    "Zustand",
+    "Tailwind CSS",
+    "Shadcn/UI",
+    "Appwrite",
+    "Meilisearch",
+    "OAuth"
   ],
   "coverImage": "/images/projects/blueprint/landing_page.png",
   "screenshots": [
@@ -20,18 +28,48 @@
   "role": ["Lead Front-End Developer"],
   "techStack": "React 19 and TypeScript were chosen for their modern features and type safety... Vite was selected for its fast build times... TanStack Query for data fetching... Zustand for state management... Tailwind CSS and Shadcn/UI for styling... Appwrite for backend... Meilisearch for search.",
   "features": [
-    { "title": "Addon discovery", "description": "A platform for discovering addons/mods for the Create Mod." },
-    { "title": "Schematic Sharing", "description": "A platform for sharing and discovering player-made schematics." },
-    { "title": "Smart version compatibility filtering", "description": "Filter addons/schematics based on compatibility." },
-    { "title": "Multi-platform mod loader support", "description": "Support for different mod loaders like Forge and Fabric." },
-    { "title": "Appwrite OAuth", "description": "Secure OAuth authentication using Appwrite..." },
-    { "title": "Responsive design", "description": "Optimized for all device sizes..." }
+    {
+      "title": "Addon discovery",
+      "description": "A platform for discovering addons/mods for the Create Mod."
+    },
+    {
+      "title": "Schematic Sharing",
+      "description": "A platform for sharing and discovering player-made schematics."
+    },
+    {
+      "title": "Smart version compatibility filtering",
+      "description": "Filter addons/schematics based on compatibility."
+    },
+    {
+      "title": "Multi-platform mod loader support",
+      "description": "Support for different mod loaders like Forge and Fabric."
+    },
+    {
+      "title": "Appwrite OAuth",
+      "description": "Secure OAuth authentication using Appwrite..."
+    },
+    {
+      "title": "Responsive design",
+      "description": "Optimized for all device sizes..."
+    }
   ],
   "challenges": [
-    { "challenge": "Integrating multiple data sources (CurseForge and Modrinth APIs)", "solution": "[solution here]" },
-    { "challenge": "Building a unified search experience with Meilisearch", "solution": "[solution here]" },
-    { "challenge": "Implementing 3D schematic previews", "solution": "[solution here]" },
-    { "challenge": "Managing multiple contributing developers", "solution": "[solution here]" },
+    {
+      "challenge": "Integrating multiple data sources (CurseForge and Modrinth APIs)",
+      "solution": "[solution here]"
+    },
+    {
+      "challenge": "Building a unified search experience with Meilisearch",
+      "solution": "[solution here]"
+    },
+    {
+      "challenge": "Implementing 3D schematic previews",
+      "solution": "[solution here]"
+    },
+    {
+      "challenge": "Managing multiple contributing developers",
+      "solution": "[solution here]"
+    },
     { "challenge": "Creating a consistent UI", "solution": "[solution here]" }
   ],
   "learnings": "This project significantly developed my project management skills... gained deep experience with TypeScript... managed implementation of React 19 features... integration of multiple data sources expanded frontend architecture skills.",

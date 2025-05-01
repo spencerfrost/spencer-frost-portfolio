@@ -16,13 +16,9 @@
     "CircleCI"
   ],
   "coverImage": "/images/projects/minecraft-skin-merger.png",
-  "screenshots": [
-    "/images/projects/minecraft-skin-merger/screenshot1.png"
-  ],
+  "screenshots": ["/images/projects/minecraft-skin-merger/screenshot1.png"],
   "goals": "To provide an easy way to merge Minecraft skins. Lorem ipsum.",
-  "role": [
-    "Full-Stack Developer"
-  ],
+  "role": ["Full-Stack Developer"],
   "techStack": "React, Node.js, Express.js, Tailwind CSS, Rollup, Babel, CircleCI.",
   "features": [
     {

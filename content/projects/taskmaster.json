@@ -17,13 +17,9 @@
     "CircleCI"
   ],
   "coverImage": "/images/projects/taskmaster.png",
-  "screenshots": [
-    "/images/projects/taskmaster/screenshot1.png"
-  ],
+  "screenshots": ["/images/projects/taskmaster/screenshot1.png"],
   "goals": "To help users organize and track their daily tasks efficiently. Lorem ipsum.",
-  "role": [
-    "Full-Stack Developer"
-  ],
+  "role": ["Full-Stack Developer"],
   "techStack": "React, TypeScript, Node.js, Express.js, PostgreSQL, Tailwind CSS, CircleCI.",
   "features": [
     {
