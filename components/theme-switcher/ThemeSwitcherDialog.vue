@@ -1,6 +1,6 @@
 <template>
   <Dialog :open="modelValue" @update:open="onUpdateOpen">
-    <DialogTrigger as-child v-if="trigger">
+    <DialogTrigger v-if="trigger" as-child>
       <slot name="trigger">
         <Button v-if="icon" variant="ghost" size="icon">
           <Icon name="lucide-lab:coffee" class="h-5 w-5" />
@@ -8,10 +8,10 @@
         <Button v-else>Open Theme Switcher</Button>
       </slot>
     </DialogTrigger>
-    <DialogContent class="w-max-screen sm:w-128">
+    <DialogContent class="">
       <slot>
-        <DialogHeader class="text-center flex flex-col gap-4">
-          <DialogTitle class="text-2xl font-bold text-heading">
+        <DialogHeader class="flex flex-col gap-4 text-center">
+          <DialogTitle class="text-heading text-2xl font-bold">
             Theme Switcher
           </DialogTitle>
           <DialogDescription class="text-muted-foreground">
@@ -20,9 +20,9 @@
         </DialogHeader>
       </slot>
       <ThemeSwitcher class="flex flex-col gap-4 p-4" />
-      <slot name="footer" v-if="footer">
+      <slot v-if="footer" name="footer">
         <CardFooter class="flex justify-center">
-          <Button class="w-full" @click="onUpdateOpen(false)">
+          <Button class="w-full" variant="outline" @click="onUpdateOpen(false)">
             Close
           </Button>
         </CardFooter>
@@ -35,25 +35,25 @@
 defineProps({
   icon: {
     type: Boolean,
-    default: false
+    default: false,
   },
   modelValue: {
     type: Boolean,
-    default: false
+    default: false,
   },
   trigger: {
     type: Boolean,
-    default: true
+    default: true,
   },
   footer: {
     type: Boolean,
-    default: true
-  }
-});
+    default: true,
+  },
+})
 
-const emit = defineEmits(['update:modelValue']);
+const emit = defineEmits(['update:modelValue'])
 
 function onUpdateOpen(val: boolean) {
-  emit('update:modelValue', val);
+  emit('update:modelValue', val)
 }
 </script>
