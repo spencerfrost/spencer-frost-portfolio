@@ -3,7 +3,7 @@
   "slug": "portfolio-website",
   "description": "A Vue.js application for showcasing my work and skills.",
   "longDescription": "This portfolio website is built with Vue.js 3 and Vite, designed to showcase my projects and skills. Lorem ipsum dolor sit amet.",
-  "liveUrl": "https://mrspinn.ca",
+  "liveUrl": "https://spencerfrost.ca",
   "repoUrl": "",
   "tech": [
     "Vue.js 3",

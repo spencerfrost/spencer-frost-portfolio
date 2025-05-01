@@ -21,7 +21,7 @@
     "SQLAlchemy",
     "Socket.IO"
   ],
-  "coverImage": "/images/projects/open-karaoke-studio/placeholder-cover.png",
+  "coverImage": "/images/projects/open-karaoke-studio/player.png",
   "screenshots": [
     "/images/projects/open-karaoke-studio/player.png",
     "/images/projects/open-karaoke-studio/search.png",

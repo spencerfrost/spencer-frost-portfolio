@@ -9,7 +9,7 @@
     "React 19", "TypeScript", "Vite", "TanStack Query", "Zustand",
     "Tailwind CSS", "Shadcn/UI", "Appwrite", "Meilisearch", "OAuth"
   ],
-  "coverImage": "/images/projects/blueprint/placeholder-cover.png",
+  "coverImage": "/images/projects/blueprint/landing_page.png",
   "screenshots": [
     "/images/projects/blueprint/landing_page.png",
     "/images/projects/blueprint/about_page.png",
