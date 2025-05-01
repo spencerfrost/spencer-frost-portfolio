@@ -2,13 +2,26 @@
   <header class="sticky top-0 z-50 w-full px-4">
     <div class="container mx-auto">
       <nav class="flex h-16 items-center justify-between">
-        <!-- Logo/Name - visible on all screens -->
         <div class="flex items-center gap-2 flex-1">
-          <NuxtLink as="a" href="/""
-            class=" flex items-center cursor-pointer">
-            <span class="text-3xl font-black font-rounded text-rosewater">
-              Spencer<span class="text-mauve">Frost</span>
-            </span>
+          <NuxtLink
+            as="a"
+            href="/""
+            class="cursor-pointer text-3xl font-black font-rounded"
+          >
+            <!-- <span class="text-rosewater">S</span>
+              <span class="text-flamingo">p</span>
+              <span class="text-pink">e</span>
+              <span class="text-mauve">n</span>
+              <span class="text-red">c</span>
+              <span class="text-maroon">e</span>
+              <span class="text-peach">r</span>
+              <span class="text-yellow">F</span>
+              <span class="text-green">r</span>
+              <span class="text-teal">o</span>
+              <span class="text-sky">s</span>
+              <span class="text-sapphire">t</span> -->
+            <span class="text-rosewater">Spencer</span>
+            <span class="text-primary">Frost</span>
           </NuxtLink>
         </div>
 
