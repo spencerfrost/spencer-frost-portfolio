@@ -5,45 +5,27 @@
         My Work
       </h2>
       <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-        <UiCard
-          v-for="project in projects"
-          :key="project.title"
-          class="bg-raised-bg text-foreground rounded-lg shadow-md overflow-hidden border border-border"
-        >
-          <a
-            :href="project.link"
-            target="_blank"
-            rel="noopener noreferrer"
-            class="block"
-          >
-            <img
-              :src="project.image"
-              :alt="project.title"
-              class="project-image"
-            />
-          </a>
-          <div class="p-4">
-            <h3 class="text-xl font-semibold mb-2 text-heading">{{ project.title }}</h3>
-            <p class="text-muted-foreground mb-4">{{ project.description }}</p>
-            <div class="flex flex-wrap gap-2 mb-4">
-              <span
-                v-for="tag in project.tags"
-                :key="tag"
-                class="bg-overlay-bg text-foreground px-2 py-1 rounded text-sm"
-              >
-                {{ tag }}
-              </span>
-            </div>
-            <a
-              :href="project.link"
-              target="_blank"
-              rel="noopener noreferrer"
-              class="text-primary hover:underline"
-            >
-              View Project
+        <Card v-for="project in projects" :key="project.title"
+          class="bg-raised-bg text-foreground rounded-lg shadow-md overflow-hidden border border-border">
+          <CardContent>
+            <a :href="project.link" target="_blank" rel="noopener noreferrer" class="block">
+              <img :src="project.image" :alt="project.title" class="project-image" />
             </a>
-          </div>
-        </UiCard>
+            <div class="p-4">
+              <h3 class="text-xl font-semibold mb-2 text-heading">{{ project.title }}</h3>
+              <p class="text-muted-foreground mb-4">{{ project.description }}</p>
+              <div class="flex flex-wrap gap-2 mb-4">
+                <span v-for="tag in project.tags" :key="tag"
+                  class="bg-overlay-bg text-foreground px-2 py-1 rounded text-sm">
+                  {{ tag }}
+                </span>
+              </div>
+              <a :href="project.link" target="_blank" rel="noopener noreferrer" class="text-primary hover:underline">
+                View Project
+              </a>
+            </div>
+          </CardContent>
+        </Card>
       </div>
     </div>
   </section>

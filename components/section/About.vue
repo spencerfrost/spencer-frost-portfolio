@@ -1,5 +1,5 @@
 <template>
-  <section id="about" class="flex flex-col md:flex-row container mx-auto">
+  <section id="about" class="flex flex-col md:flex-row container mx-auto bg-background/75">
     <div class="w-full md:w-1/3 flex items-center justify-center px-4 md:px-0 mb-6 md:mb-0">
       <img
         src="/images/spencer/developer.png"
@@ -11,7 +11,7 @@
       <h1 class="text-3xl md:text-4xl font-bold">About Me</h1>
 
       <div class="role-display">
-        <span class="text-xl md:text-2xl font-medium">I'm a </span>
+        <span class="text-xl md:text-2xl font-medium">I'm </span>
         <span class="text-xl md:text-2xl font-medium text-primary" ref="roleText"></span>
       </div>
 
@@ -57,19 +57,19 @@ gsap.registerPlugin(TextPlugin);
 
 const roleText = ref(null);
 const roles = [
-  "Front-end Developer",
-  "DevOps Enthusiast",
-  "Open Source Contributor",
-  "UI Specialist",
-  "Rock Climber",
-  "Music Festival Organizer",
-  "Component Architect",
-  "Microphone Warrior",
-  "Homelab Server Admin",
-  "Minecraft Veteran",
-  "Nature Lover",
-  "Cycling Advocate",
-  "Trivia Enthusiast",
+  "a Front-end Developer",
+  "a DevOps Tinkerer",
+  "an Open Source Contributor",
+  "a UI Specialist",
+  "a Rock Climber",
+  "a Music Festival Organizer",
+  "a Component Architect",
+  "a Microphone Warrior",
+  "a Homelab Server Admin",
+  "a Minecraft Veteran",
+  "a Nature Lover",
+  "a Cycling Advocate",
+  "a Trivia Enthusiast",
   "AI-Curious"
 ];
 
