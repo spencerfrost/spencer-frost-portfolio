@@ -13,21 +13,23 @@ export default defineContentConfig({
         interests: z.array(z.string()),
         contact: z.object({
           email: z.string().email(),
-          phone: z.string().optional()
-        })
-      })
+          phone: z.string().optional(),
+        }),
+      }),
     }),
     spencerPlus: defineCollection({
       type: 'data',
       source: 'spencer-plus.json',
       schema: z.object({
-        services: z.array(z.object({
-          name: z.string(),
-          description: z.string(),
-          url: z.string().url(),
-          image: z.string()
-        })),
-      })
+        services: z.array(
+          z.object({
+            name: z.string(),
+            description: z.string(),
+            url: z.string().url(),
+            image: z.string(),
+          })
+        ),
+      }),
     }),
     projects: defineCollection({
       type: 'data',
@@ -48,18 +50,18 @@ export default defineContentConfig({
         features: z.array(
           z.object({
             title: z.string(),
-            description: z.string()
+            description: z.string(),
           })
         ),
         challenges: z.array(
           z.object({
             challenge: z.string(),
-            solution: z.string()
+            solution: z.string(),
           })
         ),
         learnings: z.string(),
-        openSource: z.boolean()
-      })
-    })
-  }
+        openSource: z.boolean(),
+      }),
+    }),
+  },
 })

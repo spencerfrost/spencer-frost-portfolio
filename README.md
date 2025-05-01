@@ -39,23 +39,27 @@ This portfolio is organized around the concept of "Mindful Modern Development" a
 ## 🧩 Key Sections
 
 ### 🏠 Home Page (W.I.P.)
+
 - Scrolling hero section with animated intro
 - Featured projects carousel/grid
 - Skills visualization
 - First-time visitor theme selection dialog
 
 ### 💼 Projects Section (W.I.P.)
+
 - Filterable projects gallery
 - Comprehensive case studies
 - Technical challenges and solutions
 - Key features with visuals
 
 ### 🔧 Spencer Plus (W.I.P.)
+
 - Server infrastructure visualization
 - Services showcase grouped by purpose
 - Technical specifications and architecture
 
 ### 👤 About Page (W.I.P.)
+
 - Professional profile emphasizing "Mindful Modern Development"
 - Skills breakdown by category
 - Technical philosophy: "Clean Solutions, Not Quick Fixes"
