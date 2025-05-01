@@ -7,3 +7,64 @@
 :root {
   --radius: 0.625rem;
 }
+
+@layer base {
+  :root {
+    --background: var(--ctp-base);
+    --foreground: var(--ctp-text);
+    --semantic-foreground: var(--ctp-base);
+
+    --primary: var(--ctp-lavender);
+    --secondary: var(--ctp-sapphire);
+    --muted: var(--ctp-surface0);
+    --muted-foreground: var(--ctp-subtext0);
+    --accent: var(--ctp-sky);
+    --success: var(--ctp-green);
+    --warning: var(--ctp-yellow);
+    --destructive: var(--ctp-red);
+    --card: var(--ctp-crust);
+    --card-nested: var(--ctp-mantle);
+    --card-foreground: var(--ctp-text);
+    --popover: var(--ctp-surface0);
+    --popover-foreground: var(--ctp-text);
+
+    --rosewater: var(--ctp-rosewater);
+    --flamingo: var(--ctp-flamingo);
+    --pink: var(--ctp-pink);
+    --mauve: var(--ctp-mauve);
+    --red: var(--ctp-red);
+    --maroon: var(--ctp-maroon);
+    --peach: var(--ctp-peach);
+    --yellow: var(--ctp-yellow);
+    --green: var(--ctp-green);
+    --teal: var(--ctp-teal);
+    --sky: var(--ctp-sky);
+    --sapphire: var(--ctp-sapphire);
+    --blue: var(--ctp-blue);
+    --lavender: var(--ctp-lavender);
+
+    --crust: var(--ctp-crust);
+    --mantle: var(--ctp-mantle);
+    --surface-0: var(--ctp-surface0);
+    --surface-1: var(--ctp-surface1);
+    --surface-2: var(--ctp-surface2);
+    --border: var(--ctp-surface2);
+    --input: var(--ctp-surface2);
+    --ring: var(--ctp-lavender);
+
+    --chart-1: var(--ctp-red);
+    --chart-2: var(--ctp-blue);
+    --chart-3: var(--ctp-green);
+    --chart-4: var(--ctp-yellow);
+    --chart-5: var(--ctp-pink);
+
+    --sidebar: var(--ctp-crust);
+    --sidebar-foreground: var(--ctp-text);
+    --sidebar-primary: var(--ctp-lavender);
+    --sidebar-primary-foreground: var(--ctp-text);
+    --sidebar-accent: var(--ctp-sky);
+    --sidebar-accent-foreground: var(--ctp-text);
+    --sidebar-border: var(--ctp-surface2);
+    --sidebar-ring: var(--ctp-lavender);
+  }
+}
