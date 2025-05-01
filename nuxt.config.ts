@@ -13,7 +13,6 @@ export default defineNuxtConfig({
   css: [
     "~/assets/styles/tailwind.css",
     "~/assets/styles/global.css",
-    "~/assets/styles/catppuccin.css"
   ],
 
   postcss: {
