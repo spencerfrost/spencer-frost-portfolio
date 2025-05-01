@@ -7,7 +7,11 @@
     "dev": "nuxt dev",
     "generate": "nuxt generate",
     "preview": "nuxt preview",
-    "postinstall": "nuxt prepare"
+    "postinstall": "nuxt prepare",
+    "lint:fix": "prettier --write . && eslint . --fix",
+    "lint:check": "prettier --check . && eslint .",
+    "format:check": "prettier --check .",
+    "format:write": "prettier --write ."
   },
   "dependencies": {
     "@nuxt/content": "3.5.1",
@@ -39,9 +43,11 @@
     "@iconify-json/uil": "^1.2.3",
     "autoprefixer": "^10.4.21",
     "class-variance-authority": "^0.7.1",
+    "eslint-config-prettier": "10.1.2",
     "eslint-plugin-vue": "^10.1.0",
     "nuxi": "^3.24.1",
     "postcss": "^8.5.3",
+    "prettier": "3.5.3",
     "sass": "^1.86.3",
     "shadcn-nuxt": "2.0.1",
     "tailwind-merge": "^3.2.0",
