@@ -1,5 +1,6 @@
 <template>
   <main class="container mx-auto px-4 py-8 md:px-6 lg:px-8">
+    <WipBanner />
     <h1 class="text-4xl font-bold mb-8 text-center md:text-left">About Spencer Frost</h1>
 
     <div class="grid grid-cols-1 md:grid-cols-6 gap-6">

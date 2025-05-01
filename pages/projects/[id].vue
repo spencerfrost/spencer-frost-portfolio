@@ -1,5 +1,6 @@
 <template>
   <div class="container mx-auto px-4 py-8" v-if="project">
+    <WipBanner />
     <ProjectHeader :title="project.title" :longDescription="project.longDescription" :liveUrl="project.liveUrl"
       :repoUrl="project.repoUrl" :tech="project.tech" />
 
