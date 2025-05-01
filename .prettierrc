@@ -14,5 +14,6 @@
   "proseWrap": "preserve",
   "htmlWhitespaceSensitivity": "css",
   "vueIndentScriptAndStyle": true,
+  "vueMaxAttributesPerLine": 3,
   "plugins": ["prettier-plugin-tailwindcss"]
 }
