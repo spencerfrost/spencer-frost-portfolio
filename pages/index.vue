@@ -1,9 +1,9 @@
 <template>
   <div>
-    <SectionLanding id="landing" />
-    <SectionAbout id="about" />
-    <SectionWork id="work" />
-    <SectionContact id="contact" />
+    <HomeHero id="landing" />
+    <HomeAbout id="about" />
+    <HomeProjects id="work" />
+    <HomeContact id="contact" />
     <BackgroundBubbles />
   </div>
 </template>
