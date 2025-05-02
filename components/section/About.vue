@@ -6,14 +6,16 @@
     <div
       class="mb-6 flex w-full items-center justify-center px-4 md:mb-0 md:w-1/3 md:px-0"
     >
-      <img
+      <CircleImage
+        size="lg"
+        color="sapphire"
         src="/images/spencer/developer.png"
-        class="mx-auto h-48 w-48 rounded-full border-4 border-sapphire sm:h-64 sm:w-64 md:h-72 md:w-72 lg:h-80 lg:w-80 xl:h-96 xl:w-96"
+        class="mx-auto h-48 w-48 rounded-full border-4 border-sapphire"
         alt="Spencer as a developer"
       />
     </div>
     <div class="flex w-full flex-col justify-center md:w-2/3 md:pl-8 lg:pl-12">
-      <Card class="rounded-none sm:rounded-xl">
+      <Card class="rounded-none border-none sm:rounded-xl sm:border">
         <CardHeader>
           <CardTitle>About Me</CardTitle>
         </CardHeader>
@@ -26,14 +28,14 @@
             />
           </div>
           <div class="max-w-4xl space-y-4">
-            <p class="md:text-md text-sm text-foreground">
+            <p class="md:text-md text-sm">
               I'm Spencer, a front-end developer who believes in
               <strong>clean solutions, not quick fixes</strong>. My journey
               spans from creating comprehensive component libraries to leading
               open-source projects with hundreds of commits.
             </p>
 
-            <p class="md:text-md text-sm text-foreground">
+            <p class="md:text-md text-sm">
               As a UI specialist, I craft interfaces that balance visual appeal
               with intuitive functionality. My approach is shaped by the belief
               that the simplest solution is often the strongest—incorprorating
@@ -41,7 +43,7 @@
               project is something I can be proud of.
             </p>
 
-            <p class="md:text-md text-sm text-foreground">
+            <p class="md:text-md text-sm">
               When I'm not immersed in code, you'll find me at the rock climbing
               gym, cycling, jamming some music, or belting out songs at karaoke.
               These diverse experiences inform my problem-solving approach and
@@ -49,7 +51,7 @@
               understanding the human elements behind them.
             </p>
 
-            <p class="md:text-md text-sm text-foreground">
+            <p class="md:text-md text-sm">
               I'm currently focused on projects that emphasize component-driven
               architecture and sustainable development practices that minimize
               technical debt. I'm passionate about building things right the
@@ -57,7 +59,7 @@
               over quick patches.
             </p>
 
-            <p class="md:text-md text-sm text-foreground">
+            <p class="md:text-md text-sm">
               <a href="#contact">Let's connect</a> if you're looking for a
               developer who brings both technical precision and creative energy
               to every project.

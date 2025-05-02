@@ -5,7 +5,5 @@
     <SectionWork id="work" />
     <SectionContact id="contact" />
     <BackgroundBubbles />
-
-    <ThemeSwitcherWelcomePopup />
   </div>
 </template>

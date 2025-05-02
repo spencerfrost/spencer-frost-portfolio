@@ -12,26 +12,22 @@
 
       <div class="mb-6 flex justify-center">
         <div @mouseenter="fingerGuns = true" @mouseleave="fingerGuns = false">
-          <img
-            v-if="!fingerGuns"
-            src="/images/spencer/kawaii.png"
-            class="h-40 w-40 rounded-full border-4 border-green shadow-lg transition-all duration-200 sm:h-80 sm:w-80 sm:border-8"
-            alt="Spencer Frost"
-          />
-          <img
-            v-if="fingerGuns"
-            src="/images/spencer/finger-guns.png"
-            class="h-40 w-40 rounded-full border-4 border-maroon shadow-lg transition-all duration-200 sm:h-80 sm:w-80 sm:border-8"
+          <CircleImage
+            :src="
+              fingerGuns
+                ? '/images/spencer/finger-guns.png'
+                : '/images/spencer/kawaii.png'
+            "
+            :color="fingerGuns ? 'maroon' : 'green'"
+            size="lg"
             alt="Spencer Frost"
           />
         </div>
       </div>
 
-      <h2
-        class="mb-6 rounded-md bg-card p-2 text-lg font-medium text-card-foreground sm:mb-8 sm:p-3 sm:text-2xl"
-      >
+      <h4 class="rounded-md bg-card p-2 font-medium sm:p-4">
         Mindful Modern Development
-      </h2>
+      </h4>
 
       <div class="mt-6 flex justify-center gap-4">
         <TooltipProvider>
