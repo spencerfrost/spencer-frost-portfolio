@@ -8,16 +8,22 @@
         <Button v-else>Open Theme Switcher</Button>
       </slot>
     </DialogTrigger>
-    <DialogContent class="">
+    <DialogContent class="max-w-[calc(100vw-2rem)] sm:max-w-[420px]">
       <slot>
-        <DialogHeader class="flex flex-col gap-4 text-center">
-          <DialogTitle class="text-heading text-2xl font-bold">
-            Theme Switcher
-          </DialogTitle>
-          <DialogDescription class="text-muted-foreground">
-            Switch between different themes.
-          </DialogDescription>
-        </DialogHeader>
+        <img
+          src="/images/spencer/barista.webp"
+          class="mx-auto mb-4 w-32 md:64 rounded-full border-4 border-peach"
+          alt="Barista"
+        >
+        <CardTitle>Welcome to Spencer's Code Café!</CardTitle>
+        <CardDescription>
+          Hey there! I'm Spencer, your code barista today. Ready to serve up the
+          perfect theme for your browsing experience!
+        </CardDescription>
+        <CardDescription>
+          What's your flavour preference? Each brew has its own unique palette
+          that'll transform how you experience my digital space!
+        </CardDescription>
       </slot>
       <ThemeSwitcher class="flex flex-col gap-4 p-4" />
       <slot v-if="footer" name="footer">
@@ -32,6 +38,8 @@
 </template>
 
 <script lang="ts" setup>
+import { onMounted } from 'vue'
+
 defineProps({
   icon: {
     type: Boolean,
@@ -56,4 +64,12 @@ const emit = defineEmits(['update:modelValue'])
 function onUpdateOpen(val: boolean) {
   emit('update:modelValue', val)
 }
+
+onMounted(() => {
+  const hasVisited = localStorage.getItem('hasVisited')
+  if (!hasVisited) {
+    localStorage.setItem('hasVisited', 'true')
+  }
+  onUpdateOpen(true)
+})
 </script>
