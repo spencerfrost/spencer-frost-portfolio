@@ -1,8 +1,6 @@
 <template>
   <div class="mb-12">
-    <h1
-      class="mb-3 text-3xl font-bold tracking-tight text-foreground sm:text-4xl"
-    >
+    <h1 class="mb-3 tracking-tight">
       {{ title }}
     </h1>
 

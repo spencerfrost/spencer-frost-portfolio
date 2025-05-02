@@ -69,15 +69,13 @@
 
       <Card class="p-6 md:col-span-3">
         <CardHeader>
-          <CardTitle class="text-2xl font-semibold"
-            >Professional Experience (Pre-Gap)</CardTitle
-          >
+          <CardTitle>Professional Experience (Pre-Gap)</CardTitle>
         </CardHeader>
         <CardContent class="space-y-6">
           <div>
-            <h3 class="mb-2 text-xl font-medium">
+            <h5 class="mb-2 font-medium">
               Vue.js Front-End Developer (First Role)
-            </h3>
+            </h5>
             <ul class="list-inside list-disc space-y-1 leading-relaxed">
               <li>
                 Initially focused on core frontend development using Vue.js.
@@ -89,9 +87,9 @@
             </ul>
           </div>
           <div>
-            <h3 class="mb-2 text-xl font-medium">
+            <h5 class="mb-2 font-medium">
               UI/Full-Stack Developer (Second Role)
-            </h3>
+            </h5>
             <ul class="list-inside list-disc space-y-1 leading-relaxed">
               <li>
                 Began as a dedicated frontend developer, successfully building a
@@ -150,9 +148,7 @@
         </CardHeader>
         <CardContent class="space-y-6">
           <div>
-            <h3 class="mb-2 text-xl font-medium">
-              Advanced Frontend Development
-            </h3>
+            <h5 class="mb-2 font-medium">Advanced Frontend Development</h5>
             <ul class="list-inside list-disc space-y-1 leading-relaxed">
               <li>React Proficiency</li>
               <li>TypeScript Mastery</li>
@@ -169,24 +165,22 @@
             </ul>
           </div>
           <div>
-            <h3 class="mb-2 text-xl font-medium">
-              Backend Development (Python/Flask)
-            </h3>
+            <h5 class="mb-2 font-medium">Backend Development (Python/Flask)</h5>
             <ul class="list-inside list-disc space-y-1 leading-relaxed">
               <li>RESTful API Development</li>
               <li>Core Backend Logic Implementation</li>
             </ul>
           </div>
           <div>
-            <h3 class="mb-2 text-xl font-medium">AI/ML Integration</h3>
+            <h5 class="mb-2 font-medium">AI/ML Integration</h5>
             <ul class="list-inside list-disc space-y-1 leading-relaxed">
               <li>Integration of Demucs (PyTorch-based) AI model</li>
             </ul>
           </div>
           <div>
-            <h3 class="mb-2 text-xl font-medium">
+            <h5 class="mb-2 font-medium">
               DevOps & Infrastructure Management ("Spencer Plus")
-            </h3>
+            </h5>
             <ul class="list-inside list-disc space-y-1 leading-relaxed">
               <li>Linux Server Administration</li>
               <li>Docker Ecosystem (40+ containers)</li>
@@ -204,9 +198,7 @@
             </p>
           </div>
           <div>
-            <h3 class="mb-2 text-xl font-medium">
-              Project Leadership & Management
-            </h3>
+            <h5 class="mb-2 font-medium">Project Leadership & Management</h5>
             <ul class-="list-disc list-inside space-y-1 leading-relaxed">
               <li>Lead Frontend Developer (Open Source Project)</li>
               <li>Managing and Contributing (400+ commits)</li>
@@ -216,16 +208,14 @@
             </ul>
           </div>
           <div>
-            <h3 class="mb-2 text-xl font-medium">CI/CD & Deployment</h3>
+            <h5 class="mb-2 font-medium">CI/CD & Deployment</h5>
             <ul class="list-inside list-disc space-y-1 leading-relaxed">
               <li>Automated Deployments (CircleCI)</li>
               <li>Deployment Strategies (PM2, SCP, rsync, Docker)</li>
             </ul>
           </div>
           <div>
-            <h3 class="mb-2 text-xl font-medium">
-              General Technical Proficiency
-            </h3>
+            <h5 class="mb-2 font-medium">General Technical Proficiency</h5>
             <ul class="list-inside list-disc space-y-1 leading-relaxed">
               <li>Linux Command Line</li>
               <li>Networking Fundamentals (DNS, Routing)</li>
@@ -241,7 +231,7 @@
         </CardHeader>
         <CardContent class="space-y-6">
           <div>
-            <h3 class="mb-2 text-xl font-medium">Open Karaoke Studio</h3>
+            <h5 class="mb-2 font-medium">Open Karaoke Studio</h5>
             <p class="leading-relaxed">
               AI-powered web application for creating karaoke tracks.
             </p>
@@ -253,7 +243,7 @@
             </p>
           </div>
           <div>
-            <h3 class="mb-2 text-xl font-medium">Create Mod Website</h3>
+            <h5 class="mb-2 font-medium">Create Mod Website</h5>
             <p class="leading-relaxed">
               Official website for a popular Minecraft mod.
             </p>
@@ -266,7 +256,7 @@
             </p>
           </div>
           <div>
-            <h3 class="mb-2 text-xl font-medium">Minecraft Skin Merger</h3>
+            <h5 class="mb-2 font-medium">Minecraft Skin Merger</h5>
             <p class="leading-relaxed">
               Application for merging Minecraft skins.
             </p>
@@ -279,7 +269,7 @@
             </p>
           </div>
           <div>
-            <h3 class="mb-2 text-xl font-medium">Artist Portfolio</h3>
+            <h5 class="mb-2 font-medium">Artist Portfolio</h5>
             <p class="leading-relaxed">
               Implemented a self-hosted CMS solution for a client.
             </p>
@@ -290,9 +280,7 @@
             </p>
           </div>
           <div>
-            <h3 class="mb-2 text-xl font-medium">
-              PowerLevel10K Catppuccin Theme
-            </h3>
+            <h5 class="mb-2 font-medium">PowerLevel10K Catppuccin Theme</h5>
             <p class="leading-relaxed">
               Created a popular, niche theme for a ZSH prompt.
             </p>
@@ -332,42 +320,42 @@
         </CardHeader>
         <CardContent class="space-y-6">
           <div>
-            <h3 class="mb-2 text-xl font-medium">
+            <h5 class="mb-2 font-medium">
               Core Philosophy: "Clean Solutions, Not Qck Fixes."
-            </h3>
+            </h5>
             <p class="leading-relaxed">
               Strong belief in building sustainable, maintainable code bases.
             </p>
           </div>
           <div>
-            <h3 class="mb-2 text-xl font-medium">Problem-Solving</h3>
+            <h5 class="mb-2 font-medium">Problem-Solving</h5>
             <p class="leading-relaxed">
               Enjoys tackling challenging technical problems and finding the
               most effective solution.
             </p>
           </div>
           <div>
-            <h3 class="mb-2 text-xl font-medium">Learning & Curiosity</h3>
+            <h5 class="mb-2 font-medium">Learning & Curiosity</h5>
             <p class="leading-relaxed">
               Constantly learning new technologies and skills. Known for having
               a broad base of knowledge.
             </p>
           </div>
           <div>
-            <h3 class="mb-2 text-xl font-medium">UI/Aesthetic</h3>
+            <h5 class="mb-2 font-medium">UI/Aesthetic</h5>
             <p class="leading-relaxed">
               Drawn to clean, fun, and visually appealing designs.
             </p>
           </div>
           <div>
-            <h3 class="mb-2 text-xl font-medium">Unique Perspective</h3>
+            <h5 class="mb-2 font-medium">Unique Perspective</h5>
             <p class="leading-relaxed">
               Life experiences outside of tech foster a creative, adaptable, and
               user-centered approach.
             </p>
           </div>
           <div>
-            <h3 class="mb-2 text-xl font-medium">Work Style</h3>
+            <h5 class="mb-2 font-medium">Work Style</h5>
             <p class="leading-relaxed">
               Described as "good vibes" and "chill," while internally driven by
               a desire for technical correctness.

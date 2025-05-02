@@ -1,5 +1,5 @@
 <template>
-  <header class="sticky top-0 z-50 w-full px-4">
+  <header class="sticky top-0 z-50 w-full px-4 bg-background/20">
     <div class="container mx-auto">
       <nav class="flex h-16 items-center justify-between">
         <div class="flex flex-1 items-center gap-2">
@@ -8,20 +8,14 @@
             href="/"
             class="cursor-pointer font-rounded text-3xl font-black"
           >
-            <!-- <span class="text-rosewater">S</span>
-              <span class="text-flamingo">p</span>
-              <span class="text-pink">e</span>
-              <span class="text-mauve">n</span>
-              <span class="text-red">c</span>
-              <span class="text-maroon">e</span>
-              <span class="text-peach">r</span>
-              <span class="text-yellow">F</span>
-              <span class="text-green">r</span>
-              <span class="text-teal">o</span>
-              <span class="text-sky">s</span>
-              <span class="text-sapphire">t</span> -->
-            <span class="text-rosewater">Spencer</span>
-            <span class="text-primary">Frost</span>
+            <span class="hidden text-rosewater md:inline">
+              <span>Spencer</span>
+              <span class="text-primary">Frost</span>
+            </span>
+            <span class="inline text-rosewater md:hidden">
+              <span>S</span>
+              <span class="text-primary">F</span>
+            </span>
           </NuxtLink>
         </div>
 

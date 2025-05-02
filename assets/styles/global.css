@@ -1,25 +1,11 @@
-/* Base font settings */
 body {
   @apply text-foreground bg-background transition-colors -z-20;
-
 }
 
 section {
   @apply min-h-[calc(100vh-64px)];
 }
 
-h1, h2, h3 {
-  @apply font-bold;
-}
-
-p {
-  @apply text-foreground;
-}
-
 .nuxt-link-active, .nuxt-link-exact-active, a[href] {
   @apply no-underline;
-}
-
-.bubble {
-  @apply -z-10;
 }

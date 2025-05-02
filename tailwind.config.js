@@ -19,6 +19,9 @@ export default {
         body: ["Inter", "ui-sans-serif", "system-ui", "sans-serif"],
         code: ["JetBrains Mono", "ui-monospace", "SFMono-Regular", "monospace"],
       },
+      fontSize: {
+        md: '1rem',
+      },
       colors: {
         background: 'rgba(var(--background), 1)',
         foreground: "rgba(var(--foreground), 1)",
@@ -107,7 +110,7 @@ export default {
         sm: "calc(var(--radius) - 4px)",
       },
       transitionDuration: {
-        DEFAULT: "500ms",
+        DEFAULT: "200ms",
       }
     },
   },

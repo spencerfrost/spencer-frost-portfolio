@@ -1,13 +1,13 @@
 <template>
-  <section id="work">
-    <div class="container mx-auto px-4">
-      <h2 class="text-rounded mb-8 p-2 text-center text-3xl font-bold">
+  <section id="work" class="flex flex-col items-center justify-center px-4">
+    <div class="container mx-auto">
+      <h1 class="mb-4 text-center font-rounded font-black text-rosewater">
         My Work
-      </h2>
-      <Carousel class="relative mx-auto w-full max-w-2xl">
+      </h1>
+      <Carousel class="mx-auto w-full max-w-2xl">
         <CarouselContent>
           <CarouselItem v-for="project in projects" :key="project.slug">
-            <Card>
+            <Card class="h-full">
               <NuxtLink
                 as="a"
                 :href="`/projects/${project.slug}`"
@@ -38,9 +38,7 @@
                   </Badge>
                 </div>
               </CardContent>
-              <CardFooter
-                class="flex flex-col justify-between gap-2 sm:flex-row"
-              >
+              <CardFooter class="flex justify-between gap-2">
                 <NuxtLink :href="`/projects/${project.slug}`">
                   <Button variant="link" class="w-full text-red">
                     Project Page
@@ -60,14 +58,14 @@
             </Card>
           </CarouselItem>
         </CarouselContent>
-        <CarouselPrevious />
-        <CarouselNext />
+        <CarouselPrevious class="hidden sm:absolute" />
+        <CarouselNext class="hidden sm:absolute" />
       </Carousel>
     </div>
   </section>
 </template>
 
-<script setup>
+<script setup lang="ts">
 const { data: projects } = await useAsyncData('projects-list', () =>
   queryCollection('projects').order('title', 'ASC').all()
 )

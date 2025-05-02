@@ -95,7 +95,7 @@ const carouselItems = ref([
 
 <template>
   <div class="container mx-auto space-y-8 p-4">
-    <h1 class="mb-6 text-3xl font-bold text-foreground">
+    <h1 class="mb-6">
       Shadcn/Vue Component Showcase
     </h1>
 
