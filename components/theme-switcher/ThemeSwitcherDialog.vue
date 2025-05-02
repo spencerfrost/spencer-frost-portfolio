@@ -69,7 +69,7 @@ onMounted(() => {
   const hasVisited = localStorage.getItem('hasVisited')
   if (!hasVisited) {
     localStorage.setItem('hasVisited', 'true')
+    onUpdateOpen(true)
   }
-  onUpdateOpen(true)
 })
 </script>
