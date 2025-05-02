@@ -1,20 +1,26 @@
 <template>
   <Alert variant="warning" class="mb-4 flex items-center gap-4">
-    <img
+    <CircleImage
       src="/images/spencer/construction.png"
-      alt="Avatar"
-      class="h-24 w-24 rounded-full border-4 border-yellow"
-    >
-    <div class="flex-1 text-lg">
-      <AlertTitle>Heads up! 🚧</AlertTitle>
-      <AlertDescription>
+      alt="Spencer as a construction worker"
+      color="peach"
+      size="sm"
+    />
+    <div class="flex-1 p-2">
+      <AlertTitle>
+        <h4>Heads up! 🚧</h4>
+      </AlertTitle>
+      <AlertDescription class="text-xs md:text-lg">
         This section is a work in progress. I am currently working on it and
-        will be available soon. Stay tuned!
-        <br >
+        it'll be looking snazzy soon!
+        <br />
         In the meantime, feel free to check out my other projects or get in
         touch with me.
-        <br >
+        <br />
+        <br />
         Thank you for your patience!
+        <br />
+        - Spencer
       </AlertDescription>
     </div>
   </Alert>
