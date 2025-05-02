@@ -45,9 +45,5 @@ const route = useRoute()
 const { data, error } = await useAsyncData(route.path, () => {
   return queryCollection('spencerPlus').first()
 })
-if (error.value) {
-  console.error('Error fetching services:', error.value)
-}
-console.log('Fetched services:', data.value)
 const services = data.value?.services || []
 </script>

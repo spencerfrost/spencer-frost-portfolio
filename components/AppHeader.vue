@@ -8,11 +8,11 @@
             href="/"
             class="cursor-pointer font-rounded text-3xl font-black"
           >
-            <span class="hidden text-rosewater md:inline">
+            <span class="hidden text-rosewater lg:inline">
               <span>Spencer</span>
               <span class="text-primary">Frost</span>
             </span>
-            <span class="inline text-rosewater md:hidden">
+            <span class="inline text-rosewater lg:hidden">
               <span>S</span>
               <span class="text-primary">F</span>
             </span>

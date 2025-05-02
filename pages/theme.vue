@@ -48,7 +48,7 @@
             <p class="text-foreground">Foreground Text (text)</p>
             <p class="text-muted-foreground">Muted Text (subtext0)</p>
             <p class="text-primary">Primary Text (lavender)</p>
-            <p class="text-card-foreground">Secondary Text (subtext1)</p>
+            <p class="text-secondary">Secondary Text (subtext1)</p>
           </CardContent>
         </Card>
       </CardContent>
