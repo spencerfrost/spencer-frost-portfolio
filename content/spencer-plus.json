@@ -13,12 +13,6 @@
       "image": "/images/brand-logos/Overseerr/icon.png"
     },
     {
-      "name": "Tautulli",
-      "description": "Monitor Plex Media Server.",
-      "url": "https://tautulli.mrspinn.ca",
-      "image": "/images/brand-logos/Tautulli/icon.png"
-    },
-    {
       "name": "qBittorrent",
       "description": "Torrent client.",
       "url": "https://torrents.mrspinn.ca",
@@ -43,33 +37,15 @@
       "image": "/images/brand-logos/Radarr/icon.png"
     },
     {
-      "name": "Lidarr",
-      "description": "Music management.",
-      "url": "https://lidarr.mrspinn.ca",
-      "image": "/images/brand-logos/Lidarr/icon.png"
-    },
-    {
-      "name": "Bazarr",
-      "description": "Subtitle management.",
-      "url": "https://bazarr.mrspinn.ca",
-      "image": "/images/brand-logos/Bazarr/icon.png"
-    },
-    {
-      "name": "Docker",
-      "description": "Container management.",
-      "image": "/images/brand-logos/Docker/icon.png"
-    },
-    {
       "name": "Pi-hole",
       "description": "Network-wide ad blocker and DNS sinkhole.",
       "url": "https://pihole.mrspinn.ca",
       "image": "/images/brand-logos/Pi-hole/icon.png"
     },
     {
-      "name": "Overseerr",
-      "description": "Request and manage media.",
-      "url": "https://overseerr.mrspinn.ca",
-      "image": "/images/brand-logos/Overseerr/icon.png"
+      "name": "Docker",
+      "description": "Container management.",
+      "image": "/images/brand-logos/Docker/icon.png"
     }
   ]
 }
