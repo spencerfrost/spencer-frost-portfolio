@@ -11,9 +11,6 @@
           :gap="24"
           :transition="500"
           :mouse-drag="false"
-          :touch-drag="{
-            threshold: 0.1
-          }"
           v-if="projects && projects.length"
         >
           <VueSlide v-for="project in projects" :key="project.slug">
