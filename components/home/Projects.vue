@@ -1,11 +1,11 @@
 <template>
-  <section id="work" class="flex flex-col items-center justify-center px-4">
+  <section id="work" class="flex flex-col items-center justify-center my-8 px-4">
     <div class="container mx-auto">
       <h1 class="mb-4 text-center font-rounded font-black text-rosewater">
         My Work
       </h1>
       <ClientOnly>
-        <Carousel class="mx-auto w-full max-w-2xl" v-if="projects?.length">
+        <Carousel class="mx-auto w-full max-w-2xl overflow-hidden" v-if="projects?.length">
           <CarouselContent>
             <CarouselItem v-for="project in projects" :key="project.slug">
               <Card class="h-full">
@@ -39,7 +39,7 @@
                     </Badge>
                   </div>
                 </CardContent>
-                <CardFooter class="flex justify-between gap-2">
+                <CardFooter class="flex justify-between gap-2 pb-5">
                   <NuxtLink :href="`/projects/${project.slug}`">
                     <Button variant="link" class="w-full text-red">
                       Project Page
@@ -59,16 +59,42 @@
               </Card>
             </CarouselItem>
           </CarouselContent>
-          <CarouselPrevious class="hidden sm:absolute" />
-          <CarouselNext class="hidden sm:absolute" />
+          <CarouselPrevious class="" />
+          <CarouselNext class="" />
         </Carousel>
+        <template #fallback>
+          <div class="mx-auto flex w-full max-w-2xl flex-col space-y-4">
+            <Skeleton class="aspect-video rounded-xl" />
+            <!-- CardHeader: Title & Description -->
+            <div class="py-4">
+              <Skeleton class="mb-2 h-8 w-2/3" />
+              <!-- Title -->
+              <Skeleton class="mb-4 h-4 w-1/2" />
+              <!-- Description -->
+              <!-- Tags -->
+              <div class="mb-4 flex flex-wrap gap-2">
+                <Skeleton class="h-6 w-24 rounded-full" />
+                <Skeleton class="h-6 w-16 rounded-full" />
+                <Skeleton class="h-6 w-20 rounded-full" />
+                <Skeleton class="h-6 w-28 rounded-full" />
+              </div>
+            </div>
+
+            <!-- CardFooter: Buttons -->
+            <div class="mt-auto flex justify-between gap-2 p-4">
+              <Skeleton class="h-8 w-32 rounded" />
+              <Skeleton class="h-8 w-32 rounded" />
+              <Skeleton class="h-8 w-32 rounded" />
+            </div>
+          </div>
+        </template>
       </ClientOnly>
     </div>
   </section>
 </template>
 
 <script setup lang="ts">
-const { data: projects } = await useAsyncData('projects-list', () =>
+const { data: projects } = useAsyncData('projects-list', () =>
   queryCollection('projects').order('title', 'ASC').all()
 )
 </script>
