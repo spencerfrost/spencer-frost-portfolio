@@ -129,18 +129,23 @@ const { handleSubmit, errors, resetForm } = useForm({
 
 const onSubmit = handleSubmit(async values => {
   try {
-    console.log('Form Submitted Successfully:', values)
-
-    toast({
-      title: 'Success!',
-      description: 'Your message has been sent successfully.',
-      variant: 'default',
+    const res = await $fetch('/api/contact', {
+      method: 'POST',
+      body: values,
     })
 
-    resetForm()
+    if (res.success) {
+      toast({
+        title: 'Success!',
+        description: 'Your message has been sent successfully.',
+        variant: 'default',
+      })
+      resetForm()
+    } else {
+      throw new Error('Failed to send')
+    }
   } catch (error) {
     console.error('Error during submission action:', error)
-
     toast({
       title: 'Submission Error',
       description: 'Failed to send your message. Please try again later.',
