@@ -116,14 +116,16 @@
 </template>
 
 <script setup lang="ts">
-const mounted = ref(false)
-onMounted(() => {
-  mounted.value = true
-})
 const { data: projects } = useAsyncData('projects-list', () =>
   queryCollection('projects').order('title', 'ASC').all()
 )
-console.log('projects', projects.value)
+if (process.server) {
+  console.log('SSR projects:', projects.value)
+}
+if (process.client) {
+  console.log('Client projects:', projects.value)
+}
+
 </script>
 
 <style>
