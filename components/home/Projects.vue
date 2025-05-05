@@ -5,7 +5,7 @@
         My Work
       </h1>
       <ClientOnly>
-        <Carousel class="mx-auto w-full max-w-2xl">
+        <Carousel class="mx-auto w-full max-w-2xl" v-if="projects?.length">
           <CarouselContent>
             <CarouselItem v-for="project in projects" :key="project.slug">
               <Card class="h-full">
