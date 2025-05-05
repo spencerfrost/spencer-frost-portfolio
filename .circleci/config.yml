@@ -29,6 +29,10 @@ jobs:
           key: v1-pnpm-deps-{{ checksum "pnpm-lock.yaml" }}
           paths:
             - .pnpm-store
+      - persist_to_workspace:
+          root: .
+          paths:
+            - '*'
 
   deploy:
     executor: node_executor
