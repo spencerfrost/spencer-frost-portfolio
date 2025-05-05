@@ -2,10 +2,6 @@ body {
   @apply text-foreground bg-background transition-colors -z-20;
 }
 
-section {
-  @apply min-h-[calc(100vh-64px)];
-}
-
 .nuxt-link-active, .nuxt-link-exact-active, a[href] {
   @apply no-underline;
 }

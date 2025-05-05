@@ -1,8 +1,5 @@
 <template>
-  <section
-    id="landing"
-    class="flex flex-col items-center justify-center px-4 py-8"
-  >
+  <section class="flex flex-col items-center justify-center px-4 py-8">
     <div class="text-center">
       <h1
         class="mb-4 font-rounded text-4xl font-black text-rosewater sm:text-7xl"
