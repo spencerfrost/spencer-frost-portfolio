@@ -116,7 +116,7 @@
 </template>
 
 <script setup lang="ts">
-const { data: projects } = useAsyncData('projects-list', () =>
+const { data: projects } = await useAsyncData('projects-list', () =>
   queryCollection('projects').order('title', 'ASC').all()
 )
 if (process.server) {
