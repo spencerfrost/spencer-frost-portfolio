@@ -123,6 +123,7 @@ onMounted(() => {
 const { data: projects } = useAsyncData('projects-list', () =>
   queryCollection('projects').order('title', 'ASC').all()
 )
+console.log('projects', projects.value)
 </script>
 
 <style>
