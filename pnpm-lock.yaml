@@ -8,6 +8,12 @@ importers:
 
   .:
     dependencies:
+      '@iconify-json/gravity-ui':
+        specifier: ^1.2.5
+        version: 1.2.5
+      '@iconify-json/uil':
+        specifier: ^1.2.3
+        version: 1.2.3
       '@nuxt/content':
         specifier: 3.5.1
         version: 3.5.1(magicast@0.3.5)(typescript@5.9.0-dev.20250430)
@@ -81,12 +87,6 @@ importers:
       '@catppuccin/tailwindcss':
         specifier: ^0.1.6
         version: 0.1.6(tailwindcss@3.4.17)
-      '@iconify-json/gravity-ui':
-        specifier: ^1.2.5
-        version: 1.2.5
-      '@iconify-json/uil':
-        specifier: ^1.2.3
-        version: 1.2.3
       autoprefixer:
         specifier: ^10.4.21
         version: 10.4.21(postcss@8.5.3)
