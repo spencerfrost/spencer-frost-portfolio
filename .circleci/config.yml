@@ -75,7 +75,7 @@ jobs:
 
       # Install Production Dependencies on Server & Reload PM2 App
       - run:
-          name: Install Server Dependencies and Reload App
+          name: Install Server Dependencies, Rebuild better-sqlite3, and Reload App
           command: |
             echo "Installing dependencies and reloading PM2 app $PM2_APP_NAME on $SERVER_IP..."
             ssh -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null $SERVER_USER@$SERVER_IP " \
@@ -84,6 +84,9 @@ jobs:
               echo 'Listing files before install:' && ls -al && \
               echo 'Attempting pnpm install --prod...' && \
               pnpm install --prod && \
+              echo 'Rebuilding better-sqlite3 for native compatibility...' && \
+              pnpm rebuild better-sqlite3 && \
+              if [ -f pnpm-workspace.yaml ]; then pnpm approve-builds || true; fi && \
               echo 'Attempting pm2 reload/restart...' && \
               pm2 reload $PM2_APP_NAME || pm2 restart $PM2_APP_NAME \
             "
