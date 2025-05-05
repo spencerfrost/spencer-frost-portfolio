@@ -29,65 +29,43 @@ jobs:
           key: v1-pnpm-deps-{{ checksum "pnpm-lock.yaml" }}
           paths:
             - .pnpm-store
-      - run:
-          name: Build Project for SSR
-          command: pnpm run build # Should run 'nuxt build'
-      - persist_to_workspace:
-          root: .
-          paths:
-            - .output
-            - package.json
-            - pnpm-lock.yaml
 
   deploy:
-    executor: node_executor # Using node executor as it has ssh/rsync readily available
+    executor: node_executor
     environment:
       PM2_APP_NAME: spencer-frost-portfolio
     steps:
       - attach_workspace:
           at: /home/circleci/project
 
-      # List attached workspace files for debugging
       - run:
           name: List attached workspace files
-          command: ls -al /home/circleci/project/.output
+          command: ls -al /home/circleci/project
 
-      # Deploy using rsync (more efficient than scp -r)
       - run:
           name: Deploy Code to Server via Rsync
           command: |
-            # Install rsync if not already installed
             if ! command -v rsync &> /dev/null; then
               echo "rsync could not be found, installing..."
               sudo apt-get update && sudo apt-get install -y rsync
             fi
             echo "Deploying to $SERVER_IP..."
-            # --- REMOVED TRAILING SLASH from destination ---
             rsync -rlvz --delete \
               -e "ssh -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null" \
-              --include='package.json' \
-              --include='pnpm-lock.yaml' \
-              --include='.output/***' \
-              --exclude='*' \
-              --prune-empty-dirs \
+              --exclude='node_modules' \
+              --exclude='.output' \
               /home/circleci/project/ \
               $SERVER_USER@$SERVER_IP:/var/www/spencerfrost
 
-      # Install Production Dependencies on Server & Reload PM2 App
       - run:
-          name: Install Server Dependencies, Rebuild better-sqlite3, and Reload App
+          name: Install, Build, Rebuild better-sqlite3, and Reload App
           command: |
-            echo "Installing dependencies and reloading PM2 app $PM2_APP_NAME on $SERVER_IP..."
             ssh -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null $SERVER_USER@$SERVER_IP " \
-              cd /var/www/spencerfrost  && \
-              echo 'Current directory: $(pwd)' && \
-              echo 'Listing files before install:' && ls -al && \
-              echo 'Attempting pnpm install --prod...' && \
-              pnpm install --prod && \
-              echo 'Rebuilding better-sqlite3 for native compatibility...' && \
+              cd /var/www/spencerfrost && \
+              pnpm install && \
+              pnpm run build && \
               pnpm rebuild better-sqlite3 && \
               if [ -f pnpm-workspace.yaml ]; then pnpm approve-builds || true; fi && \
-              echo 'Attempting pm2 reload/restart...' && \
               pm2 reload ecosystem.config.cjs --only $PM2_APP_NAME || pm2 restart ecosystem.config.cjs --only $PM2_APP_NAME \
             "
             echo "Deployment steps complete."
