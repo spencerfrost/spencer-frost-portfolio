@@ -27,46 +27,36 @@
       </h4>
 
       <div class="mt-6 flex justify-center gap-4">
-        <TooltipProvider>
-          <Tooltip>
-            <TooltipTrigger as-child>
-              <a
-                href="https://github.com/spencerfrost"
-                target="_blank"
-                rel="noopener noreferrer"
-                class="inline-flex items-center justify-center"
-              >
-                <Icon name="uil:github" class="h-8 w-8" />
-              </a>
-            </TooltipTrigger>
-            <TooltipContent>
-              <p>GitHub Profile</p>
-            </TooltipContent>
-          </Tooltip>
-        </TooltipProvider>
+        <a
+          href="https://github.com/spencerfrost"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="inline-flex items-center justify-center"
+        >
+          <Icon name="uil:github" class="h-8 w-8" />
+        </a>
 
-        <TooltipProvider>
-          <Tooltip>
-            <TooltipTrigger as-child>
-              <a
-                href="https://www.linkedin.com/in/spencer-frost-40405463/"
-                target="_blank"
-                rel="noopener noreferrer"
-                class="inline-flex items-center justify-center"
-              >
-                <Icon name="uil:linkedin" class="h-8 w-8" />
-              </a>
-            </TooltipTrigger>
-            <TooltipContent>
-              <p>LinkedIn Profile</p>
-            </TooltipContent>
-          </Tooltip>
-        </TooltipProvider>
+        <a
+          href="https://www.linkedin.com/in/spencer-frost-40405463/"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="inline-flex items-center justify-center"
+        >
+          <Icon name="uil:linkedin" class="h-8 w-8" />
+        </a>
       </div>
 
       <div class="mt-8 flex flex-col justify-center gap-4 sm:flex-row">
-        <Button href="/about" variant="rosewater"> More about me </Button>
-        <Button href="/projects" variant="mauve"> Check out my work </Button>
+        <NuxtLink to="/about" as="div">
+          <Button variant="rosewater" class="w-3/4 sm:w-auto">
+            More about me
+          </Button>
+        </NuxtLink>
+        <NuxtLink to="/projects" as="div">
+          <Button variant="mauve" class="w-3/4 sm:w-auto">
+            Check out my work
+          </Button>
+        </NuxtLink>
       </div>
     </div>
   </section>

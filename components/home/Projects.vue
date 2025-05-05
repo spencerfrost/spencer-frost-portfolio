@@ -10,10 +10,14 @@
           :wrap-around="true"
           :gap="24"
           :transition="500"
+          :mouse-drag="false"
+          :touch-drag="{
+            threshold: 0.1
+          }"
           v-if="projects && projects.length"
         >
           <VueSlide v-for="project in projects" :key="project.slug">
-            <Card class="h-full">
+            <Card class="h-full w-full">
               <NuxtLink
                 as="a"
                 :href="`/projects/${project.slug}`"
@@ -44,7 +48,7 @@
                   </Badge>
                 </div>
               </CardContent>
-              <CardFooter class="flex justify-between gap-2 pb-5">
+              <CardFooter class="flex flex-col sm:flex-row justify-between gap-2 pb-5">
                 <NuxtLink :href="`/projects/${project.slug}`">
                   <Button variant="link" class="w-full text-red">
                     Project Page
@@ -64,7 +68,7 @@
             </Card>
           </VueSlide>
           <template #addons>
-            <VueNavigation>
+            <VueNavigation class="hidden sm:flex">
               <template #prev>
                 <Icon
                   name="uil:arrow-circle-left"
