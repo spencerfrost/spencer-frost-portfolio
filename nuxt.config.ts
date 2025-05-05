@@ -55,6 +55,7 @@ export default defineNuxtConfig({
     '@vee-validate/nuxt',
     '@nuxt/content',
     'v-gsap-nuxt',
+    'vue3-carousel-nuxt',
   ],
 
   eslint: {
@@ -63,5 +64,8 @@ export default defineNuxtConfig({
   shadcn: {
     prefix: '',
     componentDir: './components/ui',
+  },
+  carousel: {
+    prefix: 'Vue',
   },
 })
