@@ -1,8 +1,5 @@
 <template>
-  <section
-    id="about"
-    class="container relative mx-auto flex flex-col overflow-hidden md:flex-row"
-  >
+  <section class="container relative mx-auto my-8 flex flex-col md:flex-row">
     <div
       class="mb-6 flex w-full items-center justify-center px-4 md:mb-0 md:w-1/3 md:px-0"
     >
@@ -28,14 +25,14 @@
             />
           </div>
           <div class="max-w-4xl space-y-4">
-            <p class="md:text-md text-sm">
+            <p class="text-sm md:text-md">
               I'm Spencer, a front-end developer who believes in
               <strong>clean solutions, not quick fixes</strong>. My journey
               spans from creating comprehensive component libraries to leading
               open-source projects with hundreds of commits.
             </p>
 
-            <p class="md:text-md text-sm">
+            <p class="text-sm md:text-md">
               As a UI specialist, I craft interfaces that balance visual appeal
               with intuitive functionality. My approach is shaped by the belief
               that the simplest solution is often the strongest—incorprorating
@@ -43,7 +40,7 @@
               project is something I can be proud of.
             </p>
 
-            <p class="md:text-md text-sm">
+            <p class="text-sm md:text-md">
               When I'm not immersed in code, you'll find me at the rock climbing
               gym, cycling, jamming some music, or belting out songs at karaoke.
               These diverse experiences inform my problem-solving approach and
@@ -51,7 +48,7 @@
               understanding the human elements behind them.
             </p>
 
-            <p class="md:text-md text-sm">
+            <p class="text-sm md:text-md">
               I'm currently focused on projects that emphasize component-driven
               architecture and sustainable development practices that minimize
               technical debt. I'm passionate about building things right the
@@ -59,7 +56,7 @@
               over quick patches.
             </p>
 
-            <p class="md:text-md text-sm">
+            <p class="text-sm md:text-md">
               <a href="#contact">Let's connect</a> if you're looking for a
               developer who brings both technical precision and creative energy
               to every project.
