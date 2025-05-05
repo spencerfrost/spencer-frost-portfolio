@@ -8,7 +8,7 @@
         My Work
       </h1>
       <ClientOnly>
-        <Carousel class="mx-auto w-full max-w-2xl overflow-hidden">
+        <Carousel class="mx-auto w-full max-w-2xl overflow-hidden" v-if="mounted" :key="projects?.length">
           <CarouselContent>
             <CarouselItem v-for="project in projects" :key="project.slug">
               <Card class="h-full">
@@ -101,6 +101,8 @@
 </template>
 
 <script setup lang="ts">
+const mounted = ref(false)
+onMounted(() => { mounted.value = true })
 const { data: projects } = useAsyncData('projects-list', () =>
   queryCollection('projects').order('title', 'ASC').all()
 )
