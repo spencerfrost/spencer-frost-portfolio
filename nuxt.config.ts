@@ -1,24 +1,23 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
-  ssr: true,
   compatibilityDate: '2024-11-01',
+  ssr: true,
   devtools: {
     enabled: true,
-
+    vscode: {
+      reuseExistingServer: true,
+    },
     timeline: {
       enabled: true,
     },
   },
-
   css: ['~/assets/styles/tailwind.css', '~/assets/styles/global.css'],
-
   postcss: {
     plugins: {
       tailwindcss: {},
       autoprefixer: {},
     },
   },
-
   fonts: {
     families: [
       {
@@ -44,7 +43,6 @@ export default defineNuxtConfig({
       },
     ],
   },
-
   modules: [
     'shadcn-nuxt',
     '@nuxt/devtools',
@@ -57,15 +55,11 @@ export default defineNuxtConfig({
     'v-gsap-nuxt',
     'vue3-carousel-nuxt',
   ],
-
   eslint: {
     config: {},
   },
   shadcn: {
     prefix: '',
     componentDir: './components/ui',
-  },
-  carousel: {
-    prefix: 'Vue',
   },
 })
