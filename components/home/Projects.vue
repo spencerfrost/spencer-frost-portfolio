@@ -5,82 +5,63 @@
         My Work
       </h1>
       <div class="mx-auto w-full max-w-2xl">
-        <VueCarousel
-          :items-to-show="1"
-          :wrap-around="true"
-          :gap="24"
-          :transition="500"
-          :mouse-drag="false"
-          v-if="projects && projects.length"
-        >
-          <VueSlide v-for="project in projects" :key="project.slug">
-            <Card class="h-full w-full">
-              <NuxtLink
-                as="a"
-                :href="`/projects/${project.slug}`"
-                class="block"
-              >
-                <img
-                  :src="project.coverImage"
-                  :alt="project.title"
-                  class="aspect-video w-full rounded-t-xl"
-                />
-              </NuxtLink>
-              <CardHeader>
-                <CardTitle>
-                  {{ project.title }}
-                </CardTitle>
-                <CardDescription>
-                  {{ project.description }}
-                </CardDescription>
-              </CardHeader>
-              <CardContent>
-                <div class="flex flex-wrap gap-2">
-                  <Badge
-                    v-for="tag in project.tech"
-                    :key="tag"
-                    variant="primary"
-                  >
-                    {{ tag }}
-                  </Badge>
-                </div>
-              </CardContent>
-              <CardFooter class="flex flex-col sm:flex-row justify-between gap-2 pb-5">
-                <NuxtLink :href="`/projects/${project.slug}`">
-                  <Button variant="link" class="w-full text-red">
-                    Project Page
-                  </Button>
+        <Carousel class="mx-auto w-full max-w-2xl overflow-hidden md:overflow-visible" v-if="projects?.length" :key="projects?.length">
+          <CarouselContent>
+            <CarouselItem v-for="project in projects" :key="project.slug">
+              <Card class="h-full">
+                <NuxtLink
+                  as="a"
+                  :href="`/projects/${project.slug}`"
+                  class="block"
+                >
+                  <img
+                    :src="project.coverImage"
+                    :alt="project.title"
+                    class="aspect-video w-full rounded-t-xl"
+                  />
                 </NuxtLink>
-                <NuxtLink :href="project.repoUrl" target="_blank">
-                  <Button variant="link" class="w-full text-sapphire">
-                    View Repo
-                  </Button>
-                </NuxtLink>
-                <NuxtLink :href="project.liveUrl" target="_blank">
-                  <Button variant="link" class="w-full text-green">
-                    Live Demo
-                  </Button>
-                </NuxtLink>
-              </CardFooter>
-            </Card>
-          </VueSlide>
-          <template #addons>
-            <VueNavigation class="hidden sm:flex">
-              <template #prev>
-                <Icon
-                  name="uil:arrow-circle-left"
-                  class="h-8 w-8 text-foreground"
-                />
-              </template>
-              <template #next>
-                <Icon
-                  name="uil:arrow-circle-right"
-                  class="h-8 w-8 text-foreground"
-                />
-              </template>
-            </VueNavigation>
-          </template>
-        </VueCarousel>
+                <CardHeader>
+                  <CardTitle>
+                    {{ project.title }}
+                  </CardTitle>
+                  <CardDescription>
+                    {{ project.description }}
+                  </CardDescription>
+                </CardHeader>
+                <CardContent>
+                  <div class="flex flex-wrap gap-2">
+                    <Badge
+                      v-for="tag in project.tech"
+                      :key="tag"
+                      variant="primary"
+                    >
+                      {{ tag }}
+                    </Badge>
+                  </div>
+                </CardContent>
+                <CardFooter class="flex flex-col sm:flex-row justify-between gap-2 pb-5 sm:pb-6 md:pb-5">
+                  <NuxtLink :href="`/projects/${project.slug}`">
+                    <Button variant="link" class="w-full text-red">
+                      Project Page
+                    </Button>
+                  </NuxtLink>
+                  <NuxtLink :href="project.repoUrl" target="_blank">
+                    <Button variant="link" class="w-full text-sapphire">
+                      View Repo
+                    </Button>
+                  </NuxtLink>
+                  <NuxtLink :href="project.liveUrl" target="_blank">
+                    <Button variant="link" class="w-full text-green">
+                      Live Demo
+                    </Button>
+                  </NuxtLink>
+                </CardFooter>
+              </Card>
+            </CarouselItem>
+          </CarouselContent>
+          <CarouselPrevious class="z-30" />
+          <CarouselNext class="z-30" />
+        </Carousel>
         <div v-else>
           <div class="mx-auto flex w-full max-w-2xl flex-col space-y-4">
             <Skeleton class="aspect-video rounded-xl" />
@@ -116,20 +97,4 @@
 const { data: projects } = await useAsyncData('projects-list', () =>
   queryCollection('projects').order('title', 'ASC').all()
 )
-if (process.server) {
-  console.log('SSR projects:', projects.value)
-}
-if (process.client) {
-  console.log('Client projects:', projects.value)
-}
-
 </script>
-
-<style>
-.carousel__prev {
-  left: -4rem;
-}
-.carousel__next {
-  right: -4rem;
-}
-</style>
