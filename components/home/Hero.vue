@@ -64,13 +64,5 @@
 
 <script setup>
 import { ref } from 'vue'
-
-import {
-  Tooltip,
-  TooltipContent,
-  TooltipProvider,
-  TooltipTrigger,
-} from '@/components/ui/tooltip'
-
 const fingerGuns = ref(false)
 </script>
