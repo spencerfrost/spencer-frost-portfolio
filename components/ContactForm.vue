@@ -1,79 +1,81 @@
 <template>
-  <Card class="max-w-lg">
-    <CardHeader>
-      <div class="flex items-center justify-center">
-        <CircleImage
-          src="/images/spencer/mailman.webp"
-          color="sapphire"
-          size="md"
-          alt="Spencer as a friendly mailman"
-        />
-      </div>
-      <CardTitle class="text-2xl">Drop Me a Line!</CardTitle>
-      <CardDescription>
-        Spencer's Digital Post Office is now accepting messages! Whether you
-        have a project idea, a question about my work, or just want to say
-        hello, I'll make sure your message gets delivered.
-      </CardDescription>
-    </CardHeader>
-    <CardContent>
-      <form @submit="onSubmit">
-        <div class="grid gap-4">
-          <FormField v-slot="{ componentField }" name="name">
-            <FormItem>
-              <FormLabel>Your Name</FormLabel>
-              <FormControl>
-                <Input
-                  type="text"
-                  placeholder="Jane Smith"
-                  autocomplete="name"
-                  v-bind="componentField"
-                />
-              </FormControl>
-              <FormMessage />
-            </FormItem>
-          </FormField>
+  <Card class="flex max-w-4xl flex-col md:flex-row gap-x-4 rounded-none border-0 md:rounded-xl md:border">
+    <div class="flex items-center justify-center p-4 md:pl-8">
+      <CircleImage
+        src="/images/spencer/mailman.webp"
+        color="sapphire"
+        size="md"
+        alt="Spencer as a friendly mailman"
+      />
+    </div>
+    <div class="flex-1">
+      <CardHeader>
+        <CardTitle class="text-2xl">Drop Me a Line!</CardTitle>
+        <CardDescription>
+          Spencer's Digital Post Office is now accepting messages! Whether you
+          have a project idea, a question about my work, or just want to say
+          hello, I'll make sure your message gets delivered.
+        </CardDescription>
+      </CardHeader>
+      <CardContent>
+        <form @submit="onSubmit">
+          <div class="grid gap-4">
+            <FormField v-slot="{ componentField }" name="name">
+              <FormItem>
+                <FormLabel>Your Name</FormLabel>
+                <FormControl>
+                  <Input
+                    type="text"
+                    placeholder="Jane Smith"
+                    autocomplete="name"
+                    v-bind="componentField"
+                  />
+                </FormControl>
+                <FormMessage />
+              </FormItem>
+            </FormField>
 
-          <FormField v-slot="{ componentField }" name="email">
-            <FormItem>
-              <FormLabel>Return Address (Email)</FormLabel>
-              <FormControl>
-                <Input
-                  type="email"
-                  placeholder="jane@example.com"
-                  autocomplete="email"
-                  v-bind="componentField"
-                />
-              </FormControl>
-              <FormMessage />
-            </FormItem>
-          </FormField>
+            <FormField v-slot="{ componentField }" name="email">
+              <FormItem>
+                <FormLabel>Return Address (Email)</FormLabel>
+                <FormControl>
+                  <Input
+                    type="email"
+                    placeholder="jane@example.com"
+                    autocomplete="email"
+                    v-bind="componentField"
+                  />
+                </FormControl>
+                <FormMessage />
+              </FormItem>
+            </FormField>
 
-          <FormField v-slot="{ componentField }" name="message">
-            <FormItem>
-              <FormLabel>Your Message</FormLabel>
-              <FormControl>
-                <Textarea
-                  placeholder="What's on your mind? I'd love to hear about your project, answer questions, or just chat about web development!"
-                  autocomplete="off"
-                  v-bind="componentField"
-                  class="min-h-[100px]"
-                />
-              </FormControl>
-              <FormMessage />
-            </FormItem>
-          </FormField>
+            <FormField v-slot="{ componentField }" name="message">
+              <FormItem>
+                <FormLabel>Your Message</FormLabel>
+                <FormControl>
+                  <Textarea
+                    placeholder="What's on your mind? I'd love to hear about your project, answer questions, or just chat about web development!"
+                    autocomplete="off"
+                    v-bind="componentField"
+                    class="min-h-[100px]"
+                  />
+                </FormControl>
+                <FormMessage />
+              </FormItem>
+            </FormField>
 
-          <Button type="submit">
-            <Icon name="gravity-ui:envelope" size="18" class="mr-2" />
-            Send It My Way
-          </Button>
-        </div>
-      </form>
-    </CardContent>
-    <CardFooter class="text-center text-sm text-muted-foreground">
-      I typically reply within 24-48 hours. No spam, promise!
-    </CardFooter>
+            <Button type="submit">
+              <Icon name="gravity-ui:envelope" size="18" class="mr-2" />
+              Send It My Way
+            </Button>
+          </div>
+        </form>
+      </CardContent>
+      <CardFooter class="text-center text-xs text-muted-foreground">
+        I typically reply within 24-48 hours. No spam, promise!
+      </CardFooter>
+    </div>
   </Card>
 </template>
 

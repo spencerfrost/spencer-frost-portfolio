@@ -1,6 +1,6 @@
 <template>
-  <header class="sticky top-0 z-50 w-full px-4 bg-background/20">
-    <div class="container mx-auto">
+  <header class="fixed top-0 z-50 w-full px-4 bg-background/20">
+    <div class="mdcontainer mx-auto">
       <nav class="flex h-16 items-center justify-between">
         <div class="flex flex-1 items-center gap-2">
           <NuxtLink
@@ -24,25 +24,25 @@
           <div class="flex items-center space-x-12">
             <NuxtLink
               href="/about"
-              class="text-xl font-medium text-green transition-colors hover:text-flamingo"
+              class="text-lg lg:text-xl font-medium text-green transition-colors hover:text-flamingo"
             >
               About
             </NuxtLink>
             <NuxtLink
               href="/projects"
-              class="text-xl font-medium text-red transition-colors hover:text-blue"
+              class="text-lg lg:text-xl font-medium text-red transition-colors hover:text-blue"
             >
               Projects
             </NuxtLink>
             <NuxtLink
               href="/contact"
-              class="text-xl font-medium text-sapphire transition-colors hover:text-yellow"
+              class="text-lg lg:text-xl font-medium text-sapphire transition-colors hover:text-yellow"
             >
               Contact
             </NuxtLink>
             <NuxtLink
               href="/spencer-plus"
-              class="text-xl font-medium text-flamingo transition-colors hover:text-yellow"
+              class="text-lg lg:text-xl font-medium text-flamingo transition-colors hover:text-yellow"
             >
               Spencer+
             </NuxtLink>

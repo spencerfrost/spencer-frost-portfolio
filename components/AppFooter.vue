@@ -1,5 +1,5 @@
 <template>
-  <footer class="border-border mt-12 border-t py-6">
+  <footer class="border-border md:mt-12 border-t py-6 bg-card">
     <div class="container mx-auto px-4">
       <div class="flex flex-col items-center justify-between md:flex-row">
         <div class="mb-4 md:mb-0">

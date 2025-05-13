@@ -2,7 +2,7 @@
   <section class="flex flex-col items-center justify-center px-4 py-8">
     <div class="text-center">
       <h1
-        class="mb-4 font-rounded text-4xl font-black text-rosewater sm:text-7xl"
+        class="mb-4 font-rounded font-black text-rosewater"
       >
         Spencer<span class="text-mauve">Frost</span>
       </h1>
@@ -22,7 +22,7 @@
         </div>
       </div>
 
-      <h4 class="rounded-md bg-card p-2 font-medium sm:p-4">
+      <h4 class="rounded-md bg-card/80 p-2 font-medium sm:p-3 md:p-4">
         Mindful Modern Development
       </h4>
 

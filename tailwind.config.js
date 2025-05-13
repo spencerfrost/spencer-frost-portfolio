@@ -11,6 +11,9 @@ export default {
   darkMode: ["class"],
   theme: {
     extend: {
+      screens: {
+        'md': '811px',
+      },
       fontFamily: {
         sans: ["Inter", "ui-sans-serif", "system-ui", "sans-serif"],
         serif: ["Newsreader", "ui-serif", "Georgia", "serif"],

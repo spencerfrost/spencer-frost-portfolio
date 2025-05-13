@@ -1,6 +1,5 @@
 <template>
-  <div class="container mx-auto px-4 py-8 flex flex-col gap-4 items-center justify-center">
-    <WipBanner />
+  <div class="min-h-full h-full container mx-auto flex items-center justify-center">
     <ContactForm />
   </div>
 </template>

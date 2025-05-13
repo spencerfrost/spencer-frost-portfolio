@@ -1,18 +1,16 @@
 <template>
-  <section class="container relative mx-auto my-8 flex flex-col md:flex-row">
-    <div
-      class="mb-6 flex w-full items-center justify-center px-4 md:mb-0 md:w-1/3 md:px-0"
-    >
+  <section class="relative mx-auto flex flex-col px-4 lg:container md:flex-row">
+    <div class="flex flex-0 items-center justify-center px-4 md:px-0">
       <CircleImage
         size="lg"
         color="sapphire"
         src="/images/spencer/developer.png"
-        class="mx-auto h-48 w-48 rounded-full border-4 border-sapphire"
+        class="mx-auto mb-6 aspect-square"
         alt="Spencer as a developer"
       />
     </div>
-    <div class="flex w-full flex-col justify-center md:w-2/3 md:pl-8 lg:pl-12">
-      <Card class="rounded-none border-none sm:rounded-xl sm:border">
+    <div class="flex flex-1 flex-col justify-center md:pl-8 lg:pl-12">
+      <Card class="max-w-4xl rounded-none border-none sm:rounded-xl sm:border">
         <CardHeader>
           <CardTitle>About Me</CardTitle>
         </CardHeader>
@@ -24,7 +22,7 @@
               class="text-xl font-medium text-lavender md:text-2xl"
             />
           </div>
-          <div class="max-w-4xl space-y-4">
+          <div class="space-y-4">
             <p class="text-sm md:text-md">
               I'm Spencer, a front-end developer who believes in
               <strong>clean solutions, not quick fixes</strong>. My journey

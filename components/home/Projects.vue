@@ -1,5 +1,5 @@
 <template>
-  <section class="my-8 flex flex-col items-center justify-center px-4">
+  <section class="my-8 flex flex-col items-center justify-center px-4 h-full">
     <div class="container mx-auto">
       <h1 class="mb-4 text-center font-rounded font-black text-rosewater">
         My Work
@@ -8,7 +8,7 @@
         <Carousel class="mx-auto w-full max-w-2xl overflow-hidden md:overflow-visible" v-if="projects?.length" :key="projects?.length">
           <CarouselContent>
             <CarouselItem v-for="project in projects" :key="project.slug">
-              <Card class="h-full">
+              <Card>
                 <NuxtLink
                   as="a"
                   :href="`/projects/${project.slug}`"
@@ -39,7 +39,7 @@
                     </Badge>
                   </div>
                 </CardContent>
-                <CardFooter class="flex flex-col sm:flex-row justify-between gap-2 pb-5 sm:pb-6 md:pb-5">
+                <CardFooter class="flex flex-col sm:flex-row justify-between gap-2">
                   <NuxtLink :href="`/projects/${project.slug}`">
                     <Button variant="link" class="w-full text-red">
                       Project Page
@@ -59,8 +59,10 @@
               </Card>
             </CarouselItem>
           </CarouselContent>
-          <CarouselPrevious class="z-30" />
-          <CarouselNext class="z-30" />
+          <ClientOnly>
+            <CarouselPrevious class="z-30" />
+            <CarouselNext class="z-30" />
+          </ClientOnly>
         </Carousel>
         <div v-else>
           <div class="mx-auto flex w-full max-w-2xl flex-col space-y-4">
