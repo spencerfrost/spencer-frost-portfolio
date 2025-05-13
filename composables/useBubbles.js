@@ -18,7 +18,7 @@ export function useBubbles(NUM_BUBBLES = 25) {
   ]
   const bubbles = []
   for (let i = 0; i < NUM_BUBBLES; i++) {
-    let appear = i < Math.floor(NUM_BUBBLES * 0.25) ? 0 : Math.random()
+    let appear = i < Math.floor(NUM_BUBBLES * 0.25) ? Math.random() * -0.05 : Math.random()
     let pop
     if (i >= Math.floor(NUM_BUBBLES * 0.75)) {
       pop = 1
